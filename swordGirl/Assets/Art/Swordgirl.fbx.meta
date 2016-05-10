@@ -1,0 +1,2035 @@
+fileFormatVersion: 2
+guid: 78c8a16e5b6ba1343abc3073fe00a54d
+timeCreated: 1462911926
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: base
+    100004: body
+    100006: chest
+    100008: fingerL1
+    100010: fingerL2
+    100012: fingerL2_end
+    100014: fingerR1
+    100016: fingerR2
+    100018: fingerR2_end
+    100020: GIrl.003
+    100022: hairBack
+    100024: hairBack.001
+    100026: hairBack.001_end
+    100028: hairBack.002
+    100030: hairBack.002_end
+    100032: hairBack.003
+    100034: hairBack.003_end
+    100036: hairBack.004
+    100038: hairBack.004_end
+    100040: hairBack_end
+    100042: handL1
+    100044: handL2
+    100046: handL3
+    100048: handL4
+    100050: handL5
+    100052: handL6
+    100054: handL6_end
+    100056: handR1
+    100058: handR2
+    100060: handR3
+    100062: handR4
+    100064: handR5
+    100066: handR6
+    100068: handR6_end
+    100070: head
+    100072: legL1
+    100074: legL2
+    100076: legL3
+    100078: legL3_end
+    100080: legR1
+    100082: legR2
+    100084: legR3
+    100086: legR3_end
+    100088: neck
+    100090: Sword
+    100092: //RootNode
+    100094: weapon
+    100096: weapon_end
+    100098: WGT-chest
+    100100: WGT-elbow_hose.L
+    100102: WGT-elbow_hose.R
+    100104: WGT-elbow_target.ik.L
+    100106: WGT-elbow_target.ik.R
+    100108: WGT-f_index.01.L
+    100110: WGT-f_index.01.R
+    100112: WGT-f_index.02.L
+    100114: WGT-f_index.02.R
+    100116: WGT-f_index.03.L
+    100118: WGT-f_index.03.R
+    100120: WGT-f_index.L
+    100122: WGT-f_index.R
+    100124: WGT-f_middle.01.L
+    100126: WGT-f_middle.01.R
+    100128: WGT-f_middle.02.L
+    100130: WGT-f_middle.02.R
+    100132: WGT-f_middle.03.L
+    100134: WGT-f_middle.03.R
+    100136: WGT-f_middle.L
+    100138: WGT-f_middle.R
+    100140: WGT-f_pinky.01.L
+    100142: WGT-f_pinky.01.R
+    100144: WGT-f_pinky.02.L
+    100146: WGT-f_pinky.02.R
+    100148: WGT-f_pinky.03.L
+    100150: WGT-f_pinky.03.R
+    100152: WGT-f_pinky.L
+    100154: WGT-f_pinky.R
+    100156: WGT-f_ring.01.L
+    100158: WGT-f_ring.01.R
+    100160: WGT-f_ring.02.L
+    100162: WGT-f_ring.02.R
+    100164: WGT-f_ring.03.L
+    100166: WGT-f_ring.03.R
+    100168: WGT-f_ring.L
+    100170: WGT-f_ring.R
+    100172: WGT-foot.fk.L
+    100174: WGT-foot.fk.R
+    100176: WGT-foot.ik.L
+    100178: WGT-foot.ik.R
+    100180: WGT-foot_roll.ik.L
+    100182: WGT-foot_roll.ik.R
+    100184: WGT-forearm.fk.L
+    100186: WGT-forearm.fk.R
+    100188: WGT-forearm_hose.L
+    100190: WGT-forearm_hose.R
+    100192: WGT-forearm_hose_end.L
+    100194: WGT-forearm_hose_end.R
+    100196: WGT-hand.fk.L
+    100198: WGT-hand.fk.R
+    100200: WGT-hand.ik.L
+    100202: WGT-hand.ik.R
+    100204: WGT-head
+    100206: WGT-hips
+    100208: WGT-knee_hose.L
+    100210: WGT-knee_hose.R
+    100212: WGT-knee_target.ik.L
+    100214: WGT-knee_target.ik.R
+    100216: WGT-neck
+    100218: WGT-palm.L
+    100220: WGT-palm.R
+    100222: WGT-root
+    100224: WGT-shin.fk.L
+    100226: WGT-shin.fk.R
+    100228: WGT-shin_hose.L
+    100230: WGT-shin_hose.R
+    100232: WGT-shin_hose_end.L
+    100234: WGT-shin_hose_end.R
+    100236: WGT-shoulder.L
+    100238: WGT-shoulder.R
+    100240: WGT-spine
+    100242: WGT-thigh.fk.L
+    100244: WGT-thigh.fk.R
+    100246: WGT-thigh_hose.L
+    100248: WGT-thigh_hose.R
+    100250: WGT-thigh_hose_end.L
+    100252: WGT-thigh_hose_end.R
+    100254: WGT-thumb.01.L
+    100256: WGT-thumb.01.R
+    100258: WGT-thumb.02.L
+    100260: WGT-thumb.02.R
+    100262: WGT-thumb.03.L
+    100264: WGT-thumb.03.R
+    100266: WGT-thumb.L
+    100268: WGT-thumb.R
+    100270: WGT-toe.L
+    100272: WGT-toe.R
+    100274: WGT-torso
+    100276: WGT-upper_arm.fk.L
+    100278: WGT-upper_arm.fk.R
+    100280: WGT-upper_arm_hose.L
+    100282: WGT-upper_arm_hose.R
+    100284: WGT-upper_arm_hose_end.L
+    100286: WGT-upper_arm_hose_end.R
+    100288: WGT-VIS-foot.ik.L
+    100290: WGT-VIS-foot.ik.R
+    100292: WGT-VIS-hand.ik.L
+    100294: WGT-VIS-hand.ik.R
+    100296: WGT-VIS-thigh_pole.ik.L
+    100298: WGT-VIS-thigh_pole.ik.R
+    100300: WGT-VIS-upper_arm_pole.ik.L
+    100302: WGT-VIS-upper_arm_pole.ik.R
+    400000: Armature
+    400002: base
+    400004: body
+    400006: chest
+    400008: fingerL1
+    400010: fingerL2
+    400012: fingerL2_end
+    400014: fingerR1
+    400016: fingerR2
+    400018: fingerR2_end
+    400020: GIrl.003
+    400022: hairBack
+    400024: hairBack.001
+    400026: hairBack.001_end
+    400028: hairBack.002
+    400030: hairBack.002_end
+    400032: hairBack.003
+    400034: hairBack.003_end
+    400036: hairBack.004
+    400038: hairBack.004_end
+    400040: hairBack_end
+    400042: handL1
+    400044: handL2
+    400046: handL3
+    400048: handL4
+    400050: handL5
+    400052: handL6
+    400054: handL6_end
+    400056: handR1
+    400058: handR2
+    400060: handR3
+    400062: handR4
+    400064: handR5
+    400066: handR6
+    400068: handR6_end
+    400070: head
+    400072: legL1
+    400074: legL2
+    400076: legL3
+    400078: legL3_end
+    400080: legR1
+    400082: legR2
+    400084: legR3
+    400086: legR3_end
+    400088: neck
+    400090: Sword
+    400092: //RootNode
+    400094: weapon
+    400096: weapon_end
+    400098: WGT-chest
+    400100: WGT-elbow_hose.L
+    400102: WGT-elbow_hose.R
+    400104: WGT-elbow_target.ik.L
+    400106: WGT-elbow_target.ik.R
+    400108: WGT-f_index.01.L
+    400110: WGT-f_index.01.R
+    400112: WGT-f_index.02.L
+    400114: WGT-f_index.02.R
+    400116: WGT-f_index.03.L
+    400118: WGT-f_index.03.R
+    400120: WGT-f_index.L
+    400122: WGT-f_index.R
+    400124: WGT-f_middle.01.L
+    400126: WGT-f_middle.01.R
+    400128: WGT-f_middle.02.L
+    400130: WGT-f_middle.02.R
+    400132: WGT-f_middle.03.L
+    400134: WGT-f_middle.03.R
+    400136: WGT-f_middle.L
+    400138: WGT-f_middle.R
+    400140: WGT-f_pinky.01.L
+    400142: WGT-f_pinky.01.R
+    400144: WGT-f_pinky.02.L
+    400146: WGT-f_pinky.02.R
+    400148: WGT-f_pinky.03.L
+    400150: WGT-f_pinky.03.R
+    400152: WGT-f_pinky.L
+    400154: WGT-f_pinky.R
+    400156: WGT-f_ring.01.L
+    400158: WGT-f_ring.01.R
+    400160: WGT-f_ring.02.L
+    400162: WGT-f_ring.02.R
+    400164: WGT-f_ring.03.L
+    400166: WGT-f_ring.03.R
+    400168: WGT-f_ring.L
+    400170: WGT-f_ring.R
+    400172: WGT-foot.fk.L
+    400174: WGT-foot.fk.R
+    400176: WGT-foot.ik.L
+    400178: WGT-foot.ik.R
+    400180: WGT-foot_roll.ik.L
+    400182: WGT-foot_roll.ik.R
+    400184: WGT-forearm.fk.L
+    400186: WGT-forearm.fk.R
+    400188: WGT-forearm_hose.L
+    400190: WGT-forearm_hose.R
+    400192: WGT-forearm_hose_end.L
+    400194: WGT-forearm_hose_end.R
+    400196: WGT-hand.fk.L
+    400198: WGT-hand.fk.R
+    400200: WGT-hand.ik.L
+    400202: WGT-hand.ik.R
+    400204: WGT-head
+    400206: WGT-hips
+    400208: WGT-knee_hose.L
+    400210: WGT-knee_hose.R
+    400212: WGT-knee_target.ik.L
+    400214: WGT-knee_target.ik.R
+    400216: WGT-neck
+    400218: WGT-palm.L
+    400220: WGT-palm.R
+    400222: WGT-root
+    400224: WGT-shin.fk.L
+    400226: WGT-shin.fk.R
+    400228: WGT-shin_hose.L
+    400230: WGT-shin_hose.R
+    400232: WGT-shin_hose_end.L
+    400234: WGT-shin_hose_end.R
+    400236: WGT-shoulder.L
+    400238: WGT-shoulder.R
+    400240: WGT-spine
+    400242: WGT-thigh.fk.L
+    400244: WGT-thigh.fk.R
+    400246: WGT-thigh_hose.L
+    400248: WGT-thigh_hose.R
+    400250: WGT-thigh_hose_end.L
+    400252: WGT-thigh_hose_end.R
+    400254: WGT-thumb.01.L
+    400256: WGT-thumb.01.R
+    400258: WGT-thumb.02.L
+    400260: WGT-thumb.02.R
+    400262: WGT-thumb.03.L
+    400264: WGT-thumb.03.R
+    400266: WGT-thumb.L
+    400268: WGT-thumb.R
+    400270: WGT-toe.L
+    400272: WGT-toe.R
+    400274: WGT-torso
+    400276: WGT-upper_arm.fk.L
+    400278: WGT-upper_arm.fk.R
+    400280: WGT-upper_arm_hose.L
+    400282: WGT-upper_arm_hose.R
+    400284: WGT-upper_arm_hose_end.L
+    400286: WGT-upper_arm_hose_end.R
+    400288: WGT-VIS-foot.ik.L
+    400290: WGT-VIS-foot.ik.R
+    400292: WGT-VIS-hand.ik.L
+    400294: WGT-VIS-hand.ik.R
+    400296: WGT-VIS-thigh_pole.ik.L
+    400298: WGT-VIS-thigh_pole.ik.R
+    400300: WGT-VIS-upper_arm_pole.ik.L
+    400302: WGT-VIS-upper_arm_pole.ik.R
+    2300000: WGT-chest
+    2300002: WGT-elbow_hose.L
+    2300004: WGT-elbow_hose.R
+    2300006: WGT-elbow_target.ik.L
+    2300008: WGT-elbow_target.ik.R
+    2300010: WGT-f_index.01.L
+    2300012: WGT-f_index.01.R
+    2300014: WGT-f_index.02.L
+    2300016: WGT-f_index.02.R
+    2300018: WGT-f_index.03.L
+    2300020: WGT-f_index.03.R
+    2300022: WGT-f_index.L
+    2300024: WGT-f_index.R
+    2300026: WGT-f_middle.01.L
+    2300028: WGT-f_middle.01.R
+    2300030: WGT-f_middle.02.L
+    2300032: WGT-f_middle.02.R
+    2300034: WGT-f_middle.03.L
+    2300036: WGT-f_middle.03.R
+    2300038: WGT-f_middle.L
+    2300040: WGT-f_middle.R
+    2300042: WGT-f_pinky.01.L
+    2300044: WGT-f_pinky.01.R
+    2300046: WGT-f_pinky.02.L
+    2300048: WGT-f_pinky.02.R
+    2300050: WGT-f_pinky.03.L
+    2300052: WGT-f_pinky.03.R
+    2300054: WGT-f_pinky.L
+    2300056: WGT-f_pinky.R
+    2300058: WGT-f_ring.01.L
+    2300060: WGT-f_ring.01.R
+    2300062: WGT-f_ring.02.L
+    2300064: WGT-f_ring.02.R
+    2300066: WGT-f_ring.03.L
+    2300068: WGT-f_ring.03.R
+    2300070: WGT-f_ring.L
+    2300072: WGT-f_ring.R
+    2300074: WGT-foot.fk.L
+    2300076: WGT-foot.fk.R
+    2300078: WGT-foot.ik.L
+    2300080: WGT-foot.ik.R
+    2300082: WGT-foot_roll.ik.L
+    2300084: WGT-foot_roll.ik.R
+    2300086: WGT-forearm.fk.L
+    2300088: WGT-forearm.fk.R
+    2300090: WGT-forearm_hose.L
+    2300092: WGT-forearm_hose.R
+    2300094: WGT-forearm_hose_end.L
+    2300096: WGT-forearm_hose_end.R
+    2300098: WGT-hand.fk.L
+    2300100: WGT-hand.fk.R
+    2300102: WGT-hand.ik.L
+    2300104: WGT-hand.ik.R
+    2300106: WGT-head
+    2300108: WGT-hips
+    2300110: WGT-knee_hose.L
+    2300112: WGT-knee_hose.R
+    2300114: WGT-knee_target.ik.L
+    2300116: WGT-knee_target.ik.R
+    2300118: WGT-neck
+    2300120: WGT-palm.L
+    2300122: WGT-palm.R
+    2300124: WGT-root
+    2300126: WGT-shin.fk.L
+    2300128: WGT-shin.fk.R
+    2300130: WGT-shin_hose.L
+    2300132: WGT-shin_hose.R
+    2300134: WGT-shin_hose_end.L
+    2300136: WGT-shin_hose_end.R
+    2300138: WGT-shoulder.L
+    2300140: WGT-shoulder.R
+    2300142: WGT-spine
+    2300144: WGT-thigh.fk.L
+    2300146: WGT-thigh.fk.R
+    2300148: WGT-thigh_hose.L
+    2300150: WGT-thigh_hose.R
+    2300152: WGT-thigh_hose_end.L
+    2300154: WGT-thigh_hose_end.R
+    2300156: WGT-thumb.01.L
+    2300158: WGT-thumb.01.R
+    2300160: WGT-thumb.02.L
+    2300162: WGT-thumb.02.R
+    2300164: WGT-thumb.03.L
+    2300166: WGT-thumb.03.R
+    2300168: WGT-thumb.L
+    2300170: WGT-thumb.R
+    2300172: WGT-toe.L
+    2300174: WGT-toe.R
+    2300176: WGT-torso
+    2300178: WGT-upper_arm.fk.L
+    2300180: WGT-upper_arm.fk.R
+    2300182: WGT-upper_arm_hose.L
+    2300184: WGT-upper_arm_hose.R
+    2300186: WGT-upper_arm_hose_end.L
+    2300188: WGT-upper_arm_hose_end.R
+    2300190: WGT-VIS-foot.ik.L
+    2300192: WGT-VIS-foot.ik.R
+    2300194: WGT-VIS-hand.ik.L
+    2300196: WGT-VIS-hand.ik.R
+    2300198: WGT-VIS-thigh_pole.ik.L
+    2300200: WGT-VIS-thigh_pole.ik.R
+    2300202: WGT-VIS-upper_arm_pole.ik.L
+    2300204: WGT-VIS-upper_arm_pole.ik.R
+    3300000: WGT-chest
+    3300002: WGT-elbow_hose.L
+    3300004: WGT-elbow_hose.R
+    3300006: WGT-elbow_target.ik.L
+    3300008: WGT-elbow_target.ik.R
+    3300010: WGT-f_index.01.L
+    3300012: WGT-f_index.01.R
+    3300014: WGT-f_index.02.L
+    3300016: WGT-f_index.02.R
+    3300018: WGT-f_index.03.L
+    3300020: WGT-f_index.03.R
+    3300022: WGT-f_index.L
+    3300024: WGT-f_index.R
+    3300026: WGT-f_middle.01.L
+    3300028: WGT-f_middle.01.R
+    3300030: WGT-f_middle.02.L
+    3300032: WGT-f_middle.02.R
+    3300034: WGT-f_middle.03.L
+    3300036: WGT-f_middle.03.R
+    3300038: WGT-f_middle.L
+    3300040: WGT-f_middle.R
+    3300042: WGT-f_pinky.01.L
+    3300044: WGT-f_pinky.01.R
+    3300046: WGT-f_pinky.02.L
+    3300048: WGT-f_pinky.02.R
+    3300050: WGT-f_pinky.03.L
+    3300052: WGT-f_pinky.03.R
+    3300054: WGT-f_pinky.L
+    3300056: WGT-f_pinky.R
+    3300058: WGT-f_ring.01.L
+    3300060: WGT-f_ring.01.R
+    3300062: WGT-f_ring.02.L
+    3300064: WGT-f_ring.02.R
+    3300066: WGT-f_ring.03.L
+    3300068: WGT-f_ring.03.R
+    3300070: WGT-f_ring.L
+    3300072: WGT-f_ring.R
+    3300074: WGT-foot.fk.L
+    3300076: WGT-foot.fk.R
+    3300078: WGT-foot.ik.L
+    3300080: WGT-foot.ik.R
+    3300082: WGT-foot_roll.ik.L
+    3300084: WGT-foot_roll.ik.R
+    3300086: WGT-forearm.fk.L
+    3300088: WGT-forearm.fk.R
+    3300090: WGT-forearm_hose.L
+    3300092: WGT-forearm_hose.R
+    3300094: WGT-forearm_hose_end.L
+    3300096: WGT-forearm_hose_end.R
+    3300098: WGT-hand.fk.L
+    3300100: WGT-hand.fk.R
+    3300102: WGT-hand.ik.L
+    3300104: WGT-hand.ik.R
+    3300106: WGT-head
+    3300108: WGT-hips
+    3300110: WGT-knee_hose.L
+    3300112: WGT-knee_hose.R
+    3300114: WGT-knee_target.ik.L
+    3300116: WGT-knee_target.ik.R
+    3300118: WGT-neck
+    3300120: WGT-palm.L
+    3300122: WGT-palm.R
+    3300124: WGT-root
+    3300126: WGT-shin.fk.L
+    3300128: WGT-shin.fk.R
+    3300130: WGT-shin_hose.L
+    3300132: WGT-shin_hose.R
+    3300134: WGT-shin_hose_end.L
+    3300136: WGT-shin_hose_end.R
+    3300138: WGT-shoulder.L
+    3300140: WGT-shoulder.R
+    3300142: WGT-spine
+    3300144: WGT-thigh.fk.L
+    3300146: WGT-thigh.fk.R
+    3300148: WGT-thigh_hose.L
+    3300150: WGT-thigh_hose.R
+    3300152: WGT-thigh_hose_end.L
+    3300154: WGT-thigh_hose_end.R
+    3300156: WGT-thumb.01.L
+    3300158: WGT-thumb.01.R
+    3300160: WGT-thumb.02.L
+    3300162: WGT-thumb.02.R
+    3300164: WGT-thumb.03.L
+    3300166: WGT-thumb.03.R
+    3300168: WGT-thumb.L
+    3300170: WGT-thumb.R
+    3300172: WGT-toe.L
+    3300174: WGT-toe.R
+    3300176: WGT-torso
+    3300178: WGT-upper_arm.fk.L
+    3300180: WGT-upper_arm.fk.R
+    3300182: WGT-upper_arm_hose.L
+    3300184: WGT-upper_arm_hose.R
+    3300186: WGT-upper_arm_hose_end.L
+    3300188: WGT-upper_arm_hose_end.R
+    3300190: WGT-VIS-foot.ik.L
+    3300192: WGT-VIS-foot.ik.R
+    3300194: WGT-VIS-hand.ik.L
+    3300196: WGT-VIS-hand.ik.R
+    3300198: WGT-VIS-thigh_pole.ik.L
+    3300200: WGT-VIS-thigh_pole.ik.R
+    3300202: WGT-VIS-upper_arm_pole.ik.L
+    3300204: WGT-VIS-upper_arm_pole.ik.R
+    4300000: GIrl.003
+    4300002: Sword
+    4300004: WGT-root
+    4300006: WGT-thumb.03.R
+    4300008: WGT-thumb.02.R
+    4300010: WGT-thumb.01.R
+    4300012: WGT-thumb.R
+    4300014: WGT-thumb.03.L
+    4300016: WGT-thumb.02.L
+    4300018: WGT-thumb.01.L
+    4300020: WGT-thumb.L
+    4300022: WGT-f_ring.03.R
+    4300024: WGT-f_ring.02.R
+    4300026: WGT-f_ring.01.R
+    4300028: WGT-f_ring.R
+    4300030: WGT-f_ring.03.L
+    4300032: WGT-f_ring.02.L
+    4300034: WGT-f_ring.01.L
+    4300036: WGT-f_ring.L
+    4300038: WGT-f_pinky.03.R
+    4300040: WGT-f_pinky.02.R
+    4300042: WGT-f_pinky.01.R
+    4300044: WGT-f_pinky.R
+    4300046: WGT-f_pinky.03.L
+    4300048: WGT-f_pinky.02.L
+    4300050: WGT-f_pinky.01.L
+    4300052: WGT-f_pinky.L
+    4300054: WGT-f_middle.03.R
+    4300056: WGT-f_middle.02.R
+    4300058: WGT-f_middle.01.R
+    4300060: WGT-f_middle.R
+    4300062: WGT-f_middle.03.L
+    4300064: WGT-f_middle.02.L
+    4300066: WGT-f_middle.01.L
+    4300068: WGT-f_middle.L
+    4300070: WGT-f_index.03.R
+    4300072: WGT-f_index.02.R
+    4300074: WGT-f_index.01.R
+    4300076: WGT-f_index.R
+    4300078: WGT-f_index.03.L
+    4300080: WGT-f_index.02.L
+    4300082: WGT-f_index.01.L
+    4300084: WGT-f_index.L
+    4300086: WGT-palm.R
+    4300088: WGT-palm.L
+    4300090: WGT-hand.ik.R
+    4300092: WGT-elbow_target.ik.R
+    4300094: WGT-VIS-hand.ik.R
+    4300096: WGT-VIS-upper_arm_pole.ik.R
+    4300098: WGT-hand.fk.R
+    4300100: WGT-forearm.fk.R
+    4300102: WGT-upper_arm.fk.R
+    4300104: WGT-forearm_hose_end.R
+    4300106: WGT-forearm_hose.R
+    4300108: WGT-elbow_hose.R
+    4300110: WGT-upper_arm_hose.R
+    4300112: WGT-upper_arm_hose_end.R
+    4300114: WGT-hand.ik.L
+    4300116: WGT-elbow_target.ik.L
+    4300118: WGT-VIS-hand.ik.L
+    4300120: WGT-VIS-upper_arm_pole.ik.L
+    4300122: WGT-hand.fk.L
+    4300124: WGT-forearm.fk.L
+    4300126: WGT-upper_arm.fk.L
+    4300128: WGT-forearm_hose_end.L
+    4300130: WGT-forearm_hose.L
+    4300132: WGT-elbow_hose.L
+    4300134: WGT-upper_arm_hose.L
+    4300136: WGT-upper_arm_hose_end.L
+    4300138: WGT-shoulder.R
+    4300140: WGT-shoulder.L
+    4300142: WGT-head
+    4300144: WGT-neck
+    4300146: WGT-foot_roll.ik.R
+    4300148: WGT-toe.R
+    4300150: WGT-foot.ik.R
+    4300152: WGT-knee_target.ik.R
+    4300154: WGT-VIS-foot.ik.R
+    4300156: WGT-VIS-thigh_pole.ik.R
+    4300158: WGT-foot.fk.R
+    4300160: WGT-shin.fk.R
+    4300162: WGT-thigh.fk.R
+    4300164: WGT-shin_hose_end.R
+    4300166: WGT-shin_hose.R
+    4300168: WGT-knee_hose.R
+    4300170: WGT-thigh_hose.R
+    4300172: WGT-thigh_hose_end.R
+    4300174: WGT-foot_roll.ik.L
+    4300176: WGT-toe.L
+    4300178: WGT-foot.ik.L
+    4300180: WGT-knee_target.ik.L
+    4300182: WGT-VIS-foot.ik.L
+    4300184: WGT-VIS-thigh_pole.ik.L
+    4300186: WGT-foot.fk.L
+    4300188: WGT-shin.fk.L
+    4300190: WGT-thigh.fk.L
+    4300192: WGT-shin_hose_end.L
+    4300194: WGT-shin_hose.L
+    4300196: WGT-knee_hose.L
+    4300198: WGT-thigh_hose.L
+    4300200: WGT-thigh_hose_end.L
+    4300202: WGT-chest
+    4300204: WGT-hips
+    4300206: WGT-spine
+    4300208: WGT-torso
+    7400000: Armature|ArmatureAction.001
+    7400002: Idle
+    7400004: Armature|idle.001
+    7400006: RunStart
+    7400008: Armature|startRun
+    7400010: Armature|SwordAction
+    7400012: GIrl.003|ArmatureAction.001
+    7400014: GIrl.003|run
+    7400016: GIrl.003|startRun
+    7400018: GIrl.003|SwordAction
+    7400020: Sword|ArmatureAction.001
+    7400022: Sword|startRun
+    7400024: Sword|SwordAction
+    7400026: Run
+    7400028: RunEnd
+    9500000: //RootNode
+    13700000: GIrl.003
+    13700002: Sword
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Armature|run' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'weapon' has translation animation that will
+      be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Armature|idle
+      firstFrame: 0
+      lastFrame: 140
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/base
+        weight: 1
+      - path: Armature/base/body
+        weight: 1
+      - path: Armature/base/body/chest
+        weight: 1
+      - path: Armature/base/body/chest/handL1
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/fingerL1
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/fingerL1/fingerL2
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/fingerL1/fingerL2/fingerL2_end
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/handL5
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/handL5/handL6
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/handL5/handL6/handL6_end
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/weapon
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/weapon/weapon_end
+        weight: 1
+      - path: Armature/base/body/chest/handR1
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/fingerR1
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/fingerR1/fingerR2
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/fingerR1/fingerR2/fingerR2_end
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4/handR5
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4/handR5/handR6
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4/handR5/handR6/handR6_end
+        weight: 1
+      - path: Armature/base/body/chest/neck
+        weight: 1
+      - path: Armature/base/body/chest/neck/head
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack/hairBack_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.001
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.001/hairBack.001_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.002
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.002/hairBack.002_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.003
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.003/hairBack.003_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.004
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.004/hairBack.004_end
+        weight: 1
+      - path: Armature/base/body/legL1
+        weight: 1
+      - path: Armature/base/body/legL1/legL2
+        weight: 1
+      - path: Armature/base/body/legL1/legL2/legL3
+        weight: 1
+      - path: Armature/base/body/legL1/legL2/legL3/legL3_end
+        weight: 1
+      - path: Armature/base/body/legR1
+        weight: 1
+      - path: Armature/base/body/legR1/legR2
+        weight: 1
+      - path: Armature/base/body/legR1/legR2/legR3
+        weight: 1
+      - path: Armature/base/body/legR1/legR2/legR3/legR3_end
+        weight: 1
+      - path: GIrl.003
+        weight: 1
+      - path: Sword
+        weight: 1
+      - path: WGT-chest
+        weight: 1
+      - path: WGT-elbow_hose.L
+        weight: 1
+      - path: WGT-elbow_hose.R
+        weight: 1
+      - path: WGT-elbow_target.ik.L
+        weight: 1
+      - path: WGT-elbow_target.ik.R
+        weight: 1
+      - path: WGT-f_index.01.L
+        weight: 1
+      - path: WGT-f_index.01.R
+        weight: 1
+      - path: WGT-f_index.02.L
+        weight: 1
+      - path: WGT-f_index.02.R
+        weight: 1
+      - path: WGT-f_index.03.L
+        weight: 1
+      - path: WGT-f_index.03.R
+        weight: 1
+      - path: WGT-f_index.L
+        weight: 1
+      - path: WGT-f_index.R
+        weight: 1
+      - path: WGT-f_middle.01.L
+        weight: 1
+      - path: WGT-f_middle.01.R
+        weight: 1
+      - path: WGT-f_middle.02.L
+        weight: 1
+      - path: WGT-f_middle.02.R
+        weight: 1
+      - path: WGT-f_middle.03.L
+        weight: 1
+      - path: WGT-f_middle.03.R
+        weight: 1
+      - path: WGT-f_middle.L
+        weight: 1
+      - path: WGT-f_middle.R
+        weight: 1
+      - path: WGT-f_pinky.01.L
+        weight: 1
+      - path: WGT-f_pinky.01.R
+        weight: 1
+      - path: WGT-f_pinky.02.L
+        weight: 1
+      - path: WGT-f_pinky.02.R
+        weight: 1
+      - path: WGT-f_pinky.03.L
+        weight: 1
+      - path: WGT-f_pinky.03.R
+        weight: 1
+      - path: WGT-f_pinky.L
+        weight: 1
+      - path: WGT-f_pinky.R
+        weight: 1
+      - path: WGT-f_ring.01.L
+        weight: 1
+      - path: WGT-f_ring.01.R
+        weight: 1
+      - path: WGT-f_ring.02.L
+        weight: 1
+      - path: WGT-f_ring.02.R
+        weight: 1
+      - path: WGT-f_ring.03.L
+        weight: 1
+      - path: WGT-f_ring.03.R
+        weight: 1
+      - path: WGT-f_ring.L
+        weight: 1
+      - path: WGT-f_ring.R
+        weight: 1
+      - path: WGT-foot.fk.L
+        weight: 1
+      - path: WGT-foot.fk.R
+        weight: 1
+      - path: WGT-foot.ik.L
+        weight: 1
+      - path: WGT-foot.ik.R
+        weight: 1
+      - path: WGT-foot_roll.ik.L
+        weight: 1
+      - path: WGT-foot_roll.ik.R
+        weight: 1
+      - path: WGT-forearm.fk.L
+        weight: 1
+      - path: WGT-forearm.fk.R
+        weight: 1
+      - path: WGT-forearm_hose.L
+        weight: 1
+      - path: WGT-forearm_hose.R
+        weight: 1
+      - path: WGT-forearm_hose_end.L
+        weight: 1
+      - path: WGT-forearm_hose_end.R
+        weight: 1
+      - path: WGT-hand.fk.L
+        weight: 1
+      - path: WGT-hand.fk.R
+        weight: 1
+      - path: WGT-hand.ik.L
+        weight: 1
+      - path: WGT-hand.ik.R
+        weight: 1
+      - path: WGT-head
+        weight: 1
+      - path: WGT-hips
+        weight: 1
+      - path: WGT-knee_hose.L
+        weight: 1
+      - path: WGT-knee_hose.R
+        weight: 1
+      - path: WGT-knee_target.ik.L
+        weight: 1
+      - path: WGT-knee_target.ik.R
+        weight: 1
+      - path: WGT-neck
+        weight: 1
+      - path: WGT-palm.L
+        weight: 1
+      - path: WGT-palm.R
+        weight: 1
+      - path: WGT-root
+        weight: 1
+      - path: WGT-shin.fk.L
+        weight: 1
+      - path: WGT-shin.fk.R
+        weight: 1
+      - path: WGT-shin_hose.L
+        weight: 1
+      - path: WGT-shin_hose.R
+        weight: 1
+      - path: WGT-shin_hose_end.L
+        weight: 1
+      - path: WGT-shin_hose_end.R
+        weight: 1
+      - path: WGT-shoulder.L
+        weight: 1
+      - path: WGT-shoulder.R
+        weight: 1
+      - path: WGT-spine
+        weight: 1
+      - path: WGT-thigh.fk.L
+        weight: 1
+      - path: WGT-thigh.fk.R
+        weight: 1
+      - path: WGT-thigh_hose.L
+        weight: 1
+      - path: WGT-thigh_hose.R
+        weight: 1
+      - path: WGT-thigh_hose_end.L
+        weight: 1
+      - path: WGT-thigh_hose_end.R
+        weight: 1
+      - path: WGT-thumb.01.L
+        weight: 1
+      - path: WGT-thumb.01.R
+        weight: 1
+      - path: WGT-thumb.02.L
+        weight: 1
+      - path: WGT-thumb.02.R
+        weight: 1
+      - path: WGT-thumb.03.L
+        weight: 1
+      - path: WGT-thumb.03.R
+        weight: 1
+      - path: WGT-thumb.L
+        weight: 1
+      - path: WGT-thumb.R
+        weight: 1
+      - path: WGT-toe.L
+        weight: 1
+      - path: WGT-toe.R
+        weight: 1
+      - path: WGT-torso
+        weight: 1
+      - path: WGT-upper_arm.fk.L
+        weight: 1
+      - path: WGT-upper_arm.fk.R
+        weight: 1
+      - path: WGT-upper_arm_hose.L
+        weight: 1
+      - path: WGT-upper_arm_hose.R
+        weight: 1
+      - path: WGT-upper_arm_hose_end.L
+        weight: 1
+      - path: WGT-upper_arm_hose_end.R
+        weight: 1
+      - path: WGT-VIS-foot.ik.L
+        weight: 1
+      - path: WGT-VIS-foot.ik.R
+        weight: 1
+      - path: WGT-VIS-hand.ik.L
+        weight: 1
+      - path: WGT-VIS-hand.ik.R
+        weight: 1
+      - path: WGT-VIS-thigh_pole.ik.L
+        weight: 1
+      - path: WGT-VIS-thigh_pole.ik.R
+        weight: 1
+      - path: WGT-VIS-upper_arm_pole.ik.L
+        weight: 1
+      - path: WGT-VIS-upper_arm_pole.ik.R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: RunStart
+      takeName: Armature|run
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 1
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/base
+        weight: 1
+      - path: Armature/base/body
+        weight: 1
+      - path: Armature/base/body/chest
+        weight: 1
+      - path: Armature/base/body/chest/handL1
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/fingerL1
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/fingerL1/fingerL2
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/fingerL1/fingerL2/fingerL2_end
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/handL5
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/handL5/handL6
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/handL5/handL6/handL6_end
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/weapon
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/weapon/weapon_end
+        weight: 1
+      - path: Armature/base/body/chest/handR1
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/fingerR1
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/fingerR1/fingerR2
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/fingerR1/fingerR2/fingerR2_end
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4/handR5
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4/handR5/handR6
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4/handR5/handR6/handR6_end
+        weight: 1
+      - path: Armature/base/body/chest/neck
+        weight: 1
+      - path: Armature/base/body/chest/neck/head
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack/hairBack_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.001
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.001/hairBack.001_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.002
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.002/hairBack.002_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.003
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.003/hairBack.003_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.004
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.004/hairBack.004_end
+        weight: 1
+      - path: Armature/base/body/legL1
+        weight: 1
+      - path: Armature/base/body/legL1/legL2
+        weight: 1
+      - path: Armature/base/body/legL1/legL2/legL3
+        weight: 1
+      - path: Armature/base/body/legL1/legL2/legL3/legL3_end
+        weight: 1
+      - path: Armature/base/body/legR1
+        weight: 1
+      - path: Armature/base/body/legR1/legR2
+        weight: 1
+      - path: Armature/base/body/legR1/legR2/legR3
+        weight: 1
+      - path: Armature/base/body/legR1/legR2/legR3/legR3_end
+        weight: 1
+      - path: GIrl.003
+        weight: 1
+      - path: Sword
+        weight: 1
+      - path: WGT-chest
+        weight: 1
+      - path: WGT-elbow_hose.L
+        weight: 1
+      - path: WGT-elbow_hose.R
+        weight: 1
+      - path: WGT-elbow_target.ik.L
+        weight: 1
+      - path: WGT-elbow_target.ik.R
+        weight: 1
+      - path: WGT-f_index.01.L
+        weight: 1
+      - path: WGT-f_index.01.R
+        weight: 1
+      - path: WGT-f_index.02.L
+        weight: 1
+      - path: WGT-f_index.02.R
+        weight: 1
+      - path: WGT-f_index.03.L
+        weight: 1
+      - path: WGT-f_index.03.R
+        weight: 1
+      - path: WGT-f_index.L
+        weight: 1
+      - path: WGT-f_index.R
+        weight: 1
+      - path: WGT-f_middle.01.L
+        weight: 1
+      - path: WGT-f_middle.01.R
+        weight: 1
+      - path: WGT-f_middle.02.L
+        weight: 1
+      - path: WGT-f_middle.02.R
+        weight: 1
+      - path: WGT-f_middle.03.L
+        weight: 1
+      - path: WGT-f_middle.03.R
+        weight: 1
+      - path: WGT-f_middle.L
+        weight: 1
+      - path: WGT-f_middle.R
+        weight: 1
+      - path: WGT-f_pinky.01.L
+        weight: 1
+      - path: WGT-f_pinky.01.R
+        weight: 1
+      - path: WGT-f_pinky.02.L
+        weight: 1
+      - path: WGT-f_pinky.02.R
+        weight: 1
+      - path: WGT-f_pinky.03.L
+        weight: 1
+      - path: WGT-f_pinky.03.R
+        weight: 1
+      - path: WGT-f_pinky.L
+        weight: 1
+      - path: WGT-f_pinky.R
+        weight: 1
+      - path: WGT-f_ring.01.L
+        weight: 1
+      - path: WGT-f_ring.01.R
+        weight: 1
+      - path: WGT-f_ring.02.L
+        weight: 1
+      - path: WGT-f_ring.02.R
+        weight: 1
+      - path: WGT-f_ring.03.L
+        weight: 1
+      - path: WGT-f_ring.03.R
+        weight: 1
+      - path: WGT-f_ring.L
+        weight: 1
+      - path: WGT-f_ring.R
+        weight: 1
+      - path: WGT-foot.fk.L
+        weight: 1
+      - path: WGT-foot.fk.R
+        weight: 1
+      - path: WGT-foot.ik.L
+        weight: 1
+      - path: WGT-foot.ik.R
+        weight: 1
+      - path: WGT-foot_roll.ik.L
+        weight: 1
+      - path: WGT-foot_roll.ik.R
+        weight: 1
+      - path: WGT-forearm.fk.L
+        weight: 1
+      - path: WGT-forearm.fk.R
+        weight: 1
+      - path: WGT-forearm_hose.L
+        weight: 1
+      - path: WGT-forearm_hose.R
+        weight: 1
+      - path: WGT-forearm_hose_end.L
+        weight: 1
+      - path: WGT-forearm_hose_end.R
+        weight: 1
+      - path: WGT-hand.fk.L
+        weight: 1
+      - path: WGT-hand.fk.R
+        weight: 1
+      - path: WGT-hand.ik.L
+        weight: 1
+      - path: WGT-hand.ik.R
+        weight: 1
+      - path: WGT-head
+        weight: 1
+      - path: WGT-hips
+        weight: 1
+      - path: WGT-knee_hose.L
+        weight: 1
+      - path: WGT-knee_hose.R
+        weight: 1
+      - path: WGT-knee_target.ik.L
+        weight: 1
+      - path: WGT-knee_target.ik.R
+        weight: 1
+      - path: WGT-neck
+        weight: 1
+      - path: WGT-palm.L
+        weight: 1
+      - path: WGT-palm.R
+        weight: 1
+      - path: WGT-root
+        weight: 1
+      - path: WGT-shin.fk.L
+        weight: 1
+      - path: WGT-shin.fk.R
+        weight: 1
+      - path: WGT-shin_hose.L
+        weight: 1
+      - path: WGT-shin_hose.R
+        weight: 1
+      - path: WGT-shin_hose_end.L
+        weight: 1
+      - path: WGT-shin_hose_end.R
+        weight: 1
+      - path: WGT-shoulder.L
+        weight: 1
+      - path: WGT-shoulder.R
+        weight: 1
+      - path: WGT-spine
+        weight: 1
+      - path: WGT-thigh.fk.L
+        weight: 1
+      - path: WGT-thigh.fk.R
+        weight: 1
+      - path: WGT-thigh_hose.L
+        weight: 1
+      - path: WGT-thigh_hose.R
+        weight: 1
+      - path: WGT-thigh_hose_end.L
+        weight: 1
+      - path: WGT-thigh_hose_end.R
+        weight: 1
+      - path: WGT-thumb.01.L
+        weight: 1
+      - path: WGT-thumb.01.R
+        weight: 1
+      - path: WGT-thumb.02.L
+        weight: 1
+      - path: WGT-thumb.02.R
+        weight: 1
+      - path: WGT-thumb.03.L
+        weight: 1
+      - path: WGT-thumb.03.R
+        weight: 1
+      - path: WGT-thumb.L
+        weight: 1
+      - path: WGT-thumb.R
+        weight: 1
+      - path: WGT-toe.L
+        weight: 1
+      - path: WGT-toe.R
+        weight: 1
+      - path: WGT-torso
+        weight: 1
+      - path: WGT-upper_arm.fk.L
+        weight: 1
+      - path: WGT-upper_arm.fk.R
+        weight: 1
+      - path: WGT-upper_arm_hose.L
+        weight: 1
+      - path: WGT-upper_arm_hose.R
+        weight: 1
+      - path: WGT-upper_arm_hose_end.L
+        weight: 1
+      - path: WGT-upper_arm_hose_end.R
+        weight: 1
+      - path: WGT-VIS-foot.ik.L
+        weight: 1
+      - path: WGT-VIS-foot.ik.R
+        weight: 1
+      - path: WGT-VIS-hand.ik.L
+        weight: 1
+      - path: WGT-VIS-hand.ik.R
+        weight: 1
+      - path: WGT-VIS-thigh_pole.ik.L
+        weight: 1
+      - path: WGT-VIS-thigh_pole.ik.R
+        weight: 1
+      - path: WGT-VIS-upper_arm_pole.ik.L
+        weight: 1
+      - path: WGT-VIS-upper_arm_pole.ik.R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Run
+      takeName: Armature|run
+      firstFrame: 20
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/base
+        weight: 1
+      - path: Armature/base/body
+        weight: 1
+      - path: Armature/base/body/chest
+        weight: 1
+      - path: Armature/base/body/chest/handL1
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/fingerL1
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/fingerL1/fingerL2
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/fingerL1/fingerL2/fingerL2_end
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/handL5
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/handL5/handL6
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/handL5/handL6/handL6_end
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/weapon
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/weapon/weapon_end
+        weight: 1
+      - path: Armature/base/body/chest/handR1
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/fingerR1
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/fingerR1/fingerR2
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/fingerR1/fingerR2/fingerR2_end
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4/handR5
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4/handR5/handR6
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4/handR5/handR6/handR6_end
+        weight: 1
+      - path: Armature/base/body/chest/neck
+        weight: 1
+      - path: Armature/base/body/chest/neck/head
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack/hairBack_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.001
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.001/hairBack.001_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.002
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.002/hairBack.002_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.003
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.003/hairBack.003_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.004
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.004/hairBack.004_end
+        weight: 1
+      - path: Armature/base/body/legL1
+        weight: 1
+      - path: Armature/base/body/legL1/legL2
+        weight: 1
+      - path: Armature/base/body/legL1/legL2/legL3
+        weight: 1
+      - path: Armature/base/body/legL1/legL2/legL3/legL3_end
+        weight: 1
+      - path: Armature/base/body/legR1
+        weight: 1
+      - path: Armature/base/body/legR1/legR2
+        weight: 1
+      - path: Armature/base/body/legR1/legR2/legR3
+        weight: 1
+      - path: Armature/base/body/legR1/legR2/legR3/legR3_end
+        weight: 1
+      - path: GIrl.003
+        weight: 1
+      - path: Sword
+        weight: 1
+      - path: WGT-chest
+        weight: 1
+      - path: WGT-elbow_hose.L
+        weight: 1
+      - path: WGT-elbow_hose.R
+        weight: 1
+      - path: WGT-elbow_target.ik.L
+        weight: 1
+      - path: WGT-elbow_target.ik.R
+        weight: 1
+      - path: WGT-f_index.01.L
+        weight: 1
+      - path: WGT-f_index.01.R
+        weight: 1
+      - path: WGT-f_index.02.L
+        weight: 1
+      - path: WGT-f_index.02.R
+        weight: 1
+      - path: WGT-f_index.03.L
+        weight: 1
+      - path: WGT-f_index.03.R
+        weight: 1
+      - path: WGT-f_index.L
+        weight: 1
+      - path: WGT-f_index.R
+        weight: 1
+      - path: WGT-f_middle.01.L
+        weight: 1
+      - path: WGT-f_middle.01.R
+        weight: 1
+      - path: WGT-f_middle.02.L
+        weight: 1
+      - path: WGT-f_middle.02.R
+        weight: 1
+      - path: WGT-f_middle.03.L
+        weight: 1
+      - path: WGT-f_middle.03.R
+        weight: 1
+      - path: WGT-f_middle.L
+        weight: 1
+      - path: WGT-f_middle.R
+        weight: 1
+      - path: WGT-f_pinky.01.L
+        weight: 1
+      - path: WGT-f_pinky.01.R
+        weight: 1
+      - path: WGT-f_pinky.02.L
+        weight: 1
+      - path: WGT-f_pinky.02.R
+        weight: 1
+      - path: WGT-f_pinky.03.L
+        weight: 1
+      - path: WGT-f_pinky.03.R
+        weight: 1
+      - path: WGT-f_pinky.L
+        weight: 1
+      - path: WGT-f_pinky.R
+        weight: 1
+      - path: WGT-f_ring.01.L
+        weight: 1
+      - path: WGT-f_ring.01.R
+        weight: 1
+      - path: WGT-f_ring.02.L
+        weight: 1
+      - path: WGT-f_ring.02.R
+        weight: 1
+      - path: WGT-f_ring.03.L
+        weight: 1
+      - path: WGT-f_ring.03.R
+        weight: 1
+      - path: WGT-f_ring.L
+        weight: 1
+      - path: WGT-f_ring.R
+        weight: 1
+      - path: WGT-foot.fk.L
+        weight: 1
+      - path: WGT-foot.fk.R
+        weight: 1
+      - path: WGT-foot.ik.L
+        weight: 1
+      - path: WGT-foot.ik.R
+        weight: 1
+      - path: WGT-foot_roll.ik.L
+        weight: 1
+      - path: WGT-foot_roll.ik.R
+        weight: 1
+      - path: WGT-forearm.fk.L
+        weight: 1
+      - path: WGT-forearm.fk.R
+        weight: 1
+      - path: WGT-forearm_hose.L
+        weight: 1
+      - path: WGT-forearm_hose.R
+        weight: 1
+      - path: WGT-forearm_hose_end.L
+        weight: 1
+      - path: WGT-forearm_hose_end.R
+        weight: 1
+      - path: WGT-hand.fk.L
+        weight: 1
+      - path: WGT-hand.fk.R
+        weight: 1
+      - path: WGT-hand.ik.L
+        weight: 1
+      - path: WGT-hand.ik.R
+        weight: 1
+      - path: WGT-head
+        weight: 1
+      - path: WGT-hips
+        weight: 1
+      - path: WGT-knee_hose.L
+        weight: 1
+      - path: WGT-knee_hose.R
+        weight: 1
+      - path: WGT-knee_target.ik.L
+        weight: 1
+      - path: WGT-knee_target.ik.R
+        weight: 1
+      - path: WGT-neck
+        weight: 1
+      - path: WGT-palm.L
+        weight: 1
+      - path: WGT-palm.R
+        weight: 1
+      - path: WGT-root
+        weight: 1
+      - path: WGT-shin.fk.L
+        weight: 1
+      - path: WGT-shin.fk.R
+        weight: 1
+      - path: WGT-shin_hose.L
+        weight: 1
+      - path: WGT-shin_hose.R
+        weight: 1
+      - path: WGT-shin_hose_end.L
+        weight: 1
+      - path: WGT-shin_hose_end.R
+        weight: 1
+      - path: WGT-shoulder.L
+        weight: 1
+      - path: WGT-shoulder.R
+        weight: 1
+      - path: WGT-spine
+        weight: 1
+      - path: WGT-thigh.fk.L
+        weight: 1
+      - path: WGT-thigh.fk.R
+        weight: 1
+      - path: WGT-thigh_hose.L
+        weight: 1
+      - path: WGT-thigh_hose.R
+        weight: 1
+      - path: WGT-thigh_hose_end.L
+        weight: 1
+      - path: WGT-thigh_hose_end.R
+        weight: 1
+      - path: WGT-thumb.01.L
+        weight: 1
+      - path: WGT-thumb.01.R
+        weight: 1
+      - path: WGT-thumb.02.L
+        weight: 1
+      - path: WGT-thumb.02.R
+        weight: 1
+      - path: WGT-thumb.03.L
+        weight: 1
+      - path: WGT-thumb.03.R
+        weight: 1
+      - path: WGT-thumb.L
+        weight: 1
+      - path: WGT-thumb.R
+        weight: 1
+      - path: WGT-toe.L
+        weight: 1
+      - path: WGT-toe.R
+        weight: 1
+      - path: WGT-torso
+        weight: 1
+      - path: WGT-upper_arm.fk.L
+        weight: 1
+      - path: WGT-upper_arm.fk.R
+        weight: 1
+      - path: WGT-upper_arm_hose.L
+        weight: 1
+      - path: WGT-upper_arm_hose.R
+        weight: 1
+      - path: WGT-upper_arm_hose_end.L
+        weight: 1
+      - path: WGT-upper_arm_hose_end.R
+        weight: 1
+      - path: WGT-VIS-foot.ik.L
+        weight: 1
+      - path: WGT-VIS-foot.ik.R
+        weight: 1
+      - path: WGT-VIS-hand.ik.L
+        weight: 1
+      - path: WGT-VIS-hand.ik.R
+        weight: 1
+      - path: WGT-VIS-thigh_pole.ik.L
+        weight: 1
+      - path: WGT-VIS-thigh_pole.ik.R
+        weight: 1
+      - path: WGT-VIS-upper_arm_pole.ik.L
+        weight: 1
+      - path: WGT-VIS-upper_arm_pole.ik.R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: RunEnd
+      takeName: Armature|run
+      firstFrame: 60
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/base
+        weight: 1
+      - path: Armature/base/body
+        weight: 1
+      - path: Armature/base/body/chest
+        weight: 1
+      - path: Armature/base/body/chest/handL1
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/fingerL1
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/fingerL1/fingerL2
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/fingerL1/fingerL2/fingerL2_end
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/handL5
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/handL5/handL6
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/handL5/handL6/handL6_end
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/weapon
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/weapon/weapon_end
+        weight: 1
+      - path: Armature/base/body/chest/handR1
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/fingerR1
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/fingerR1/fingerR2
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/fingerR1/fingerR2/fingerR2_end
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4/handR5
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4/handR5/handR6
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4/handR5/handR6/handR6_end
+        weight: 1
+      - path: Armature/base/body/chest/neck
+        weight: 1
+      - path: Armature/base/body/chest/neck/head
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack/hairBack_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.001
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.001/hairBack.001_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.002
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.002/hairBack.002_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.003
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.003/hairBack.003_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.004
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.004/hairBack.004_end
+        weight: 1
+      - path: Armature/base/body/legL1
+        weight: 1
+      - path: Armature/base/body/legL1/legL2
+        weight: 1
+      - path: Armature/base/body/legL1/legL2/legL3
+        weight: 1
+      - path: Armature/base/body/legL1/legL2/legL3/legL3_end
+        weight: 1
+      - path: Armature/base/body/legR1
+        weight: 1
+      - path: Armature/base/body/legR1/legR2
+        weight: 1
+      - path: Armature/base/body/legR1/legR2/legR3
+        weight: 1
+      - path: Armature/base/body/legR1/legR2/legR3/legR3_end
+        weight: 1
+      - path: GIrl.003
+        weight: 1
+      - path: Sword
+        weight: 1
+      - path: WGT-chest
+        weight: 1
+      - path: WGT-elbow_hose.L
+        weight: 1
+      - path: WGT-elbow_hose.R
+        weight: 1
+      - path: WGT-elbow_target.ik.L
+        weight: 1
+      - path: WGT-elbow_target.ik.R
+        weight: 1
+      - path: WGT-f_index.01.L
+        weight: 1
+      - path: WGT-f_index.01.R
+        weight: 1
+      - path: WGT-f_index.02.L
+        weight: 1
+      - path: WGT-f_index.02.R
+        weight: 1
+      - path: WGT-f_index.03.L
+        weight: 1
+      - path: WGT-f_index.03.R
+        weight: 1
+      - path: WGT-f_index.L
+        weight: 1
+      - path: WGT-f_index.R
+        weight: 1
+      - path: WGT-f_middle.01.L
+        weight: 1
+      - path: WGT-f_middle.01.R
+        weight: 1
+      - path: WGT-f_middle.02.L
+        weight: 1
+      - path: WGT-f_middle.02.R
+        weight: 1
+      - path: WGT-f_middle.03.L
+        weight: 1
+      - path: WGT-f_middle.03.R
+        weight: 1
+      - path: WGT-f_middle.L
+        weight: 1
+      - path: WGT-f_middle.R
+        weight: 1
+      - path: WGT-f_pinky.01.L
+        weight: 1
+      - path: WGT-f_pinky.01.R
+        weight: 1
+      - path: WGT-f_pinky.02.L
+        weight: 1
+      - path: WGT-f_pinky.02.R
+        weight: 1
+      - path: WGT-f_pinky.03.L
+        weight: 1
+      - path: WGT-f_pinky.03.R
+        weight: 1
+      - path: WGT-f_pinky.L
+        weight: 1
+      - path: WGT-f_pinky.R
+        weight: 1
+      - path: WGT-f_ring.01.L
+        weight: 1
+      - path: WGT-f_ring.01.R
+        weight: 1
+      - path: WGT-f_ring.02.L
+        weight: 1
+      - path: WGT-f_ring.02.R
+        weight: 1
+      - path: WGT-f_ring.03.L
+        weight: 1
+      - path: WGT-f_ring.03.R
+        weight: 1
+      - path: WGT-f_ring.L
+        weight: 1
+      - path: WGT-f_ring.R
+        weight: 1
+      - path: WGT-foot.fk.L
+        weight: 1
+      - path: WGT-foot.fk.R
+        weight: 1
+      - path: WGT-foot.ik.L
+        weight: 1
+      - path: WGT-foot.ik.R
+        weight: 1
+      - path: WGT-foot_roll.ik.L
+        weight: 1
+      - path: WGT-foot_roll.ik.R
+        weight: 1
+      - path: WGT-forearm.fk.L
+        weight: 1
+      - path: WGT-forearm.fk.R
+        weight: 1
+      - path: WGT-forearm_hose.L
+        weight: 1
+      - path: WGT-forearm_hose.R
+        weight: 1
+      - path: WGT-forearm_hose_end.L
+        weight: 1
+      - path: WGT-forearm_hose_end.R
+        weight: 1
+      - path: WGT-hand.fk.L
+        weight: 1
+      - path: WGT-hand.fk.R
+        weight: 1
+      - path: WGT-hand.ik.L
+        weight: 1
+      - path: WGT-hand.ik.R
+        weight: 1
+      - path: WGT-head
+        weight: 1
+      - path: WGT-hips
+        weight: 1
+      - path: WGT-knee_hose.L
+        weight: 1
+      - path: WGT-knee_hose.R
+        weight: 1
+      - path: WGT-knee_target.ik.L
+        weight: 1
+      - path: WGT-knee_target.ik.R
+        weight: 1
+      - path: WGT-neck
+        weight: 1
+      - path: WGT-palm.L
+        weight: 1
+      - path: WGT-palm.R
+        weight: 1
+      - path: WGT-root
+        weight: 1
+      - path: WGT-shin.fk.L
+        weight: 1
+      - path: WGT-shin.fk.R
+        weight: 1
+      - path: WGT-shin_hose.L
+        weight: 1
+      - path: WGT-shin_hose.R
+        weight: 1
+      - path: WGT-shin_hose_end.L
+        weight: 1
+      - path: WGT-shin_hose_end.R
+        weight: 1
+      - path: WGT-shoulder.L
+        weight: 1
+      - path: WGT-shoulder.R
+        weight: 1
+      - path: WGT-spine
+        weight: 1
+      - path: WGT-thigh.fk.L
+        weight: 1
+      - path: WGT-thigh.fk.R
+        weight: 1
+      - path: WGT-thigh_hose.L
+        weight: 1
+      - path: WGT-thigh_hose.R
+        weight: 1
+      - path: WGT-thigh_hose_end.L
+        weight: 1
+      - path: WGT-thigh_hose_end.R
+        weight: 1
+      - path: WGT-thumb.01.L
+        weight: 1
+      - path: WGT-thumb.01.R
+        weight: 1
+      - path: WGT-thumb.02.L
+        weight: 1
+      - path: WGT-thumb.02.R
+        weight: 1
+      - path: WGT-thumb.03.L
+        weight: 1
+      - path: WGT-thumb.03.R
+        weight: 1
+      - path: WGT-thumb.L
+        weight: 1
+      - path: WGT-thumb.R
+        weight: 1
+      - path: WGT-toe.L
+        weight: 1
+      - path: WGT-toe.R
+        weight: 1
+      - path: WGT-torso
+        weight: 1
+      - path: WGT-upper_arm.fk.L
+        weight: 1
+      - path: WGT-upper_arm.fk.R
+        weight: 1
+      - path: WGT-upper_arm_hose.L
+        weight: 1
+      - path: WGT-upper_arm_hose.R
+        weight: 1
+      - path: WGT-upper_arm_hose_end.L
+        weight: 1
+      - path: WGT-upper_arm_hose_end.R
+        weight: 1
+      - path: WGT-VIS-foot.ik.L
+        weight: 1
+      - path: WGT-VIS-foot.ik.R
+        weight: 1
+      - path: WGT-VIS-hand.ik.L
+        weight: 1
+      - path: WGT-VIS-hand.ik.R
+        weight: 1
+      - path: WGT-VIS-thigh_pole.ik.L
+        weight: 1
+      - path: WGT-VIS-thigh_pole.ik.R
+        weight: 1
+      - path: WGT-VIS-upper_arm_pole.ik.L
+        weight: 1
+      - path: WGT-VIS-upper_arm_pole.ik.R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
