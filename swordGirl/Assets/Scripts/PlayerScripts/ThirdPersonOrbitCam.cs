@@ -62,15 +62,7 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 		angleH += Mathf.Clamp(Input.GetAxis("Mouse X"), -1, 1) * horizontalAimingSpeed * Time.deltaTime;
 		angleV += Mathf.Clamp(Input.GetAxis("Mouse Y"), -1, 1) * verticalAimingSpeed * Time.deltaTime;
 
-		// fly
-		if(playerControl.IsFlying())
-		{
-			angleV = Mathf.Clamp(angleV, minVerticalAngle, flyMaxVerticalAngle);
-		}
-		else
-		{
-			angleV = Mathf.Clamp(angleV, minVerticalAngle, maxVerticalAngle);
-		}
+		angleV = Mathf.Clamp(angleV, minVerticalAngle, maxVerticalAngle);
 
 
 		Quaternion aimRotation = Quaternion.Euler(-angleV, angleH, 0);
@@ -111,11 +103,6 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 			} 
 		}
 
-		// fly
-		if(playerControl.IsFlying())
-		{
-			targetCamOffset.y = 0;
-		}
 
 		smoothPivotOffset = Vector3.Lerp(smoothPivotOffset, targetPivotOffset, smooth * Time.deltaTime);
 		smoothCamOffset = Vector3.Lerp(smoothCamOffset, targetCamOffset, smooth * Time.deltaTime);

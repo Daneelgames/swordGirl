@@ -7,7 +7,6 @@ public class PlayerControl : MonoBehaviour
 	public float walkSpeed = 0.15f;
 	public float runSpeed = 1.0f;
 	public float sprintSpeed = 2.0f;
-	public float flySpeed = 4.0f;
 
 	public float turnSmoothing = 3.0f;
 	public float aimTurnSmoothing = 15.0f;
@@ -45,8 +44,6 @@ public class PlayerControl : MonoBehaviour
 
 	private bool isMoving;
 
-	// fly
-	private bool fly = false;
 	private float distToGround;
 	private float sprintFactor;
 
@@ -61,8 +58,6 @@ public class PlayerControl : MonoBehaviour
 		hFloat = Animator.StringToHash("H");
 		vFloat = Animator.StringToHash("V");
 		aimBool = Animator.StringToHash("Aim");
-		// fly
-		flyBool = Animator.StringToHash ("Fly");
 		groundedBool = Animator.StringToHash("Grounded");
 		distToGround = GetComponent<Collider>().bounds.extents.y;
 		sprintFactor = sprintSpeed / runSpeed;
@@ -74,15 +69,15 @@ public class PlayerControl : MonoBehaviour
 
 	void Update()
 	{
-		// fly
-		if(Input.GetButtonDown ("Fly"))
-			fly = !fly;
 		aim = Input.GetButton("Aim");
 		h = Input.GetAxis("Horizontal");
 		v = Input.GetAxis("Vertical");
 		run = Input.GetButton ("Run");
 		sprint = Input.GetButton ("Sprint");
 		isMoving = Mathf.Abs(h) > 0.1 || Mathf.Abs(v) > 0.1;
+
+        if (Input.GetButtonDown("Fire1"))
+            anim.SetTrigger("Attack");
 	}
 
 	void FixedUpdate()
@@ -91,26 +86,11 @@ public class PlayerControl : MonoBehaviour
 		anim.SetFloat(hFloat, h);
 		anim.SetFloat(vFloat, v);
 		
-		// Fly
-		anim.SetBool (flyBool, fly);
-		_rb.useGravity = !fly;
 		anim.SetBool (groundedBool, IsGrounded ());
-		if(fly)
-			FlyManagement(h,v);
-
-		else
-		{
-			MovementManagement (h, v, run, sprint);
-			JumpManagement ();
-		}
+		MovementManagement (h, v, run, sprint);
+		JumpManagement ();
 	}
 
-	// fly
-	void FlyManagement(float horizontal, float vertical)
-	{
-		Vector3 direction = Rotating(horizontal, vertical);
-		_rb.AddForce(direction * flySpeed * 100 * (sprint?sprintFactor:1));
-	}
 
 	void JumpManagement()
 	{
@@ -163,8 +143,7 @@ public class PlayerControl : MonoBehaviour
 	Vector3 Rotating(float horizontal, float vertical)
 	{
 		Vector3 forward = cameraTransform.TransformDirection(Vector3.forward);
-		if (!fly)
-			forward.y = 0.0f;
+		forward.y = 0.0f;
 		forward = forward.normalized;
 
 		Vector3 right = new Vector3(forward.z, 0, -forward.x);
@@ -187,9 +166,6 @@ public class PlayerControl : MonoBehaviour
 		if((isMoving && targetDirection != Vector3.zero) || IsAiming())
 		{
 			Quaternion targetRotation = Quaternion.LookRotation (targetDirection, Vector3.up);
-			// fly
-			if (fly)
-				targetRotation *= Quaternion.Euler (90, 0, 0);
 
 			Quaternion newRotation = Quaternion.Slerp(_rb.rotation, targetRotation, finalTurnSmoothing * Time.deltaTime);
 			_rb.MoveRotation (newRotation);
@@ -216,14 +192,9 @@ public class PlayerControl : MonoBehaviour
 		}
 	}
 
-	public bool IsFlying()
-	{
-		return fly;
-	}
-
 	public bool IsAiming()
 	{
-		return aim && !fly;
+		return aim;
 	}
 
 	public bool isSprinting()
