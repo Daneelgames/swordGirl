@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\PlayerScripts\AnimatorEvents.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\ThirdPersonOrbitCam.cs" />
+    <Compile Include="Assets\SwordController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />

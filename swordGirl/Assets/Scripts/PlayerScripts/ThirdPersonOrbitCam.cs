@@ -133,7 +133,7 @@ public class ThirdPersonOrbitCam : MonoBehaviour
         if (Physics.Raycast(checkPos, player.position + (Vector3.up * deltaPlayerHeight) - checkPos, out hit, relCameraPosMag, 1<<8))
 		{
 			// ... if it is not the player...
-			if (hit.transform != player && !hit.transform.GetComponent<Collider>().isTrigger)
+			if (hit.collider != null && hit.transform != player && !hit.transform.GetComponent<Collider>().isTrigger)
 			{
 				// This position isn't appropriate.
 				return false;
@@ -143,7 +143,7 @@ public class ThirdPersonOrbitCam : MonoBehaviour
         if (Physics.Raycast(checkPos, Vector3.left, out hitLeft, relCameraPosMag, 1 << 8))
         {
             // ... if it is not the player...
-            if (hit.transform != player && !hit.transform.GetComponent<Collider>().isTrigger)
+            if (hit.collider != null && hit.transform != player && !hit.transform.GetComponent<Collider>().isTrigger)
             {
                 // This position isn't appropriate.
                 return false;
@@ -153,7 +153,7 @@ public class ThirdPersonOrbitCam : MonoBehaviour
         if (Physics.Raycast(checkPos, Vector3.right, out hitRight, relCameraPosMag, 1 << 8))
         {
             // ... if it is not the player...
-            if (hit.transform != player && !hit.transform.GetComponent<Collider>().isTrigger)
+            if (hit.collider != null && hit.transform != player && !hit.transform.GetComponent<Collider>().isTrigger)
             {
                 // This position isn't appropriate.
                 return false;
@@ -170,7 +170,7 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 
 		if(Physics.Raycast(player.position+(Vector3.up* deltaPlayerHeight), checkPos - player.position, out hit, relCameraPosMag))
 		{
-			if(hit.transform != player && hit.transform != transform && !hit.transform.GetComponent<Collider>().isTrigger)
+			if(hit.collider != null && hit.transform != player && hit.transform != transform && !hit.transform.GetComponent<Collider>().isTrigger)
 			{
 				return false;
 			}

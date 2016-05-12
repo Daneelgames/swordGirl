@@ -19,6 +19,9 @@ public class AnimatorEvents : MonoBehaviour {
     private GameManager gm;
 
     [SerializeField]
+    private SwordController sword;
+
+    [SerializeField]
     private ParticleSystem rollParticles;
 
     void Awake()
@@ -61,11 +64,13 @@ public class AnimatorEvents : MonoBehaviour {
     public void TrailStart()
     {
         trail.enabled = true;
+        sword.dangerous = true;
     }
 
     public void TrailStop()
     {
         trail.enabled = false;
+        sword.dangerous = false;
     }
 
     public void StaminaUse(float amount)
