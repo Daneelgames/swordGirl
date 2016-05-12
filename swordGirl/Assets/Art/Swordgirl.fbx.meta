@@ -1182,7 +1182,7 @@ ModelImporter:
     - serializedVersion: 16
       name: roll
       takeName: Armature|idle.001
-      firstFrame: 60
+      firstFrame: 55
       lastFrame: 84
       wrapMode: 0
       orientationOffsetY: 0
