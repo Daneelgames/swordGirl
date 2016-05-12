@@ -46,9 +46,10 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 		playerControl = player.GetComponent<PlayerControl> ();
 
 		relCameraPos = transform.position - player.position;
-		relCameraPosMag = relCameraPos.magnitude - 0.5f;
+        relCameraPosMag = relCameraPos.magnitude;
+        //relCameraPosMag = relCameraPos.magnitude - 0.5f;
 
-		smoothPivotOffset = pivotOffset;
+        smoothPivotOffset = pivotOffset;
 		smoothCamOffset = camOffset;
 
 		defaultFOV = cam.GetComponent<Camera>().fieldOfView;

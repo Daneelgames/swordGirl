@@ -88,6 +88,7 @@ public class PlayerControl : MonoBehaviour
 		isMoving = Mathf.Abs(h) > 0.1 || Mathf.Abs(v) > 0.1;
 
         AttackManagment();
+        RollManagement();
     }
 
 	void FixedUpdate()
@@ -98,7 +99,6 @@ public class PlayerControl : MonoBehaviour
 		
 		anim.SetBool (groundedBool, IsGrounded ());
 		MovementManagement (h, v, run, sprint);
-		RollManagement ();
         LimitVelocity();
 	}
 
@@ -118,7 +118,7 @@ public class PlayerControl : MonoBehaviour
             anim.SetBool("Attack1", true); 
         */
 
-        if (gm.playerStamina > .1f && Input.GetButtonDown("Attack1"))
+        if (attackCooldown <= 0 && gm.playerStamina > .1f && Input.GetButtonDown("Attack1"))
             anim.SetBool("Attack1", true);
     }
 
@@ -127,16 +127,17 @@ public class PlayerControl : MonoBehaviour
         if (timeToNextRoll > 0)
             timeToNextRoll -= Time.deltaTime;
         
-        if (gm.playerStamina > .1f && Input.GetButtonDown ("Roll"))
+        if (attackCooldown <= 0 && gm.playerStamina > 0 && Input.GetButtonDown ("Roll"))
         {
             anim.SetBool("Roll", true);
-            if (timeToNextRoll <= 0 && !aim)
-			{
-                _rb.AddRelativeForce(Vector3.forward * rollLength, ForceMode.Impulse);
-                timeToNextRoll = rollCooldown;
-            }
 		}
 	}
+
+    public void Roll()
+    {
+        _rb.AddRelativeForce(Vector3.forward * rollLength, ForceMode.Impulse);
+        timeToNextRoll = rollCooldown;
+    }
 
 	void MovementManagement(float horizontal, float vertical, bool running, bool sprinting)
 	{

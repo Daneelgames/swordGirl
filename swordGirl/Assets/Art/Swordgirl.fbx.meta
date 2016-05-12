@@ -825,7 +825,35 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.08333346
+        functionName: StepLeft
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.31770843
+        functionName: StepRight
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.56510407
+        functionName: StepLeft
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.8151041
+        functionName: StepRight
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -951,7 +979,35 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: SetCoolDown
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 1
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.36828637
+        functionName: TrailStart
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5115089
+        functionName: StaminaUse
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0.2
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.9108635
+        functionName: TrailStop
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -1077,7 +1133,56 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: SetCoolDown
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 1.5
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.30434787
+        functionName: TrailStart
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.37595907
+        functionName: StaminaUse
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0.15
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5218672
+        functionName: TrailStop
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.69053704
+        functionName: TrailStart
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.7723783
+        functionName: StaminaUse
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0.15
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: TrailStop
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -1203,7 +1308,35 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: Roll
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: StaminaUse
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0.2
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.66406244
+        functionName: SetRollFalse
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: TrailStop
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -1329,7 +1462,42 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: SetCoolDown
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 1.5
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: SetRollFalse
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.1328125
+        functionName: TrailStart
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.28385416
+        functionName: StaminaUse
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0.2
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.830594
+        functionName: TrailStop
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1

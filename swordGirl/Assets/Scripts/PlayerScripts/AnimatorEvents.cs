@@ -24,11 +24,22 @@ public class AnimatorEvents : MonoBehaviour {
     [SerializeField]
     private ParticleSystem rollParticles;
 
+    private bool isTrail = false;
+
     void Awake()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         anim = GetComponent<Animator>();
-        trail.enabled = false;
+        trail.time = 0f;
+    }
+
+    void Update()
+    {
+        if (!isTrail)
+            trail.time = Mathf.Lerp(trail.time, 0, 5 * Time.deltaTime);
+        else
+            trail.time = Mathf.Lerp(trail.time, 1, 5 * Time.deltaTime);
+
     }
 
 	public void SetCoolDown(float coolDown)
@@ -39,7 +50,7 @@ public class AnimatorEvents : MonoBehaviour {
 
     public void Roll()
     {
-
+        player.Roll();
         rollParticles.time = 0;
         rollParticles.Play();
     }
@@ -63,13 +74,17 @@ public class AnimatorEvents : MonoBehaviour {
 
     public void TrailStart()
     {
-        trail.enabled = true;
+        //trail.time = 0.5f;
+        //trail.enabled = true;
+        isTrail = true;
         sword.dangerous = true;
     }
 
     public void TrailStop()
     {
-        trail.enabled = false;
+        //trail.time = 0.05f;
+        //trail.enabled = false;
+        isTrail = false;
         sword.dangerous = false;
     }
 
