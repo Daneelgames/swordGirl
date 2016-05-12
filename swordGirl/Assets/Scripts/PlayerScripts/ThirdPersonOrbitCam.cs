@@ -16,7 +16,6 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 	public float horizontalAimingSpeed = 400f;
 	public float verticalAimingSpeed = 400f;
 	public float maxVerticalAngle = 30f;
-	public float flyMaxVerticalAngle = 60f;
 	public float minVerticalAngle = -60f;
 	
 	public float mouseSensitivity = 0.3f;
@@ -83,8 +82,14 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 		if(playerControl.isSprinting())
 		{
 			targetFOV = sprintFOV;
-		}
-		else
+        }
+
+        if (playerControl.timeToNextRoll > 0)
+        {
+            targetFOV = sprintFOV;
+        }
+
+        else
 		{
 			targetFOV = defaultFOV;
 		}

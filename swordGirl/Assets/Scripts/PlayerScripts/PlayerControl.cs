@@ -8,14 +8,20 @@ public class PlayerControl : MonoBehaviour
 	public float runSpeed = 1.0f;
 	public float sprintSpeed = 2.0f;
 
+    public float maxVelocity = 10;
+    
 	public float turnSmoothing = 3.0f;
-	public float aimTurnSmoothing = 15.0f;
-	public float speedDampTime = 1f;
+    [HideInInspector]
+    public float aimTurnSmoothing = 15.0f;
+    [HideInInspector]
+    public float speedDampTime = 1f;
 
-	public float jumpHeight = 5.0f;
-	public float jumpCooldown = 1.0f;
+	public float rollLength = 5.0f;
+	public float rollCooldown = 1.0f;
 
-	private float timeToNextJump = 0;
+    public float attackCooldown = 0f;
+
+    public float timeToNextRoll = 0;
 	
 	private float speed;
 
@@ -26,7 +32,6 @@ public class PlayerControl : MonoBehaviour
     [SerializeField]
     private Rigidbody _rb;
 	private int speedFloat;
-	private int jumpBool;
 	private int hFloat;
 	private int vFloat;
 	private int aimBool;
@@ -45,7 +50,7 @@ public class PlayerControl : MonoBehaviour
 	private bool isMoving;
 
 	private float distToGround;
-	private float sprintFactor;
+//	private float sprintFactor;
 
 	void Awake()
 	{
@@ -54,13 +59,12 @@ public class PlayerControl : MonoBehaviour
 		cameraTransform = Camera.main.transform;
 
 		speedFloat = Animator.StringToHash("Speed");
-		jumpBool = Animator.StringToHash("Jump");
 		hFloat = Animator.StringToHash("H");
 		vFloat = Animator.StringToHash("V");
 		aimBool = Animator.StringToHash("Aim");
 		groundedBool = Animator.StringToHash("Grounded");
 		distToGround = GetComponent<Collider>().bounds.extents.y;
-		sprintFactor = sprintSpeed / runSpeed;
+		//sprintFactor = sprintSpeed / runSpeed;
 	}
 
 	bool IsGrounded() {
@@ -76,9 +80,8 @@ public class PlayerControl : MonoBehaviour
 		sprint = Input.GetButton ("Sprint");
 		isMoving = Mathf.Abs(h) > 0.1 || Mathf.Abs(v) > 0.1;
 
-        if (Input.GetButtonDown("Fire1"))
-            anim.SetTrigger("Attack");
-	}
+        AttackManagment();
+    }
 
 	void FixedUpdate()
 	{
@@ -89,55 +92,76 @@ public class PlayerControl : MonoBehaviour
 		anim.SetBool (groundedBool, IsGrounded ());
 		MovementManagement (h, v, run, sprint);
 		JumpManagement ();
+        LimitVelocity();
 	}
 
+    void LimitVelocity()
+    {
+        if (!sprint && _rb.velocity.magnitude > maxVelocity && timeToNextRoll <= 0)
+            _rb.velocity = Vector3.ClampMagnitude(_rb.velocity, maxVelocity);
+    }
+
+    void AttackManagment()
+    {
+        if (attackCooldown > 0)
+            attackCooldown -= 1 * Time.deltaTime;
+
+        /*
+        if (attackCooldown <= 0 && Input.GetButtonDown("Attack1"))
+            anim.SetBool("Attack1", true); 
+        */
+
+        if (Input.GetButtonDown("Attack1"))
+            anim.SetBool("Attack1", true);
+    }
 
 	void JumpManagement()
 	{
-		if (_rb.velocity.y < 10) // already jumped
-		{
-			anim.SetBool (jumpBool, false);
-			if(timeToNextJump > 0)
-				timeToNextJump -= Time.deltaTime;
-		}
-		if (Input.GetButtonDown ("Jump"))
-		{
-			anim.SetBool(jumpBool, true);
-			if(speed > 0 && timeToNextJump <= 0 && !aim)
+		if(timeToNextRoll > 0)
+            timeToNextRoll -= Time.deltaTime;
+
+		if (Input.GetButtonDown ("Roll"))
+        {
+            anim.SetBool("Roll", true);
+            if (timeToNextRoll <= 0 && !aim)
 			{
-				_rb.velocity = new Vector3(0, jumpHeight, 0);
-				timeToNextJump = jumpCooldown;
+                _rb.AddRelativeForce(Vector3.forward * rollLength, ForceMode.Impulse);
+                timeToNextRoll = rollCooldown;
 			}
 		}
 	}
 
 	void MovementManagement(float horizontal, float vertical, bool running, bool sprinting)
 	{
-		Rotating(horizontal, vertical);
+        if (attackCooldown <= 0)
+        {
+            if (timeToNextRoll <= 0)
+                Rotating(horizontal, vertical);
 
-		if(isMoving)
-		{
-			if(sprinting)
-			{
-				speed = sprintSpeed;
-			}
-			else if (running)
-			{
-				speed = runSpeed;
-			}
-			else
-			{
-				speed = walkSpeed;
-			}
+            if (isMoving)
+            {
+                if (sprinting)
+                {
+                    speed = sprintSpeed;
+                }
+                else if (running)
+                {
+                    speed = runSpeed;
+                }
+                else
+                {
+                    speed = walkSpeed;
+                }
 
-			anim.SetFloat(speedFloat, speed, speedDampTime, Time.deltaTime);
-		}
-		else
-		{
-			speed = 0f;
-			anim.SetFloat(speedFloat, 0f);
-		}
-		_rb.AddRelativeForce(Vector3.forward * speed);
+                anim.SetFloat(speedFloat, speed, speedDampTime, Time.deltaTime);
+            }
+            else
+            {
+                speed = 0f;
+                anim.SetFloat(speedFloat, 0f);
+            }
+            _rb.AddRelativeForce(Vector3.forward * speed);
+        }
 	}
 
 	Vector3 Rotating(float horizontal, float vertical)
