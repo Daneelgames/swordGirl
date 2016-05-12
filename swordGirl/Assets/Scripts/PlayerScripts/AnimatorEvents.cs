@@ -16,8 +16,14 @@ public class AnimatorEvents : MonoBehaviour {
     [SerializeField]
     private ParticleSystem rightStep;
 
+    private GameManager gm;
+
+    [SerializeField]
+    private ParticleSystem rollParticles;
+
     void Awake()
     {
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         anim = GetComponent<Animator>();
         trail.enabled = false;
     }
@@ -26,6 +32,13 @@ public class AnimatorEvents : MonoBehaviour {
     {
         player.attackCooldown = coolDown;
         anim.SetBool("Attack1", false);
+    }
+
+    public void Roll()
+    {
+
+        rollParticles.time = 0;
+        rollParticles.Play();
     }
 
     public void SetRollFalse()
@@ -53,5 +66,11 @@ public class AnimatorEvents : MonoBehaviour {
     public void TrailStop()
     {
         trail.enabled = false;
+    }
+
+    public void StaminaUse(float amount)
+    {
+        if (gm.playerStamina > 0)
+            gm.playerStamina -= amount;
     }
 }

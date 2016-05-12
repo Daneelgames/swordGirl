@@ -29,8 +29,6 @@ public class PlayerControl : MonoBehaviour
 	private Animator anim;
     [SerializeField]
     private Rigidbody _rb;
-    [SerializeField]
-    private ParticleSystem rollParticles;
 
     private float speed;
 
@@ -55,10 +53,14 @@ public class PlayerControl : MonoBehaviour
 	private bool isMoving;
 
 	private float distToGround;
-//	private float sprintFactor;
 
-	void Awake()
-	{
+    private GameManager gm;
+    //	private float sprintFactor;
+
+    void Awake()
+    {
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+
         if (anim == null)
 		    anim = GetComponent<Animator> ();
 		cameraTransform = Camera.main.transform;
@@ -116,7 +118,7 @@ public class PlayerControl : MonoBehaviour
             anim.SetBool("Attack1", true); 
         */
 
-        if (Input.GetButtonDown("Attack1"))
+        if (gm.playerStamina > .1f && Input.GetButtonDown("Attack1"))
             anim.SetBool("Attack1", true);
     }
 
@@ -125,15 +127,13 @@ public class PlayerControl : MonoBehaviour
         if (timeToNextRoll > 0)
             timeToNextRoll -= Time.deltaTime;
         
-        if (Input.GetButtonDown ("Roll"))
+        if (gm.playerStamina > .1f && Input.GetButtonDown ("Roll"))
         {
             anim.SetBool("Roll", true);
             if (timeToNextRoll <= 0 && !aim)
 			{
                 _rb.AddRelativeForce(Vector3.forward * rollLength, ForceMode.Impulse);
                 timeToNextRoll = rollCooldown;
-                rollParticles.time = 0;
-                rollParticles.Play();
             }
 		}
 	}
