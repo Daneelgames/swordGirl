@@ -94,6 +94,10 @@
       <Project>{17D044E4-2C00-D77A-6723-E059373A0E0F}</Project>
       <Name>swordGirl.CSharp.Plugins</Name>
     </ProjectReference>
+    <ProjectReference Include="swordGirl.CSharp.csproj">
+      <Project>{5EFBE5E8-0AED-4ED8-ABCA-B8825FB3E866}</Project>
+      <Name>swordGirl.CSharp</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\ImageEffects\AntialiasingEditor.cs" />

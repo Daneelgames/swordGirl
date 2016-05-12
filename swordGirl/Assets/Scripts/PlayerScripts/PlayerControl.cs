@@ -15,23 +15,28 @@ public class PlayerControl : MonoBehaviour
     public float aimTurnSmoothing = 15.0f;
     [HideInInspector]
     public float speedDampTime = 1f;
-
+    
 	public float rollLength = 5.0f;
+
 	public float rollCooldown = 1.0f;
 
     public float attackCooldown = 0f;
 
     public float timeToNextRoll = 0;
 	
-	private float speed;
-
-	private Vector3 lastDirection;
 
     [SerializeField]
 	private Animator anim;
     [SerializeField]
     private Rigidbody _rb;
-	private int speedFloat;
+    [SerializeField]
+    private ParticleSystem rollParticles;
+
+    private float speed;
+
+    private Vector3 lastDirection;
+
+    private int speedFloat;
 	private int hFloat;
 	private int vFloat;
 	private int aimBool;
@@ -91,7 +96,7 @@ public class PlayerControl : MonoBehaviour
 		
 		anim.SetBool (groundedBool, IsGrounded ());
 		MovementManagement (h, v, run, sprint);
-		JumpManagement ();
+		RollManagement ();
         LimitVelocity();
 	}
 
@@ -115,19 +120,21 @@ public class PlayerControl : MonoBehaviour
             anim.SetBool("Attack1", true);
     }
 
-	void JumpManagement()
-	{
-		if(timeToNextRoll > 0)
+	void RollManagement()
+    {
+        if (timeToNextRoll > 0)
             timeToNextRoll -= Time.deltaTime;
-
-		if (Input.GetButtonDown ("Roll"))
+        
+        if (Input.GetButtonDown ("Roll"))
         {
             anim.SetBool("Roll", true);
             if (timeToNextRoll <= 0 && !aim)
 			{
                 _rb.AddRelativeForce(Vector3.forward * rollLength, ForceMode.Impulse);
                 timeToNextRoll = rollCooldown;
-			}
+                rollParticles.time = 0;
+                rollParticles.Play();
+            }
 		}
 	}
 
