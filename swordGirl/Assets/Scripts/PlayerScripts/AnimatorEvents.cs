@@ -6,6 +6,9 @@ public class AnimatorEvents : MonoBehaviour {
     [SerializeField]
     private PlayerControl player;
 
+    [SerializeField]
+    private TrailRenderer trail;
+
     private Animator anim;
 
     [SerializeField]
@@ -16,6 +19,7 @@ public class AnimatorEvents : MonoBehaviour {
     void Awake()
     {
         anim = GetComponent<Animator>();
+        trail.enabled = false;
     }
 
 	public void SetCoolDown(float coolDown)
@@ -39,5 +43,15 @@ public class AnimatorEvents : MonoBehaviour {
     {
         rightStep.time = 0;
         rightStep.Play();
+    }
+
+    public void TrailStart()
+    {
+        trail.enabled = true;
+    }
+
+    public void TrailStop()
+    {
+        trail.enabled = false;
     }
 }
