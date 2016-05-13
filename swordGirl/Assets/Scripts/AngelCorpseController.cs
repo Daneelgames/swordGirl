@@ -6,7 +6,10 @@ public class AngelCorpseController : MonoBehaviour {
     [SerializeField]
     private int pose = 0;
 
+    private Animator anim;
+
 	void Awake () {
-        GetComponentInChildren<Animator>().SetInteger("Pose", pose);
+        anim = GetComponentInChildren<Animator>();
+        anim.SetInteger("Pose", pose);
 	}
 }

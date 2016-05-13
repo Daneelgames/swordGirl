@@ -26,6 +26,28 @@ public class AnimatorEvents : MonoBehaviour {
 
     private bool isTrail = false;
 
+    [SerializeField]
+    private AudioClip[] audioClip;
+
+    private float pitch;
+
+    void PlaySound(int clip)
+    {
+        pitch = Random.Range(.9f, 1.1f);
+        PlayClipAtPoint(audioClip[clip], new Vector3(transform.position.x, transform.position.y, 0), 1f, pitch);
+    }
+
+    GameObject PlayClipAtPoint(AudioClip clip, Vector3 position, float volume, float pitch)
+    {
+        GameObject obj = new GameObject();
+        obj.transform.position = position;
+        obj.AddComponent<AudioSource>();
+        obj.GetComponent<AudioSource>().pitch = pitch;
+        obj.GetComponent<AudioSource>().PlayOneShot(clip, volume);
+        Destroy(obj, clip.length / pitch);
+        return obj;
+    }
+
     void Awake()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -62,12 +84,14 @@ public class AnimatorEvents : MonoBehaviour {
 
     public void StepLeft()
     {
+        PlaySound(0);
         leftStep.time = 0;
         leftStep.Play();
     }
 
     public void StepRight()
     {
+        PlaySound(0);
         rightStep.time = 0;
         rightStep.Play();
     }
