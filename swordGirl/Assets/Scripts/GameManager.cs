@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour {
 
     void SetBarsValues()
     {
-        playerHealthBar.fillAmount = Mathf.Lerp(playerHealthBar.fillAmount, playerHealth, 1f * Time.deltaTime);
-        playerStaminaBar.fillAmount = Mathf.Lerp(playerStaminaBar.fillAmount, playerStamina, 1f * Time.deltaTime);
+        playerHealthBar.fillAmount = Mathf.Lerp(playerHealthBar.fillAmount, playerHealth, 5f * Time.deltaTime);
+        playerStaminaBar.fillAmount = Mathf.Lerp(playerStaminaBar.fillAmount, playerStamina, 5f * Time.deltaTime);
     }
 }

@@ -984,7 +984,7 @@ ModelImporter:
         functionName: SetCoolDown
         data: 
         objectReferenceParameter: {instanceID: 0}
-        floatParameter: 1
+        floatParameter: 0.75
         intParameter: 0
         messageOptions: 0
       - time: 0.36828637
@@ -1138,7 +1138,7 @@ ModelImporter:
         functionName: SetCoolDown
         data: 
         objectReferenceParameter: {instanceID: 0}
-        floatParameter: 1.5
+        floatParameter: 1
         intParameter: 0
         messageOptions: 0
       - time: 0.30434787
@@ -1467,7 +1467,7 @@ ModelImporter:
         functionName: SetCoolDown
         data: 
         objectReferenceParameter: {instanceID: 0}
-        floatParameter: 1.5
+        floatParameter: 1
         intParameter: 0
         messageOptions: 0
       - time: 0

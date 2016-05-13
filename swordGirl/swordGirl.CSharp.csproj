@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\PlayerScripts\AnimatorEvents.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\ThirdPersonOrbitCam.cs" />
+    <Compile Include="Assets\Scripts\PlayerScripts\ThirdPersonOrbitCam12.cs" />
     <Compile Include="Assets\Scripts\SwordController.cs" />
   </ItemGroup>
   <ItemGroup>

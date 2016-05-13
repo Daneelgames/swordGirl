@@ -12,8 +12,6 @@ public class PlayerControl : MonoBehaviour
     
 	public float turnSmoothing = 3.0f;
     [HideInInspector]
-    public float aimTurnSmoothing = 15.0f;
-    [HideInInspector]
     public float speedDampTime = 1f;
     
 	public float rollLength = 5.0f;
@@ -37,7 +35,6 @@ public class PlayerControl : MonoBehaviour
     private int speedFloat;
 	private int hFloat;
 	private int vFloat;
-	private int aimBool;
 	private int flyBool;
 	private int groundedBool;
 	private Transform cameraTransform;
@@ -45,7 +42,6 @@ public class PlayerControl : MonoBehaviour
 	private float h;
 	private float v;
 
-	private bool aim;
 
 	private bool run;
 	private bool sprint;
@@ -68,7 +64,6 @@ public class PlayerControl : MonoBehaviour
 		speedFloat = Animator.StringToHash("Speed");
 		hFloat = Animator.StringToHash("H");
 		vFloat = Animator.StringToHash("V");
-		aimBool = Animator.StringToHash("Aim");
 		groundedBool = Animator.StringToHash("Grounded");
 		distToGround = GetComponent<Collider>().bounds.extents.y;
 		//sprintFactor = sprintSpeed / runSpeed;
@@ -80,7 +75,6 @@ public class PlayerControl : MonoBehaviour
 
 	void Update()
 	{
-		aim = Input.GetButton("Aim");
 		h = Input.GetAxis("Horizontal");
 		v = Input.GetAxis("Vertical");
 		run = Input.GetButton ("Run");
@@ -93,7 +87,6 @@ public class PlayerControl : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		anim.SetBool (aimBool, IsAiming());
 		anim.SetFloat(hFloat, h);
 		anim.SetFloat(vFloat, v);
 		
@@ -112,12 +105,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (attackCooldown > 0)
             attackCooldown -= 1 * Time.deltaTime;
-
-        /*
-        if (attackCooldown <= 0 && Input.GetButtonDown("Attack1"))
-            anim.SetBool("Attack1", true); 
-        */
-
+        
         if (attackCooldown <= 0 && gm.playerStamina > .1f && Input.GetButtonDown("Attack1"))
             anim.SetBool("Attack1", true);
     }
@@ -183,19 +171,11 @@ public class PlayerControl : MonoBehaviour
 		Vector3 targetDirection;
 
 		float finalTurnSmoothing;
+        
+		targetDirection = forward * vertical + right * horizontal;
+		finalTurnSmoothing = turnSmoothing;
 
-		if(IsAiming())
-		{
-			targetDirection = forward;
-			finalTurnSmoothing = aimTurnSmoothing;
-		}
-		else
-		{
-			targetDirection = forward * vertical + right * horizontal;
-			finalTurnSmoothing = turnSmoothing;
-		}
-
-		if((isMoving && targetDirection != Vector3.zero) || IsAiming())
+		if((isMoving && targetDirection != Vector3.zero))
 		{
 			Quaternion targetRotation = Quaternion.LookRotation (targetDirection, Vector3.up);
 
@@ -223,14 +203,9 @@ public class PlayerControl : MonoBehaviour
 			_rb.MoveRotation (newRotation);
 		}
 	}
-
-	public bool IsAiming()
-	{
-		return aim;
-	}
-
+    
 	public bool isSprinting()
 	{
-		return sprint && !aim && (isMoving);
+		return sprint && (isMoving);
 	}
 }
