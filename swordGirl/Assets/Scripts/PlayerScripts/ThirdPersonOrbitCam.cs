@@ -37,24 +37,26 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 
 	private float defaultFOV;
 	private float targetFOV;
-
-    LayerMask mask;
+    
 
     void Awake()
 	{
 		cam = transform;
 		playerControl = player.GetComponent<PlayerControl> ();
 
-		relCameraPos = transform.position - player.position;
-        relCameraPosMag = relCameraPos.magnitude;
         //relCameraPosMag = relCameraPos.magnitude - 0.5f;
 
         smoothPivotOffset = pivotOffset;
 		smoothCamOffset = camOffset;
 
 		defaultFOV = cam.GetComponent<Camera>().fieldOfView;
+        
+    }
 
-        mask = 1 << LayerMask.NameToLayer("Clippable") | 0 << LayerMask.NameToLayer("NotClippable");
+    void Update()
+    {
+        relCameraPos = transform.position - player.position;
+        relCameraPosMag = relCameraPos.magnitude;
     }
 
 	void LateUpdate()
@@ -126,41 +128,13 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 
 	bool ViewingPosCheck (Vector3 checkPos, float deltaPlayerHeight)
 	{
-		RaycastHit hit;
-        RaycastHit hitLeft;
-        RaycastHit hitRight;
+        RaycastHit hit;
 
         // If a raycast from the check position to the player hits something...
         if (Physics.Raycast(checkPos, player.position + (Vector3.up * deltaPlayerHeight) - checkPos, out hit, relCameraPosMag, 1<<8))
-		{
-			// ... if it is not the player...
-			if (hit.collider != null && hit.transform != player && !hit.transform.GetComponent<Collider>().isTrigger)
-			{
-				// This position isn't appropriate.
+        {
 				return false;
-			}
         }
-
-        if (Physics.Raycast(checkPos, Vector3.left, out hitLeft, relCameraPosMag, 1 << 8))
-        {
-            // ... if it is not the player...
-            if (hit.collider != null && hit.transform != player && !hit.transform.GetComponent<Collider>().isTrigger)
-            {
-                // This position isn't appropriate.
-                return false;
-            }
-        }
-
-        if (Physics.Raycast(checkPos, Vector3.right, out hitRight, relCameraPosMag, 1 << 8))
-        {
-            // ... if it is not the player...
-            if (hit.collider != null && hit.transform != player && !hit.transform.GetComponent<Collider>().isTrigger)
-            {
-                // This position isn't appropriate.
-                return false;
-            }
-        }
-
         // If we haven't hit anything or we've hit the player, this is an appropriate position.
         return true;
 	}
@@ -171,7 +145,7 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 
 		if(Physics.Raycast(player.position+(Vector3.up* deltaPlayerHeight), checkPos - player.position, out hit, relCameraPosMag))
 		{
-			if(hit.collider != null && hit.transform != player && hit.transform != transform && !hit.transform.GetComponent<Collider>().isTrigger)
+			if(hit.transform != player && hit.transform != transform && !hit.transform.GetComponent<Collider>().isTrigger)
 			{
 				return false;
 			}
