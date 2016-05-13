@@ -69,11 +69,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AngelCorpseController.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\AnimatorEvents.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\ThirdPersonOrbitCam.cs" />
-    <Compile Include="Assets\SwordController.cs" />
+    <Compile Include="Assets\Scripts\SwordController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />

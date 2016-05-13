@@ -1,0 +1,460 @@
+fileFormatVersion: 2
+guid: 92017c6a88b43b34bad7b9eee5a3c60b
+timeCreated: 1463143860
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: arm1L
+    100004: arm1R
+    100006: arm2L
+    100008: arm2R
+    100010: arm3L
+    100012: arm3R
+    100014: arm4L
+    100016: arm4R
+    100018: arm5L
+    100020: arm5R
+    100022: Armature
+    100024: base
+    100026: Bison Skull
+    100028: body
+    100030: chest
+    100032: cross_1
+    100034: cross_2
+    100036: cross_3
+    100038: elbow.L
+    100040: elbow.L_end
+    100042: elbow.R
+    100044: elbow.R_end
+    100046: finger1_1L
+    100048: finger1_1R
+    100050: finger1_2L
+    100052: finger1_2R
+    100054: finger1_3L
+    100056: finger1_3L_end
+    100058: finger1_3R
+    100060: finger1_3R_end
+    100062: finger2_1L
+    100064: finger2_1R
+    100066: finger2_2L
+    100068: finger2_2L_end
+    100070: finger2_2R
+    100072: finger2_2R_end
+    100074: finger3_1L
+    100076: finger3_1R
+    100078: finger3_2L
+    100080: finger3_2L_end
+    100082: finger3_2R
+    100084: finger3_2R_end
+    100086: finger4_1L
+    100088: finger4_1R
+    100090: finger4_2L
+    100092: finger4_2L_end
+    100094: finger4_2R
+    100096: finger4_2R_end
+    100098: finger5_1L
+    100100: finger5_1R
+    100102: finger5_2L
+    100104: finger5_2L_end
+    100106: finger5_2R
+    100108: finger5_2R_end
+    100110: handIK.L
+    100112: handIK.L_end
+    100114: handIK.R
+    100116: handIK.R_end
+    100118: head
+    100120: head_end
+    100122: headIK
+    100124: IK.L
+    100126: IK.R
+    100128: knee.L
+    100130: knee.L_end
+    100132: knee.R
+    100134: knee.R_end
+    100136: leg1L
+    100138: leg1R
+    100140: leg2L
+    100142: leg2R
+    100144: leg3L
+    100146: leg3R
+    100148: leg4L
+    100150: leg4L_end
+    100152: leg4R
+    100154: leg4R_end
+    100156: leg5L
+    100158: leg5R
+    100160: leg6L
+    100162: leg6L_end
+    100164: leg6R
+    100166: leg6R_end
+    100168: neck
+    100170: spine
+    100172: spine_end
+    400000: //RootNode
+    400002: arm1L
+    400004: arm1R
+    400006: arm2L
+    400008: arm2R
+    400010: arm3L
+    400012: arm3R
+    400014: arm4L
+    400016: arm4R
+    400018: arm5L
+    400020: arm5R
+    400022: Armature
+    400024: base
+    400026: Bison Skull
+    400028: body
+    400030: chest
+    400032: cross_1
+    400034: cross_2
+    400036: cross_3
+    400038: elbow.L
+    400040: elbow.L_end
+    400042: elbow.R
+    400044: elbow.R_end
+    400046: finger1_1L
+    400048: finger1_1R
+    400050: finger1_2L
+    400052: finger1_2R
+    400054: finger1_3L
+    400056: finger1_3L_end
+    400058: finger1_3R
+    400060: finger1_3R_end
+    400062: finger2_1L
+    400064: finger2_1R
+    400066: finger2_2L
+    400068: finger2_2L_end
+    400070: finger2_2R
+    400072: finger2_2R_end
+    400074: finger3_1L
+    400076: finger3_1R
+    400078: finger3_2L
+    400080: finger3_2L_end
+    400082: finger3_2R
+    400084: finger3_2R_end
+    400086: finger4_1L
+    400088: finger4_1R
+    400090: finger4_2L
+    400092: finger4_2L_end
+    400094: finger4_2R
+    400096: finger4_2R_end
+    400098: finger5_1L
+    400100: finger5_1R
+    400102: finger5_2L
+    400104: finger5_2L_end
+    400106: finger5_2R
+    400108: finger5_2R_end
+    400110: handIK.L
+    400112: handIK.L_end
+    400114: handIK.R
+    400116: handIK.R_end
+    400118: head
+    400120: head_end
+    400122: headIK
+    400124: IK.L
+    400126: IK.R
+    400128: knee.L
+    400130: knee.L_end
+    400132: knee.R
+    400134: knee.R_end
+    400136: leg1L
+    400138: leg1R
+    400140: leg2L
+    400142: leg2R
+    400144: leg3L
+    400146: leg3R
+    400148: leg4L
+    400150: leg4L_end
+    400152: leg4R
+    400154: leg4R_end
+    400156: leg5L
+    400158: leg5R
+    400160: leg6L
+    400162: leg6L_end
+    400164: leg6R
+    400166: leg6R_end
+    400168: neck
+    400170: spine
+    400172: spine_end
+    2300000: cross_1
+    2300002: cross_2
+    2300004: cross_3
+    3300000: cross_1
+    3300002: cross_2
+    3300004: cross_3
+    4300000: cross_1
+    4300002: cross_2
+    4300004: cross_3
+    4300006: Bison Skull
+    7400000: idle_1
+    9500000: //RootNode
+    13700000: Bison Skull
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle_1
+      takeName: Armature|ArmatureAction
+      firstFrame: 2
+      lastFrame: 3
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/base
+        weight: 1
+      - path: Armature/base/body
+        weight: 1
+      - path: Armature/base/body/chest
+        weight: 1
+      - path: Armature/base/body/chest/neck
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger1_1L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger1_1L/finger1_2L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger1_1L/finger1_2L/finger1_3L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger1_1L/finger1_2L/finger1_3L/finger1_3L_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger2_1L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger2_1L/finger2_2L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger2_1L/finger2_2L/finger2_2L_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger3_1L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger3_1L/finger3_2L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger3_1L/finger3_2L/finger3_2L_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger4_1L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger4_1L/finger4_2L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger4_1L/finger4_2L/finger4_2L_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger5_1L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger5_1L/finger5_2L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger5_1L/finger5_2L/finger5_2L_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger1_1R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger1_1R/finger1_2R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger1_1R/finger1_2R/finger1_3R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger1_1R/finger1_2R/finger1_3R/finger1_3R_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger2_1R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger2_1R/finger2_2R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger2_1R/finger2_2R/finger2_2R_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger3_1R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger3_1R/finger3_2R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger3_1R/finger3_2R/finger3_2R_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger4_1R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger4_1R/finger4_2R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger4_1R/finger4_2R/finger4_2R_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger5_1R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger5_1R/finger5_2R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger5_1R/finger5_2R/finger5_2R_end
+        weight: 1
+      - path: Armature/base/body/leg1L
+        weight: 1
+      - path: Armature/base/body/leg1L/leg2L
+        weight: 1
+      - path: Armature/base/body/leg1L/leg2L/leg3L
+        weight: 1
+      - path: Armature/base/body/leg1L/leg2L/leg3L/leg4L
+        weight: 1
+      - path: Armature/base/body/leg1L/leg2L/leg3L/leg4L/leg4L_end
+        weight: 1
+      - path: Armature/base/body/leg1R
+        weight: 1
+      - path: Armature/base/body/leg1R/leg2R
+        weight: 1
+      - path: Armature/base/body/leg1R/leg2R/leg3R
+        weight: 1
+      - path: Armature/base/body/leg1R/leg2R/leg3R/leg4R
+        weight: 1
+      - path: Armature/base/body/leg1R/leg2R/leg3R/leg4R/leg4R_end
+        weight: 1
+      - path: Armature/base/elbow.L
+        weight: 1
+      - path: Armature/base/elbow.L/elbow.L_end
+        weight: 1
+      - path: Armature/base/elbow.R
+        weight: 1
+      - path: Armature/base/elbow.R/elbow.R_end
+        weight: 1
+      - path: Armature/base/headIK
+        weight: 1
+      - path: Armature/base/headIK/head
+        weight: 1
+      - path: Armature/base/headIK/head/head_end
+        weight: 1
+      - path: Armature/base/IK.L
+        weight: 1
+      - path: Armature/base/IK.L/leg5L
+        weight: 1
+      - path: Armature/base/IK.L/leg5L/leg6L
+        weight: 1
+      - path: Armature/base/IK.L/leg5L/leg6L/leg6L_end
+        weight: 1
+      - path: Armature/base/IK.R
+        weight: 1
+      - path: Armature/base/IK.R/leg5R
+        weight: 1
+      - path: Armature/base/IK.R/leg5R/leg6R
+        weight: 1
+      - path: Armature/base/IK.R/leg5R/leg6R/leg6R_end
+        weight: 1
+      - path: Armature/base/knee.L
+        weight: 1
+      - path: Armature/base/knee.L/knee.L_end
+        weight: 1
+      - path: Armature/base/knee.R
+        weight: 1
+      - path: Armature/base/knee.R/knee.R_end
+        weight: 1
+      - path: Armature/base/spine
+        weight: 1
+      - path: Armature/base/spine/spine_end
+        weight: 1
+      - path: Armature/handIK.L
+        weight: 1
+      - path: Armature/handIK.L/handIK.L_end
+        weight: 1
+      - path: Armature/handIK.R
+        weight: 1
+      - path: Armature/handIK.R/handIK.R_end
+        weight: 1
+      - path: Bison Skull
+        weight: 1
+      - path: cross_1
+        weight: 1
+      - path: cross_2
+        weight: 1
+      - path: cross_3
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
