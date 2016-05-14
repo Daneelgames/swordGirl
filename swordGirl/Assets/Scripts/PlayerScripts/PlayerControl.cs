@@ -3,8 +3,10 @@ using System.Collections;
 
 public class PlayerControl : MonoBehaviour
 {
+    [SerializeField]
+    private float impactForce = 350;
 
-	public float walkSpeed = 0.15f;
+    public float walkSpeed = 0.15f;
 	public float runSpeed = 1.0f;
 	public float sprintSpeed = 2.0f;
 
@@ -50,8 +52,13 @@ public class PlayerControl : MonoBehaviour
 
 	private float distToGround;
 
+    private bool grounded = true;
+    private bool flyUp = false;
+    private Vector3 impactPosition;
+
     private GameManager gm;
-    //	private float sprintFactor;
+
+    float dirV = 0f;
 
     void Awake()
     {
@@ -68,11 +75,6 @@ public class PlayerControl : MonoBehaviour
 		distToGround = GetComponent<Collider>().bounds.extents.y;
 		//sprintFactor = sprintSpeed / runSpeed;
 	}
-
-	bool IsGrounded() {
-		return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
-	}
-
 	void Update()
 	{
 		h = Input.GetAxis("Horizontal");
@@ -80,20 +82,42 @@ public class PlayerControl : MonoBehaviour
 		run = Input.GetButton ("Run");
 		sprint = Input.GetButton ("Sprint");
 		isMoving = Mathf.Abs(h) > 0.1 || Mathf.Abs(v) > 0.1;
-
-        AttackManagment();
-        RollManagement();
+        if (grounded)
+        {
+            AttackManagment();
+            RollManagement();
+        }
+        else
+        {
+            if (flyUp && dirV < 10)
+                dirV += 1;
+            else if (!flyUp)
+                dirV -= 1;
+        }
     }
 
 	void FixedUpdate()
 	{
-		anim.SetFloat(hFloat, h);
-		anim.SetFloat(vFloat, v);
-		
-		anim.SetBool (groundedBool, IsGrounded ());
-		MovementManagement (h, v, run, sprint);
         LimitVelocity();
-	}
+
+        if (grounded)
+            MovementManagement(h, v, run, sprint);
+        else
+        {
+            KickedToSky();
+            if (!flyUp)
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, -Vector3.up, out hit, distToGround + 0.1f))
+                    grounded = true;
+            }
+        }
+    }
+
+    void KickedToSky()
+    {
+        _rb.AddForce((new Vector3(transform.position.x, dirV, transform.position.z) - new Vector3(impactPosition.x, 0, impactPosition.z)) * impactForce, ForceMode.Force);
+    }
 
     void LimitVelocity()
     {
@@ -202,9 +226,23 @@ public class PlayerControl : MonoBehaviour
 			Quaternion newRotation = Quaternion.Slerp(_rb.rotation, targetRotation, turnSmoothing * Time.deltaTime);
 			_rb.MoveRotation (newRotation);
 		}
-	}
-    
-	public bool isSprinting()
+    }
+    public void Damage(Vector3 impactOrigin)
+    {
+        impactPosition = impactOrigin;
+        StartCoroutine("Fall");
+    }
+
+    IEnumerator Fall()
+    {
+        dirV = 10;
+        flyUp = true;
+        grounded = false;
+        yield return new WaitForSeconds(1f);
+        flyUp = false;
+    }
+
+    public bool isSprinting()
 	{
 		return sprint && (isMoving);
 	}

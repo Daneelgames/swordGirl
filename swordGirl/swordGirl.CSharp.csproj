@@ -70,6 +70,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AngelCorpseController.cs" />
+    <Compile Include="Assets\Scripts\AngelKingLogic\AngelKingAnimationEvents.cs" />
+    <Compile Include="Assets\Scripts\AngelKingLogic\AngelKingBodyColliderController.cs" />
+    <Compile Include="Assets\Scripts\AngelKingLogic\AngelKingController.cs" />
+    <Compile Include="Assets\Scripts\AngelKingLogic\AngelKingTargetZoneController.cs" />
     <Compile Include="Assets\Scripts\AngelWakeUpTrigger.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\AnimatorEvents.cs" />

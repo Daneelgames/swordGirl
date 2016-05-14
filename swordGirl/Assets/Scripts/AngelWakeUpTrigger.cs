@@ -5,13 +5,22 @@ public class AngelWakeUpTrigger : MonoBehaviour {
 
     [SerializeField]
     private Animator angelKingAnimator;
+    [SerializeField]
+    private AngelKingController angelKingController;
 
-	void OnTriggerEnter(Collider player)
+    void OnTriggerEnter(Collider player)
     {
         if (player.tag == "Player")
         {
-            angelKingAnimator.SetBool("Awake", true);
-            Destroy(gameObject);
+            StartCoroutine("AwakeKing");
         }
+    }
+
+    IEnumerator AwakeKing()
+    {
+        angelKingAnimator.SetBool("Awake", true);
+        yield return new WaitForSeconds(5f);
+        angelKingController.kingState = AngelKingController.State.Idle;
+        Destroy(gameObject);
     }
 }
