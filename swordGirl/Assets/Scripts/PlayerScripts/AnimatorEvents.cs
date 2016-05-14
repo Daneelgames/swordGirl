@@ -33,7 +33,7 @@ public class AnimatorEvents : MonoBehaviour {
 
     void PlaySound(int clip)
     {
-        pitch = Random.Range(.9f, 1.1f);
+        pitch = Random.Range(.75f, 1.25f);
         PlayClipAtPoint(audioClip[clip], new Vector3(transform.position.x, transform.position.y, 0), 1f, pitch);
     }
 
@@ -66,6 +66,7 @@ public class AnimatorEvents : MonoBehaviour {
 
 	public void SetCoolDown(float coolDown)
     {
+        PlaySound(2);
         player.attackCooldown = coolDown;
         anim.SetBool("Attack1", false);
     }
@@ -73,6 +74,7 @@ public class AnimatorEvents : MonoBehaviour {
     public void Roll()
     {
         player.Roll();
+        PlaySound(1);
         rollParticles.time = 0;
         rollParticles.Play();
     }
@@ -98,6 +100,9 @@ public class AnimatorEvents : MonoBehaviour {
 
     public void TrailStart()
     {
+        int random = Random.Range(3, 7);
+
+        PlaySound(random);
         //trail.time = 0.5f;
         //trail.enabled = true;
         isTrail = true;
