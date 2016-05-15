@@ -124,16 +124,6 @@ public class PlayerControl : MonoBehaviour
     
     void KickedToSky()
     {
-        Vector3 direction = new Vector3(impactPosition.x, transform.position.y, impactPosition.z) - new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        direction = direction.normalized;
-        transform.LookAt(direction, Vector3.up);
-        
-       // Vector3 targetDir = target.position - transform.position;
-        float step = speed * Time.deltaTime;
-        Vector3 newDir = Vector3.RotateTowards(transform.forward, direction, step, 0.0F);
-        Debug.DrawRay(transform.position, newDir, Color.red);
-        transform.rotation = Quaternion.LookRotation(newDir);
-
         _rb.AddForce((new Vector3(transform.position.x, dirV, transform.position.z) - new Vector3(impactPosition.x, 0, impactPosition.z)) * impactForce, ForceMode.Force);
     }
 
@@ -254,6 +244,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (!damaged)
         {
+            transform.LookAt(impactOrigin);
             impactPosition = impactOrigin;
             StartCoroutine("Fall");
             print("Fly up");

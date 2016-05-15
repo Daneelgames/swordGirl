@@ -134,6 +134,10 @@ public class AnimatorEvents : MonoBehaviour {
 
     public void Impact()
     {
+        int random = Random.Range(7, 12);
+
+        PlaySound(random);
+
         impactParticles.time = 0;
         impactParticles.Play();
     }
