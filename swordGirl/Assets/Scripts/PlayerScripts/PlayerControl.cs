@@ -109,9 +109,10 @@ public class PlayerControl : MonoBehaviour
         if (!grounded && !flyUp)
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, -Vector3.up, out hit, 0.1f) && hit.collider.gameObject.tag == "Ground")
+            if (Physics.Raycast(transform.position, -Vector3.up, out hit, 0.3f) && hit.collider.gameObject.tag == "Ground")
             {
                 grounded = true;
+                _rb.velocity = Vector3.zero;
                 anim.SetBool("HitGround", true);
             }
         }
@@ -254,6 +255,7 @@ public class PlayerControl : MonoBehaviour
 
     IEnumerator Fall()
     {
+        Physics.IgnoreLayerCollision(10, 13, true);
         dirV = 10;
         canControl = false;
         flyUp = true;
@@ -263,6 +265,7 @@ public class PlayerControl : MonoBehaviour
         anim.SetBool("Roll", false);
         anim.SetTrigger("FlyUp");
         yield return new WaitForSeconds(1f);
+        Physics.IgnoreLayerCollision(10, 13, false);
         damaged = false;
         flyUp = false;
         anim.SetTrigger("FlyDown");

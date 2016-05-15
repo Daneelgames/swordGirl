@@ -633,7 +633,7 @@ ModelImporter:
     4300210: GIrl
     7400000: Armature|ArmatureAction.001
     7400002: Idle
-    7400004: idle
+    7400004: playerIdle
     7400006: RunStart
     7400008: Armature|startRun
     7400010: Armature|SwordAction
@@ -646,11 +646,11 @@ ModelImporter:
     7400024: Sword|SwordAction
     7400026: Run
     7400028: RunEnd
-    7400030: run
-    7400032: attackHorizontal
-    7400034: attackVertical
-    7400036: roll
-    7400038: attackRoll
+    7400030: playerRun
+    7400032: playerAttackHorizontal
+    7400034: playerAttackVertical
+    7400036: playerRoll
+    7400038: playerAttackRoll
     9500000: //RootNode
     13700000: GIrl.003
     13700002: Sword
@@ -677,7 +677,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: idle
+      name: playerIdle
       takeName: Armature|idle.001
       firstFrame: 10
       lastFrame: 50
@@ -803,7 +803,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: run
+      name: playerRun
       takeName: Armature|idle.001
       firstFrame: 100
       lastFrame: 138
@@ -957,7 +957,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: attackHorizontal
+      name: playerAttackHorizontal
       takeName: Armature|idle.001
       firstFrame: 160
       lastFrame: 200
@@ -1111,7 +1111,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: attackVertical
+      name: playerAttackVertical
       takeName: Armature|idle.001
       firstFrame: 210
       lastFrame: 260
@@ -1286,7 +1286,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: roll
+      name: playerRoll
       takeName: Armature|idle.001
       firstFrame: 55
       lastFrame: 84
@@ -1440,7 +1440,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: attackRoll
+      name: playerAttackRoll
       takeName: Armature|idle.001
       firstFrame: 275
       lastFrame: 320
