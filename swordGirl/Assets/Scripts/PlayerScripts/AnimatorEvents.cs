@@ -23,6 +23,8 @@ public class AnimatorEvents : MonoBehaviour {
 
     [SerializeField]
     private ParticleSystem rollParticles;
+    [SerializeField]
+    private ParticleSystem impactParticles;
 
     private bool isTrail = false;
 
@@ -117,9 +119,33 @@ public class AnimatorEvents : MonoBehaviour {
         sword.dangerous = false;
     }
 
+    public void FlyStart()
+    {
+        rollParticles.time = 0;
+        rollParticles.loop = true;
+        rollParticles.Play();
+    }
+
+    public void FlyOver()
+    {
+        rollParticles.loop = false;
+        rollParticles.Stop();
+    }
+
+    public void Impact()
+    {
+        impactParticles.time = 0;
+        impactParticles.Play();
+    }
+
     public void StaminaUse(float amount)
     {
         if (gm.playerStamina > 0)
             gm.playerStamina -= amount;
+    }
+
+    public void SetCanControl()
+    {
+        player.SetCanControl();
     }
 }

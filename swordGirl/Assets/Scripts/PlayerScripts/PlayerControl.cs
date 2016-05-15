@@ -49,16 +49,16 @@ public class PlayerControl : MonoBehaviour
 	private bool sprint;
 
 	private bool isMoving;
-
-	private float distToGround;
-
+    
     private bool grounded = true;
+    private bool canControl = true;
     private bool flyUp = false;
     private Vector3 impactPosition;
 
     private GameManager gm;
 
     float dirV = 0f;
+    private bool damaged = false;
 
     void Awake()
     {
@@ -72,7 +72,6 @@ public class PlayerControl : MonoBehaviour
 		hFloat = Animator.StringToHash("H");
 		vFloat = Animator.StringToHash("V");
 		groundedBool = Animator.StringToHash("Grounded");
-		distToGround = GetComponent<Collider>().bounds.extents.y;
 		//sprintFactor = sprintSpeed / runSpeed;
 	}
 	void Update()
@@ -82,7 +81,7 @@ public class PlayerControl : MonoBehaviour
 		run = Input.GetButton ("Run");
 		sprint = Input.GetButton ("Sprint");
 		isMoving = Mathf.Abs(h) > 0.1 || Mathf.Abs(v) > 0.1;
-        if (grounded)
+        if (grounded && canControl)
         {
             AttackManagment();
             RollManagement();
@@ -100,29 +99,53 @@ public class PlayerControl : MonoBehaviour
 	{
         LimitVelocity();
 
-        if (grounded)
+        if (grounded && canControl)
             MovementManagement(h, v, run, sprint);
         else
         {
             KickedToSky();
-            if (!flyUp)
+        }
+
+        if (!grounded && !flyUp)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, -Vector3.up, out hit, 0.1f) && hit.collider.gameObject.tag == "Ground")
             {
-                RaycastHit hit;
-                if (Physics.Raycast(transform.position, -Vector3.up, out hit, distToGround + 0.1f))
-                    grounded = true;
+                grounded = true;
+                anim.SetBool("HitGround", true);
             }
         }
     }
 
+    public void SetCanControl()
+    {
+        canControl = true;
+    }
+    
     void KickedToSky()
     {
+        Vector3 direction = new Vector3(impactPosition.x, transform.position.y, impactPosition.z) - new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        direction = direction.normalized;
+        transform.LookAt(direction, Vector3.up);
+        
+       // Vector3 targetDir = target.position - transform.position;
+        float step = speed * Time.deltaTime;
+        Vector3 newDir = Vector3.RotateTowards(transform.forward, direction, step, 0.0F);
+        Debug.DrawRay(transform.position, newDir, Color.red);
+        transform.rotation = Quaternion.LookRotation(newDir);
+
         _rb.AddForce((new Vector3(transform.position.x, dirV, transform.position.z) - new Vector3(impactPosition.x, 0, impactPosition.z)) * impactForce, ForceMode.Force);
     }
 
     void LimitVelocity()
     {
-        if (!sprint && _rb.velocity.magnitude > maxVelocity && timeToNextRoll <= 0)
-            _rb.velocity = Vector3.ClampMagnitude(_rb.velocity, maxVelocity);
+        if (_rb.velocity.magnitude > maxVelocity)
+        {
+            if (!sprint && timeToNextRoll <= 0)
+                _rb.velocity = Vector3.ClampMagnitude(_rb.velocity, maxVelocity);
+            else
+                _rb.velocity = Vector3.ClampMagnitude(_rb.velocity, maxVelocity * 1.2f);
+        }
     }
 
     void AttackManagment()
@@ -229,17 +252,29 @@ public class PlayerControl : MonoBehaviour
     }
     public void Damage(Vector3 impactOrigin)
     {
-        impactPosition = impactOrigin;
-        StartCoroutine("Fall");
+        if (!damaged)
+        {
+            impactPosition = impactOrigin;
+            StartCoroutine("Fall");
+            print("Fly up");
+            damaged = true;
+        }
     }
 
     IEnumerator Fall()
     {
         dirV = 10;
+        canControl = false;
         flyUp = true;
         grounded = false;
+        anim.SetBool("HitGround", false);
+        anim.SetBool("Attack1", false);
+        anim.SetBool("Roll", false);
+        anim.SetTrigger("FlyUp");
         yield return new WaitForSeconds(1f);
+        damaged = false;
         flyUp = false;
+        anim.SetTrigger("FlyDown");
     }
 
     public bool isSprinting()

@@ -88,6 +88,8 @@ public class AngelKingController : MonoBehaviour {
                         //other.gameObject.GetComponent<PlayerControl>().Damage(new Vector3(_cp.point.x, _cp.point.y - 2, _cp.point.z));
                         other.gameObject.GetComponent<PlayerControl>().Damage(transform.position);
                         activeCollider.isDangerous = false;
+
+                        break;
                     }
                 }
             }

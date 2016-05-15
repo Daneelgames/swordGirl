@@ -1,0 +1,558 @@
+fileFormatVersion: 2
+guid: 34b26633cf5dadd4390dac64cfd186b4
+timeCreated: 1463308675
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: base
+    100004: body
+    100006: chest
+    100008: fingerL1
+    100010: fingerL2
+    100012: fingerL2_end
+    100014: fingerR1
+    100016: fingerR2
+    100018: fingerR2_end
+    100020: GIrl
+    100022: hairBack
+    100024: hairBack.001
+    100026: hairBack.001_end
+    100028: hairBack.002
+    100030: hairBack.002_end
+    100032: hairBack.003
+    100034: hairBack.003_end
+    100036: hairBack.004
+    100038: hairBack.004_end
+    100040: hairBack_end
+    100042: handL1
+    100044: handL2
+    100046: handL3
+    100048: handL4
+    100050: handL5
+    100052: handL6
+    100054: handL6_end
+    100056: handR1
+    100058: handR2
+    100060: handR3
+    100062: handR4
+    100064: handR5
+    100066: handR6
+    100068: handR6_end
+    100070: head
+    100072: legL1
+    100074: legL2
+    100076: legL3
+    100078: legL3_end
+    100080: legR1
+    100082: legR2
+    100084: legR3
+    100086: legR3_end
+    100088: neck
+    100090: Sword
+    100092: //RootNode
+    100094: weapon
+    100096: weapon_end
+    400000: Armature
+    400002: base
+    400004: body
+    400006: chest
+    400008: fingerL1
+    400010: fingerL2
+    400012: fingerL2_end
+    400014: fingerR1
+    400016: fingerR2
+    400018: fingerR2_end
+    400020: GIrl
+    400022: hairBack
+    400024: hairBack.001
+    400026: hairBack.001_end
+    400028: hairBack.002
+    400030: hairBack.002_end
+    400032: hairBack.003
+    400034: hairBack.003_end
+    400036: hairBack.004
+    400038: hairBack.004_end
+    400040: hairBack_end
+    400042: handL1
+    400044: handL2
+    400046: handL3
+    400048: handL4
+    400050: handL5
+    400052: handL6
+    400054: handL6_end
+    400056: handR1
+    400058: handR2
+    400060: handR3
+    400062: handR4
+    400064: handR5
+    400066: handR6
+    400068: handR6_end
+    400070: head
+    400072: legL1
+    400074: legL2
+    400076: legL3
+    400078: legL3_end
+    400080: legR1
+    400082: legR2
+    400084: legR3
+    400086: legR3_end
+    400088: neck
+    400090: Sword
+    400092: //RootNode
+    400094: weapon
+    400096: weapon_end
+    4300000: GIrl
+    4300002: Sword
+    7400000: playerFlyUp
+    7400002: Armature|run
+    7400004: playerHitGround
+    7400006: Sword|idle.001
+    7400008: Sword|run
+    7400010: playerFlyDown
+    9500000: //RootNode
+    13700000: GIrl
+    13700002: Sword
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: playerFlyUp
+      takeName: Armature|idle.001
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/base
+        weight: 1
+      - path: Armature/base/body
+        weight: 1
+      - path: Armature/base/body/chest
+        weight: 1
+      - path: Armature/base/body/chest/handL1
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/fingerL1
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/fingerL1/fingerL2
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/fingerL1/fingerL2/fingerL2_end
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/handL5
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/handL5/handL6
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/handL5/handL6/handL6_end
+        weight: 1
+      - path: Armature/base/body/chest/handR1
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/fingerR1
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/fingerR1/fingerR2
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/fingerR1/fingerR2/fingerR2_end
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4/handR5
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4/handR5/handR6
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4/handR5/handR6/handR6_end
+        weight: 1
+      - path: Armature/base/body/chest/neck
+        weight: 1
+      - path: Armature/base/body/chest/neck/head
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack/hairBack_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.001
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.001/hairBack.001_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.002
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.002/hairBack.002_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.003
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.003/hairBack.003_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.004
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.004/hairBack.004_end
+        weight: 1
+      - path: Armature/base/body/legL1
+        weight: 1
+      - path: Armature/base/body/legL1/legL2
+        weight: 1
+      - path: Armature/base/body/legL1/legL2/legL3
+        weight: 1
+      - path: Armature/base/body/legL1/legL2/legL3/legL3_end
+        weight: 1
+      - path: Armature/base/body/legR1
+        weight: 1
+      - path: Armature/base/body/legR1/legR2
+        weight: 1
+      - path: Armature/base/body/legR1/legR2/legR3
+        weight: 1
+      - path: Armature/base/body/legR1/legR2/legR3/legR3_end
+        weight: 1
+      - path: Armature/weapon
+        weight: 1
+      - path: Armature/weapon/weapon_end
+        weight: 1
+      - path: GIrl
+        weight: 1
+      - path: Sword
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: playerFlyDown
+      takeName: Armature|idle.001
+      firstFrame: 50
+      lastFrame: 90
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/base
+        weight: 1
+      - path: Armature/base/body
+        weight: 1
+      - path: Armature/base/body/chest
+        weight: 1
+      - path: Armature/base/body/chest/handL1
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/fingerL1
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/fingerL1/fingerL2
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/fingerL1/fingerL2/fingerL2_end
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/handL5
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/handL5/handL6
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/handL5/handL6/handL6_end
+        weight: 1
+      - path: Armature/base/body/chest/handR1
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/fingerR1
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/fingerR1/fingerR2
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/fingerR1/fingerR2/fingerR2_end
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4/handR5
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4/handR5/handR6
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4/handR5/handR6/handR6_end
+        weight: 1
+      - path: Armature/base/body/chest/neck
+        weight: 1
+      - path: Armature/base/body/chest/neck/head
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack/hairBack_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.001
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.001/hairBack.001_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.002
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.002/hairBack.002_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.003
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.003/hairBack.003_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.004
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.004/hairBack.004_end
+        weight: 1
+      - path: Armature/base/body/legL1
+        weight: 1
+      - path: Armature/base/body/legL1/legL2
+        weight: 1
+      - path: Armature/base/body/legL1/legL2/legL3
+        weight: 1
+      - path: Armature/base/body/legL1/legL2/legL3/legL3_end
+        weight: 1
+      - path: Armature/base/body/legR1
+        weight: 1
+      - path: Armature/base/body/legR1/legR2
+        weight: 1
+      - path: Armature/base/body/legR1/legR2/legR3
+        weight: 1
+      - path: Armature/base/body/legR1/legR2/legR3/legR3_end
+        weight: 1
+      - path: Armature/weapon
+        weight: 1
+      - path: Armature/weapon/weapon_end
+        weight: 1
+      - path: GIrl
+        weight: 1
+      - path: Sword
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: playerHitGround
+      takeName: Armature|idle.001
+      firstFrame: 100
+      lastFrame: 195
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/base
+        weight: 1
+      - path: Armature/base/body
+        weight: 1
+      - path: Armature/base/body/chest
+        weight: 1
+      - path: Armature/base/body/chest/handL1
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/fingerL1
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/fingerL1/fingerL2
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/fingerL1/fingerL2/fingerL2_end
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/handL5
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/handL5/handL6
+        weight: 1
+      - path: Armature/base/body/chest/handL1/handL2/handL3/handL4/handL5/handL6/handL6_end
+        weight: 1
+      - path: Armature/base/body/chest/handR1
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/fingerR1
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/fingerR1/fingerR2
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/fingerR1/fingerR2/fingerR2_end
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4/handR5
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4/handR5/handR6
+        weight: 1
+      - path: Armature/base/body/chest/handR1/handR2/handR3/handR4/handR5/handR6/handR6_end
+        weight: 1
+      - path: Armature/base/body/chest/neck
+        weight: 1
+      - path: Armature/base/body/chest/neck/head
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack/hairBack_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.001
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.001/hairBack.001_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.002
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.002/hairBack.002_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.003
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.003/hairBack.003_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.004
+        weight: 1
+      - path: Armature/base/body/chest/neck/head/hairBack.004/hairBack.004_end
+        weight: 1
+      - path: Armature/base/body/legL1
+        weight: 1
+      - path: Armature/base/body/legL1/legL2
+        weight: 1
+      - path: Armature/base/body/legL1/legL2/legL3
+        weight: 1
+      - path: Armature/base/body/legL1/legL2/legL3/legL3_end
+        weight: 1
+      - path: Armature/base/body/legR1
+        weight: 1
+      - path: Armature/base/body/legR1/legR2
+        weight: 1
+      - path: Armature/base/body/legR1/legR2/legR3
+        weight: 1
+      - path: Armature/base/body/legR1/legR2/legR3/legR3_end
+        weight: 1
+      - path: Armature/weapon
+        weight: 1
+      - path: Armature/weapon/weapon_end
+        weight: 1
+      - path: GIrl
+        weight: 1
+      - path: Sword
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
