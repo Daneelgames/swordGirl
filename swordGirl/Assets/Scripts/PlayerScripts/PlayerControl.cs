@@ -114,6 +114,7 @@ public class PlayerControl : MonoBehaviour
                 grounded = true;
                 _rb.velocity = Vector3.zero;
                 anim.SetBool("HitGround", true);
+                Physics.IgnoreLayerCollision(10, 13, false);
             }
         }
     }
@@ -265,7 +266,6 @@ public class PlayerControl : MonoBehaviour
         anim.SetBool("Roll", false);
         anim.SetTrigger("FlyUp");
         yield return new WaitForSeconds(1f);
-        Physics.IgnoreLayerCollision(10, 13, false);
         damaged = false;
         flyUp = false;
         anim.SetTrigger("FlyDown");
