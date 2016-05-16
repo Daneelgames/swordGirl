@@ -181,6 +181,7 @@ ModelImporter:
     7400008: AngelKingIdle
     7400010: AngelKingRun
     7400012: AngelKingRightKick
+    7400014: AngelKingCrossAttack
     9500000: //RootNode
     13700000: Bison Skull
   materials:
@@ -993,6 +994,202 @@ ModelImporter:
       takeName: Armature|ArmatureAction.002
       firstFrame: 480
       lastFrame: 560
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/base
+        weight: 1
+      - path: Armature/base/body
+        weight: 1
+      - path: Armature/base/body/chest
+        weight: 1
+      - path: Armature/base/body/chest/neck
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger1_1L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger1_1L/finger1_2L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger1_1L/finger1_2L/finger1_3L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger1_1L/finger1_2L/finger1_3L/finger1_3L_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger2_1L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger2_1L/finger2_2L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger2_1L/finger2_2L/finger2_2L_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger3_1L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger3_1L/finger3_2L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger3_1L/finger3_2L/finger3_2L_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger4_1L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger4_1L/finger4_2L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger4_1L/finger4_2L/finger4_2L_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger5_1L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger5_1L/finger5_2L
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1L/arm2L/arm3L/arm4L/arm5L/finger5_1L/finger5_2L/finger5_2L_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger1_1R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger1_1R/finger1_2R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger1_1R/finger1_2R/finger1_3R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger1_1R/finger1_2R/finger1_3R/finger1_3R_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger2_1R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger2_1R/finger2_2R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger2_1R/finger2_2R/finger2_2R_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger3_1R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger3_1R/finger3_2R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger3_1R/finger3_2R/finger3_2R_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger4_1R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger4_1R/finger4_2R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger4_1R/finger4_2R/finger4_2R_end
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger5_1R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger5_1R/finger5_2R
+        weight: 1
+      - path: Armature/base/body/chest/neck/arm1R/arm2R/arm3R/arm4R/arm5R/finger5_1R/finger5_2R/finger5_2R_end
+        weight: 1
+      - path: Armature/base/body/leg1L
+        weight: 1
+      - path: Armature/base/body/leg1L/leg2L
+        weight: 1
+      - path: Armature/base/body/leg1L/leg2L/leg3L
+        weight: 1
+      - path: Armature/base/body/leg1L/leg2L/leg3L/leg4L
+        weight: 1
+      - path: Armature/base/body/leg1L/leg2L/leg3L/leg4L/leg4L_end
+        weight: 1
+      - path: Armature/base/body/leg1R
+        weight: 1
+      - path: Armature/base/body/leg1R/leg2R
+        weight: 1
+      - path: Armature/base/body/leg1R/leg2R/leg3R
+        weight: 1
+      - path: Armature/base/body/leg1R/leg2R/leg3R/leg4R
+        weight: 1
+      - path: Armature/base/body/leg1R/leg2R/leg3R/leg4R/leg4R_end
+        weight: 1
+      - path: Armature/base/elbow.L
+        weight: 1
+      - path: Armature/base/elbow.L/elbow.L_end
+        weight: 1
+      - path: Armature/base/elbow.R
+        weight: 1
+      - path: Armature/base/elbow.R/elbow.R_end
+        weight: 1
+      - path: Armature/base/handIK.L
+        weight: 1
+      - path: Armature/base/handIK.L/handIK.L_end
+        weight: 1
+      - path: Armature/base/handIK.R
+        weight: 1
+      - path: Armature/base/handIK.R/handIK.R_end
+        weight: 1
+      - path: Armature/base/headIK
+        weight: 1
+      - path: Armature/base/headIK/head
+        weight: 1
+      - path: Armature/base/headIK/head/head_end
+        weight: 1
+      - path: Armature/base/IK.L
+        weight: 1
+      - path: Armature/base/IK.L/leg5L
+        weight: 1
+      - path: Armature/base/IK.L/leg5L/leg6L
+        weight: 1
+      - path: Armature/base/IK.L/leg5L/leg6L/leg6L_end
+        weight: 1
+      - path: Armature/base/IK.R
+        weight: 1
+      - path: Armature/base/IK.R/leg5R
+        weight: 1
+      - path: Armature/base/IK.R/leg5R/leg6R
+        weight: 1
+      - path: Armature/base/IK.R/leg5R/leg6R/leg6R_end
+        weight: 1
+      - path: Armature/base/knee.L
+        weight: 1
+      - path: Armature/base/knee.L/knee.L_end
+        weight: 1
+      - path: Armature/base/knee.R
+        weight: 1
+      - path: Armature/base/knee.R/knee.R_end
+        weight: 1
+      - path: Armature/base/spine
+        weight: 1
+      - path: Armature/base/spine/spine_end
+        weight: 1
+      - path: Bison Skull
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AngelKingCrossAttack
+      takeName: Armature|ArmatureAction.002
+      firstFrame: 570
+      lastFrame: 730
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

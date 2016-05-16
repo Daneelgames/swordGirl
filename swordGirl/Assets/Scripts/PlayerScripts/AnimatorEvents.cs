@@ -161,4 +161,14 @@ public class AnimatorEvents : MonoBehaviour {
     {
         player.SetCanControl();
     }
+
+    public void RollInvicibleStart()
+    {
+
+    }
+
+    public void RollInvicibleOver()
+    {
+
+    }
 }

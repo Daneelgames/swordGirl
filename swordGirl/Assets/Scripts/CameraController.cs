@@ -40,10 +40,8 @@ public class CameraController : MonoBehaviour
         transform.parent = null;
     }
 
-    void LateUpdate()
+    void Update()
     {
-        transform.position = new Vector3(character.position.x, character.position.y + 1.5f, character.position.z);
-
 
         //control camers FOV
         if (playerControl.isSprinting())
@@ -56,6 +54,11 @@ public class CameraController : MonoBehaviour
 
         myCamera.fieldOfView = Mathf.Lerp(myCamera.fieldOfView, targetFOV, Time.deltaTime);
 
+        transform.position = new Vector3(character.position.x, character.position.y + 1.5f, character.position.z);
+    }
+
+    void LateUpdate()
+    {
         //Camera Orbits the charcter
         float hor = Input.GetAxis("Mouse X");
         float vert = Input.GetAxis("Mouse Y");

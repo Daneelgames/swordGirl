@@ -101,7 +101,7 @@ public class PlayerControl : MonoBehaviour
 
         if (grounded && canControl)
             MovementManagement(h, v, run, sprint);
-        else
+        else if (!grounded && !canControl)
         {
             KickedToSky();
         }
@@ -268,6 +268,7 @@ public class PlayerControl : MonoBehaviour
         anim.SetBool("Roll", false);
         anim.SetTrigger("FlyUp");
         yield return new WaitForSeconds(1f);
+        transform.Rotate(0, transform.rotation.y, 0);
         damaged = false;
         flyUp = false;
         anim.SetTrigger("FlyDown");
