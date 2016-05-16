@@ -17,7 +17,16 @@ public class AngelKingTargetZoneController : MonoBehaviour {
     {
         if (player.tag == "Player")
         {
-            angelKing.Attack(nextAttack);
+            angelKing.AddTarger(nextAttack);
+            //angelKing.Attack(nextAttack);
+        }
+    }
+
+    void OnTriggerExit(Collider player)
+    {
+        if (player.tag == "Player")
+        {
+            angelKing.RemoveTarget(nextAttack);
         }
     }
 

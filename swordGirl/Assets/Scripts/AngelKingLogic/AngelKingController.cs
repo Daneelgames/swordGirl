@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class AngelKingController : MonoBehaviour {
 
@@ -7,7 +8,12 @@ public class AngelKingController : MonoBehaviour {
     public State kingState = State.Idle;
 
     [SerializeField]
+    List<string> activeZones = new List<string>();
+
+    [SerializeField]
     private float runSpeed = 2;
+    [SerializeField]
+    private float defaultTurnSpeed = 2;
 
     private Animator anim;
     private Rigidbody _rb;
@@ -16,6 +22,10 @@ public class AngelKingController : MonoBehaviour {
 
     private string attack;
 
+    private Quaternion targetRotation;
+
+    private float attackCooldown = 1f;
+    
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -42,6 +52,7 @@ public class AngelKingController : MonoBehaviour {
                 kingState = State.Idle;
         }
 
+        Attack();
     }
 
     void MovementController()
@@ -49,19 +60,67 @@ public class AngelKingController : MonoBehaviour {
         if (!anim.GetBool("Run"))
             anim.SetBool("Run", true);
 
-        _rb.AddRelativeForce(Vector3.forward * runSpeed);
+        _rb.AddRelativeForce(Vector3.forward * runSpeed * 100000f * Time.fixedDeltaTime);
     }
     
     void TurnController()
     {
-        transform.LookAt(new Vector3(player.position.x, 0, player.position.z));
+        Vector3 targetVector = new Vector3(player.position.x, transform.rotation.y, player.position.z);
+
+        targetRotation = Quaternion.LookRotation(targetVector - transform.position);
+
+        if (kingState != State.Attack)
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, defaultTurnSpeed * Time.fixedDeltaTime);
     }
 
-    public void Attack(string boolName)
+    public void AddTarger(string targetZone)
     {
-        if (kingState != State.Attack)
+        bool alreadyInList = false;
+
+        if (activeZones.Count != 0)
         {
-            attack = boolName;
+            foreach (string i in activeZones)
+            {
+                if (i == targetZone)
+                    alreadyInList = true;
+
+            }
+            if (!alreadyInList)
+                activeZones.Add(targetZone);
+        }
+        else
+            activeZones.Add(targetZone);
+    }
+
+    public void RemoveTarget (string targetZone)
+    {
+        if (activeZones.Count != 0)
+        {
+            foreach (string i in activeZones)
+            {
+                if (i == targetZone)
+                {
+                    activeZones.Remove(targetZone);
+                    break;
+                }
+            }
+        }
+    }
+
+    void Attack()
+    {
+        if (attackCooldown > 0)
+            attackCooldown -= 1 * Time.deltaTime;
+
+        if (activeZones.Count > 0 && attackCooldown <= 0 && kingState != State.Attack)
+        {
+            int random = Random.Range(0, activeZones.Count);
+            //print(random);
+            foreach (string str in activeZones)
+            {
+                print(str);
+            }
+            attack = activeZones[random];
             anim.SetBool(attack, true);
             anim.SetBool("Run", false);
             kingState = State.Attack;
@@ -70,6 +129,7 @@ public class AngelKingController : MonoBehaviour {
 
     public void AttackOver()
     {
+        attackCooldown = Random.Range(0, 3);
         kingState = State.Idle;
         anim.SetBool(attack, false);
     }

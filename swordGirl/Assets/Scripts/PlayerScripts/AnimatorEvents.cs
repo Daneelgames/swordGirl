@@ -132,9 +132,18 @@ public class AnimatorEvents : MonoBehaviour {
         rollParticles.Stop();
     }
 
-    public void Impact()
+    public void Impact(int attacked)
     {
         int random = Random.Range(7, 12);
+        float randomDamage = Random.Range(0.15f, 0.3f);
+
+        if (gm.playerHealth > 0)
+        {
+            if (attacked > 0)
+                gm.playerHealth -= randomDamage;
+            else
+                gm.playerHealth -= 0.1f;
+        }
 
         PlaySound(random);
 

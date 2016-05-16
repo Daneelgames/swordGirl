@@ -112,11 +112,13 @@ public class PlayerControl : MonoBehaviour
             if (Physics.Raycast(transform.position, -Vector3.up, out hit, 0.3f) && hit.collider.gameObject.tag == "Ground")
             {
                 grounded = true;
-                _rb.velocity = Vector3.zero;
                 anim.SetBool("HitGround", true);
                 Physics.IgnoreLayerCollision(10, 13, false);
             }
         }
+
+        if (grounded && !canControl)
+            _rb.velocity = Vector3.zero;
     }
 
     public void SetCanControl()
@@ -136,7 +138,7 @@ public class PlayerControl : MonoBehaviour
             if (!sprint && timeToNextRoll <= 0)
                 _rb.velocity = Vector3.ClampMagnitude(_rb.velocity, maxVelocity);
             else
-                _rb.velocity = Vector3.ClampMagnitude(_rb.velocity, maxVelocity * 1.2f);
+                _rb.velocity = Vector3.ClampMagnitude(_rb.velocity, maxVelocity * 2f);
         }
     }
 

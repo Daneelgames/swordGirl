@@ -17,7 +17,6 @@ public class CameraController : MonoBehaviour
 
     float offset = -6;
     float camFollow = .75f;
-    float camZoom = 1.75f;
     
     [SerializeField]
     LayerMask mask;

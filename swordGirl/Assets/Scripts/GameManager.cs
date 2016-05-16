@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour {
     public float playerHealth = 1;
     public float playerStamina = 1;
 
+    public float bossHealth = 1;
+
+
     [SerializeField]
     private float healthRecoveryRate = .01f;
     [SerializeField]
@@ -16,6 +19,11 @@ public class GameManager : MonoBehaviour {
     private Image playerHealthBar;
     [SerializeField]
     private Image playerStaminaBar;
+
+    [SerializeField]
+    private Image bossHealthBar;
+
+    bool bossAwake = false;
 
     void Update()
     {
@@ -42,5 +50,14 @@ public class GameManager : MonoBehaviour {
     {
         playerHealthBar.fillAmount = Mathf.Lerp(playerHealthBar.fillAmount, playerHealth, 5f * Time.deltaTime);
         playerStaminaBar.fillAmount = Mathf.Lerp(playerStaminaBar.fillAmount, playerStamina, 5f * Time.deltaTime);
+
+        if (bossAwake)
+            bossHealthBar.fillAmount = Mathf.Lerp(bossHealthBar.fillAmount, bossHealth, 5f * Time.deltaTime);
+
+    }
+
+    public void ShowBossHealth()
+    {
+        bossAwake = true;
     }
 }
