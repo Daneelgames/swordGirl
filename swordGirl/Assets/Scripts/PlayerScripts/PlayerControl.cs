@@ -23,7 +23,8 @@ public class PlayerControl : MonoBehaviour
     public float attackCooldown = 0f;
 
     public float timeToNextRoll = 0;
-	
+
+    public bool invicible = false;
 
     [SerializeField]
 	private Animator anim;
@@ -90,7 +91,7 @@ public class PlayerControl : MonoBehaviour
         {
             if (flyUp && dirV < 10)
                 dirV += 1;
-            else if (!flyUp)
+            else if (!flyUp && dirV > - 10)
                 dirV -= 1;
         }
     }
@@ -246,12 +247,12 @@ public class PlayerControl : MonoBehaviour
     }
     public void Damage(Vector3 impactOrigin)
     {
-        if (!damaged)
+        if (!damaged && !invicible)
         {
             transform.LookAt(impactOrigin);
             impactPosition = impactOrigin;
             StartCoroutine("Fall");
-            print("Fly up");
+            //print("Fly up");
             damaged = true;
         }
     }

@@ -164,11 +164,12 @@ public class AnimatorEvents : MonoBehaviour {
 
     public void RollInvicibleStart()
     {
-
+        StartCoroutine("Invicibility");
     }
-
-    public void RollInvicibleOver()
+    IEnumerator Invicibility()
     {
-
+        player.invicible = true;
+        yield return new WaitForSeconds(0.25f);
+        player.invicible = false;
     }
 }

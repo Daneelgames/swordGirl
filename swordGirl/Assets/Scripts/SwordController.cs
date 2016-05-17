@@ -10,14 +10,34 @@ public class SwordController : MonoBehaviour {
     [SerializeField]
     private Animator anim;
 
-    void OnTriggerEnter (Collider other)
+    void OnCollisionEnter (Collision other)
     {
+        print("hit collision");
         if (dangerous)
         {
-            if (other.tag == "Obstacle")
-                anim.SetTrigger("HitObstacle");
+            print(other.gameObject.name);
 
+            if (other.gameObject.tag == "Obstacle")
+            {
+                anim.SetTrigger("HitObstacle");
+                dangerous = false;
+            }
+            else
+            {
+                foreach (ContactPoint _cp in other.contacts)
+                {
+                    if (_cp.thisCollider.tag == "EnemyActionColl")
+                    {
+                        print("hit enemy");
+                        float dmg = Random.Range(0.025f, 0.05f);
+
+                        _cp.thisCollider.gameObject.GetComponent<AngelKingBodyColliderController>().Damage(_cp.point, dmg);
+                        dangerous = false;
+
+                        break;
+                    }
+                }
+            }
         }
     }
-
 }

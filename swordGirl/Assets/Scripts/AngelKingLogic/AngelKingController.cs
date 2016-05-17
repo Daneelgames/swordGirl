@@ -118,7 +118,7 @@ public class AngelKingController : MonoBehaviour {
             //print(random);
             foreach (string str in activeZones)
             {
-                print(str);
+               //print(str);
             }
             attack = activeZones[random];
             anim.SetBool(attack, true);
@@ -138,6 +138,7 @@ public class AngelKingController : MonoBehaviour {
     {
         AngelKingBodyColliderController activeCollider;
         if (other.gameObject.tag == "Player")
+        {
             foreach (ContactPoint _cp in other.contacts)
             {
                 if (_cp.thisCollider.tag == "EnemyActionColl")
@@ -153,5 +154,29 @@ public class AngelKingController : MonoBehaviour {
                     }
                 }
             }
+        }
+        if (other.gameObject.tag == "PlayerWeapon")
+        {
+            foreach (ContactPoint _cp in other.contacts)
+            {
+                if (_cp.thisCollider.tag == "EnemyActionColl" && _cp.otherCollider.GetComponent<SwordController>().dangerous)
+                {
+                    print("hit enemy");
+                    float dmg = Random.Range(0.025f, 0.05f);
+
+                    _cp.thisCollider.gameObject.GetComponent<AngelKingBodyColliderController>().Damage(_cp.point, dmg);
+
+                    StartCoroutine("WeaponCollisionCooldown");
+
+                    break;
+                }
+            }
+        }
+    }
+
+    IEnumerator WeaponCollisionCooldown()
+    {
+        Physics 
+        yield return new WaitForSeconds(0.1f);
     }
 }
