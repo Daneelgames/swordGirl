@@ -162,6 +162,7 @@ ModelImporter:
     100308: hairBack_002
     100310: hairBack_003
     100312: hairBack_004
+    100314: GIrl.001
     400000: Armature
     400002: base
     400004: body
@@ -319,6 +320,7 @@ ModelImporter:
     400308: hairBack_002
     400310: hairBack_003
     400312: hairBack_004
+    400314: GIrl.001
     2300000: WGT-chest
     2300002: WGT-elbow_hose.L
     2300004: WGT-elbow_hose.R
@@ -631,6 +633,7 @@ ModelImporter:
     4300206: WGT-spine
     4300208: WGT-torso
     4300210: GIrl
+    4300212: GIrl.001
     7400000: Armature|ArmatureAction.001
     7400002: Idle
     7400004: playerIdle
@@ -655,6 +658,7 @@ ModelImporter:
     13700000: GIrl.003
     13700002: Sword
     13700004: GIrl
+    13700006: GIrl.001
   materials:
     importMaterials: 1
     materialName: 0

@@ -1,0 +1,141 @@
+fileFormatVersion: 2
+guid: 92ed990c1663b514fa9e965f8df93b88
+timeCreated: 1463474427
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: left eye
+    21300002: right eye
+    21300004: mouth
+    21300006: right red
+    21300008: left red
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -2
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: left eye
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 183
+        width: 99
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25.5, y: 56.5}
+        - {x: -27.5, y: 55.5}
+        - {x: -49.5, y: 21.5}
+        - {x: -49.5, y: -10.5}
+        - {x: -36.5, y: -45.5}
+        - {x: -29.5, y: -56.5}
+        - {x: 48.5, y: -56.5}
+        - {x: 49.5, y: -55.5}
+        - {x: 49.5, y: 53.5}
+        - {x: 48.5, y: 56.5}
+    - name: right eye
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 177
+        width: 97
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -43.5, y: 56.5}
+        - {x: -48.5, y: 49.5}
+        - {x: -48.5, y: -56.5}
+        - {x: 48.5, y: -56.5}
+        - {x: 48.5, y: 25.5}
+        - {x: 28.5, y: 56.5}
+    - name: mouth
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 117
+        width: 67
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -33.5, y: 32}
+        - {x: -33.5, y: -24}
+        - {x: -32.5, y: -28}
+        - {x: -18.5, y: -32}
+        - {x: 16.5, y: -32}
+        - {x: 22.5, y: -22}
+        - {x: 33.5, y: -5}
+        - {x: 33.5, y: 32}
+    - name: right red
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 150
+        width: 65
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: left red
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 154
+        width: 82
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
