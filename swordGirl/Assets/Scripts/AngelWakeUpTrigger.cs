@@ -19,6 +19,7 @@ public class AngelWakeUpTrigger : MonoBehaviour {
     IEnumerator AwakeKing()
     {
         angelKingAnimator.SetBool("Awake", true);
+        GameObject.Find("GameManager").GetComponent<GameManager>().ShowBossHealth();
         yield return new WaitForSeconds(5f);
         angelKingController.kingState = AngelKingController.State.Idle;
         Destroy(gameObject);

@@ -30,7 +30,8 @@ public class CameraController : MonoBehaviour
     void OnEnable()
     {
         character = transform.parent.transform;
-        pivot = transform;
+        //pivot = transform;
+        pivot = transform.Find("CamTarget").transform;
         myCamera = Camera.main;
         camTransform = myCamera.transform;
         playerControl = character.gameObject.GetComponent<PlayerControl>();

@@ -24,6 +24,13 @@ public class GameManager : MonoBehaviour {
     private Image bossHealthBar;
 
     bool bossAwake = false;
+    GameObject bossHealthBack;
+
+    void Start()
+    {
+        bossHealthBack = bossHealthBar.transform.parent.gameObject;
+        bossHealthBack.SetActive(false);
+    }
 
     void Update()
     {
@@ -53,11 +60,11 @@ public class GameManager : MonoBehaviour {
 
         if (bossAwake)
             bossHealthBar.fillAmount = Mathf.Lerp(bossHealthBar.fillAmount, bossHealth, 5f * Time.deltaTime);
-
     }
 
     public void ShowBossHealth()
     {
+        bossHealthBack.SetActive(true);
         bossAwake = true;
     }
 }

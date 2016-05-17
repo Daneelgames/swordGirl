@@ -33,6 +33,13 @@ public class AnimatorEvents : MonoBehaviour {
 
     private float pitch;
 
+    private Animator camTarget;
+
+    void Start()
+    {
+        camTarget = transform.parent.Find("/CamHolder/CamTarget").GetComponent<Animator>();
+    }
+
     void PlaySound(int clip)
     {
         pitch = Random.Range(.75f, 1.25f);
@@ -137,6 +144,8 @@ public class AnimatorEvents : MonoBehaviour {
         int random = Random.Range(7, 12);
         float randomDamage = Random.Range(0.15f, 0.3f);
 
+        camTarget.SetTrigger("QuickShake");
+
         if (gm.playerHealth > 0)
         {
             if (attacked > 0)
@@ -153,6 +162,9 @@ public class AnimatorEvents : MonoBehaviour {
 
     public void StaminaUse(float amount)
     {
+
+        camTarget.SetTrigger("AttackShake");
+
         if (gm.playerStamina > 0)
             gm.playerStamina -= amount;
     }
