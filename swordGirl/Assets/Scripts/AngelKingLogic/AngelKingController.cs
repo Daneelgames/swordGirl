@@ -120,6 +120,7 @@ public class AngelKingController : MonoBehaviour {
             {
                //print(str);
             }
+            transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
             attack = activeZones[random];
             anim.SetBool(attack, true);
             anim.SetBool("Run", false);
@@ -129,6 +130,7 @@ public class AngelKingController : MonoBehaviour {
 
     public void AttackOver()
     {
+        transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
         attackCooldown = Random.Range(0, 3);
         kingState = State.Idle;
         anim.SetBool(attack, false);
@@ -144,7 +146,7 @@ public class AngelKingController : MonoBehaviour {
                 if (_cp.thisCollider.tag == "EnemyActionColl")
                 {
                     activeCollider = _cp.thisCollider.GetComponent<AngelKingBodyColliderController>();
-                    if (activeCollider.isDangerous)
+                    if (activeCollider.isDangerous && activeCollider.localHealth > 0)
                     {
                         //other.gameObject.GetComponent<PlayerControl>().Damage(new Vector3(_cp.point.x, _cp.point.y - 2, _cp.point.z));
                         other.gameObject.GetComponent<PlayerControl>().Damage(transform.position);

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AngelWakeUpTrigger : MonoBehaviour {
+public class AngelEventsController : MonoBehaviour {
 
     [SerializeField]
     private Animator angelKingAnimator;
@@ -22,6 +22,7 @@ public class AngelWakeUpTrigger : MonoBehaviour {
         GameObject.Find("GameManager").GetComponent<GameManager>().ShowBossHealth();
         yield return new WaitForSeconds(5f);
         angelKingController.kingState = AngelKingController.State.Idle;
-        Destroy(gameObject);
+
+        GetComponent<Collider>().enabled = false;
     }
 }

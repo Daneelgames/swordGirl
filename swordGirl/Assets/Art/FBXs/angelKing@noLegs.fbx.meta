@@ -1,0 +1,291 @@
+fileFormatVersion: 2
+guid: 2f535ab5dad0b304ca5678a06dec2d5e
+timeCreated: 1463510178
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: arm1L
+    100004: arm1R
+    100006: arm2L
+    100008: arm2R
+    100010: arm3L
+    100012: arm3R
+    100014: arm4L
+    100016: arm4R
+    100018: arm5L
+    100020: arm5R
+    100022: Armature
+    100024: base
+    100026: Bison Skull
+    100028: Bison Skull.001
+    100030: Bison Skull.002
+    100032: Bison Skull.003
+    100034: Bison Skull.004
+    100036: Bison Skull.005
+    100038: Bison Skull.006
+    100040: Bison Skull.007
+    100042: Bison Skull.008
+    100044: Bison Skull.009
+    100046: Bison Skull.010
+    100048: Bison Skull.011
+    100050: Bison Skull.012
+    100052: body
+    100054: chest
+    100056: elbow.L
+    100058: elbow.L_end
+    100060: elbow.R
+    100062: elbow.R_end
+    100064: finger1_1L
+    100066: finger1_1R
+    100068: finger1_2L
+    100070: finger1_2R
+    100072: finger1_3L
+    100074: finger1_3L_end
+    100076: finger1_3R
+    100078: finger1_3R_end
+    100080: finger2_1L
+    100082: finger2_1R
+    100084: finger2_2L
+    100086: finger2_2L_end
+    100088: finger2_2R
+    100090: finger2_2R_end
+    100092: finger3_1L
+    100094: finger3_1R
+    100096: finger3_2L
+    100098: finger3_2L_end
+    100100: finger3_2R
+    100102: finger3_2R_end
+    100104: finger4_1L
+    100106: finger4_1R
+    100108: finger4_2L
+    100110: finger4_2L_end
+    100112: finger4_2R
+    100114: finger4_2R_end
+    100116: finger5_1L
+    100118: finger5_1R
+    100120: finger5_2L
+    100122: finger5_2L_end
+    100124: finger5_2R
+    100126: finger5_2R_end
+    100128: handIK.L
+    100130: handIK.L_end
+    100132: handIK.R
+    100134: handIK.R_end
+    100136: head
+    100138: head_end
+    100140: headIK
+    100142: IK.L
+    100144: IK.R
+    100146: knee.L
+    100148: knee.L_end
+    100150: knee.R
+    100152: knee.R_end
+    100154: leg1L
+    100156: leg1R
+    100158: leg2L
+    100160: leg2R
+    100162: leg3L
+    100164: leg3R
+    100166: leg4L
+    100168: leg4L_end
+    100170: leg4R
+    100172: leg4R_end
+    100174: leg5L
+    100176: leg5R
+    100178: leg6L
+    100180: leg6L_end
+    100182: leg6R
+    100184: leg6R_end
+    100186: neck
+    100188: spine
+    100190: spine_end
+    400000: //RootNode
+    400002: arm1L
+    400004: arm1R
+    400006: arm2L
+    400008: arm2R
+    400010: arm3L
+    400012: arm3R
+    400014: arm4L
+    400016: arm4R
+    400018: arm5L
+    400020: arm5R
+    400022: Armature
+    400024: base
+    400026: Bison Skull
+    400028: Bison Skull.001
+    400030: Bison Skull.002
+    400032: Bison Skull.003
+    400034: Bison Skull.004
+    400036: Bison Skull.005
+    400038: Bison Skull.006
+    400040: Bison Skull.007
+    400042: Bison Skull.008
+    400044: Bison Skull.009
+    400046: Bison Skull.010
+    400048: Bison Skull.011
+    400050: Bison Skull.012
+    400052: body
+    400054: chest
+    400056: elbow.L
+    400058: elbow.L_end
+    400060: elbow.R
+    400062: elbow.R_end
+    400064: finger1_1L
+    400066: finger1_1R
+    400068: finger1_2L
+    400070: finger1_2R
+    400072: finger1_3L
+    400074: finger1_3L_end
+    400076: finger1_3R
+    400078: finger1_3R_end
+    400080: finger2_1L
+    400082: finger2_1R
+    400084: finger2_2L
+    400086: finger2_2L_end
+    400088: finger2_2R
+    400090: finger2_2R_end
+    400092: finger3_1L
+    400094: finger3_1R
+    400096: finger3_2L
+    400098: finger3_2L_end
+    400100: finger3_2R
+    400102: finger3_2R_end
+    400104: finger4_1L
+    400106: finger4_1R
+    400108: finger4_2L
+    400110: finger4_2L_end
+    400112: finger4_2R
+    400114: finger4_2R_end
+    400116: finger5_1L
+    400118: finger5_1R
+    400120: finger5_2L
+    400122: finger5_2L_end
+    400124: finger5_2R
+    400126: finger5_2R_end
+    400128: handIK.L
+    400130: handIK.L_end
+    400132: handIK.R
+    400134: handIK.R_end
+    400136: head
+    400138: head_end
+    400140: headIK
+    400142: IK.L
+    400144: IK.R
+    400146: knee.L
+    400148: knee.L_end
+    400150: knee.R
+    400152: knee.R_end
+    400154: leg1L
+    400156: leg1R
+    400158: leg2L
+    400160: leg2R
+    400162: leg3L
+    400164: leg3R
+    400166: leg4L
+    400168: leg4L_end
+    400170: leg4R
+    400172: leg4R_end
+    400174: leg5L
+    400176: leg5R
+    400178: leg6L
+    400180: leg6L_end
+    400182: leg6R
+    400184: leg6R_end
+    400186: neck
+    400188: spine
+    400190: spine_end
+    4300000: Bison Skull.012
+    4300002: Bison Skull.011
+    4300004: Bison Skull.010
+    4300006: Bison Skull.009
+    4300008: Bison Skull.008
+    4300010: Bison Skull.007
+    4300012: Bison Skull.006
+    4300014: Bison Skull.005
+    4300016: Bison Skull.004
+    4300018: Bison Skull.003
+    4300020: Bison Skull.002
+    4300022: Bison Skull.001
+    4300024: Bison Skull
+    7400000: Armature|ArmatureAction.002
+    9500000: //RootNode
+    13700000: Bison Skull
+    13700002: Bison Skull.001
+    13700004: Bison Skull.002
+    13700006: Bison Skull.003
+    13700008: Bison Skull.004
+    13700010: Bison Skull.005
+    13700012: Bison Skull.006
+    13700014: Bison Skull.007
+    13700016: Bison Skull.008
+    13700018: Bison Skull.009
+    13700020: Bison Skull.010
+    13700022: Bison Skull.011
+    13700024: Bison Skull.012
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

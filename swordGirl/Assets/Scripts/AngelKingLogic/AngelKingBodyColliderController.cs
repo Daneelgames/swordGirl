@@ -5,6 +5,8 @@ public class AngelKingBodyColliderController : MonoBehaviour {
 
     public float localHealth = 0.3f;
 
+    public AngelKingBodyColliderController childBodypart;
+
     public bool isDangerous = false;
     public AudioClip[] impactSounds;
     public AudioClip[] hurtSounds;
@@ -18,20 +20,26 @@ public class AngelKingBodyColliderController : MonoBehaviour {
 
     private GameManager gm;
 
+    private Animator anim;
+
     void Start()
     {
+        anim = GameObject.Find("AngelKing").GetComponentInChildren<Animator>();
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         _audio = GetComponent<AudioSource>();
     }
 
     public void Impact()
     {
-        int randomClip = Random.Range(0, impactSounds.Length);
-        float randomPitch = Random.Range(0.75f, 1.25f);
-        _audio.PlayOneShot(impactSounds[randomClip]);
-        _audio.pitch = randomPitch;
-        
-        Instantiate(impactParticles, transform.position, new Quaternion(0,0,0,0));
+        if (localHealth > 0)
+        {
+            int randomClip = Random.Range(0, impactSounds.Length);
+            float randomPitch = Random.Range(0.75f, 1.25f);
+            _audio.PlayOneShot(impactSounds[randomClip]);
+            _audio.pitch = randomPitch;
+
+            Instantiate(impactParticles, transform.position, new Quaternion(0, 0, 0, 0));
+        }
     }
 
     public void Damage(Vector3 dmgPosition, float damage)
@@ -42,7 +50,11 @@ public class AngelKingBodyColliderController : MonoBehaviour {
             gm.bossHealth = 0;
 
         if (localHealth > damage)
+        {
             localHealth -= damage;
+            if (childBodypart != null)
+                childBodypart.localHealth -= damage;
+        }
         else if (localHealth > 0)
             BreakCollider();
 
@@ -65,8 +77,20 @@ public class AngelKingBodyColliderController : MonoBehaviour {
         blood.transform.parent = transform;
     }
 
-    void BreakCollider()
+    public void BreakCollider()
     {
         localHealth = 0;
+
+        if (childBodypart != null)
+            childBodypart.BreakCollider();
+
+        GetComponent<Collider>().enabled = false;
+
+        SkinnedMeshRenderer mesh = GetComponentInChildren<SkinnedMeshRenderer>();
+
+        if (mesh != null)
+            mesh.gameObject.SetActive(false);
+
+        anim.SetBool("Standing", false);
     }
 }
