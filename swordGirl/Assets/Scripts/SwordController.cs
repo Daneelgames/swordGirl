@@ -4,6 +4,7 @@ using System.Collections;
 public class SwordController : MonoBehaviour {
 
     public bool dangerous = false;
+    public float dmg = 0f;
 
     [SerializeField]
     private PlayerControl player;
@@ -15,8 +16,6 @@ public class SwordController : MonoBehaviour {
         print("hit collision");
         if (dangerous)
         {
-            print(other.gameObject.name);
-
             if (other.gameObject.tag == "Obstacle")
             {
                 anim.SetTrigger("HitObstacle");
@@ -28,10 +27,12 @@ public class SwordController : MonoBehaviour {
                 {
                     if (_cp.thisCollider.tag == "EnemyActionColl")
                     {
-                        print("hit enemy");
-                        float dmg = Random.Range(0.025f, 0.05f);
+                        //float dmg = Random.Range(0.025f, 0.05f);
 
                         _cp.thisCollider.gameObject.GetComponent<AngelKingBodyColliderController>().Damage(_cp.point, dmg);
+
+                        print(dmg + "damage dealt");
+
                         dangerous = false;
 
                         break;

@@ -186,6 +186,11 @@ public class PlayerControl : MonoBehaviour
         timeToNextRoll = rollCooldown;
     }
 
+    public void StepForward(float multiplyForce)
+    {
+        _rb.AddRelativeForce(Vector3.forward * rollLength * multiplyForce, ForceMode.Impulse);
+    }
+
 	void MovementManagement(float horizontal, float vertical, bool running, bool sprinting)
 	{
         if (attackCooldown <= 0)

@@ -107,7 +107,7 @@ public class AnimatorEvents : MonoBehaviour {
         rightStep.Play();
     }
 
-    public void TrailStart()
+    public void TrailStart(float damage)
     {
         int random = Random.Range(3, 7);
 
@@ -116,6 +116,7 @@ public class AnimatorEvents : MonoBehaviour {
         //trail.enabled = true;
         isTrail = true;
         sword.dangerous = true;
+        sword.dmg = damage;
     }
 
     public void TrailStop()
@@ -183,5 +184,10 @@ public class AnimatorEvents : MonoBehaviour {
         player.invicible = true;
         yield return new WaitForSeconds(0.25f);
         player.invicible = false;
+    }
+
+    public void MoveForwardAtAttack(float multiplyForce)
+    {
+        player.StepForward(multiplyForce);
     }
 }
