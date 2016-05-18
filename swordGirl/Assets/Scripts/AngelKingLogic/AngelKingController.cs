@@ -39,6 +39,9 @@ public class AngelKingController : MonoBehaviour {
             MovementController();
         if (kingState != State.Idle && kingState != State.Sleep)
             TurnController();
+
+        if (kingState == State.Attack || kingState == State.Idle)
+            _rb.velocity = Vector3.zero;
     }
 
     void Update()
@@ -168,8 +171,7 @@ public class AngelKingController : MonoBehaviour {
                     StartCoroutine(CoroutineWithMultipleParameters(_cp.otherCollider, _cp.thisCollider));
 
                     _cp.thisCollider.gameObject.GetComponent<AngelKingBodyColliderController>().Damage(_cp.point, dmg);
-
-
+                    
                     break;
                 }
             }
