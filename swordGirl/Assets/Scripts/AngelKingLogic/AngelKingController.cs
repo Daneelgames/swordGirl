@@ -167,7 +167,7 @@ public class AngelKingController : MonoBehaviour {
                 if (_cp.thisCollider.tag == "EnemyActionColl" && _cp.otherCollider.GetComponent<SwordController>().dangerous)
                 {
                     print("hit enemy");
-                    float dmg = Random.Range(0.02f, 0.01f);
+                    float dmg = Random.Range(0.01f, 0.02f);
                     StartCoroutine(CoroutineWithMultipleParameters(_cp.otherCollider, _cp.thisCollider));
 
                     _cp.thisCollider.gameObject.GetComponent<AngelKingBodyColliderController>().Damage(_cp.point, dmg);

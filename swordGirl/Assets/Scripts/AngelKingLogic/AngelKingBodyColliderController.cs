@@ -79,18 +79,21 @@ public class AngelKingBodyColliderController : MonoBehaviour {
 
     public void BreakCollider()
     {
-        localHealth = 0;
+        if (localHealth > 0)
+        {
+            localHealth = 0;
 
-        if (childBodypart != null)
-            childBodypart.BreakCollider();
+            if (childBodypart != null)
+                childBodypart.BreakCollider();
 
-        GetComponent<Collider>().enabled = false;
+            GetComponent<Collider>().enabled = false;
 
-        SkinnedMeshRenderer mesh = GetComponentInChildren<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer mesh = GetComponentInChildren<SkinnedMeshRenderer>();
 
-        if (mesh != null)
-            mesh.gameObject.SetActive(false);
+            if (mesh != null)
+                mesh.gameObject.SetActive(false);
 
-        anim.SetBool("Standing", false);
+            anim.SetBool("Standing", false);
+        }
     }
 }

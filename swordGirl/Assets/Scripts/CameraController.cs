@@ -13,7 +13,8 @@ public class CameraController : MonoBehaviour
     public int vertSpeed = 3;
     public bool reverseVertical;
 
-    public float sprintFOV = 70f;
+    public float sprintFOV = 30f;
+    public float rollFOV = 70f;
 
     float offset = -6;
     float camFollow = .75f;
@@ -25,6 +26,7 @@ public class CameraController : MonoBehaviour
     private float targetFOV;
 
     private PlayerControl playerControl;
+    
 
     // Use this for initialization
     void OnEnable()
@@ -49,11 +51,13 @@ public class CameraController : MonoBehaviour
             targetFOV = sprintFOV;
 
         if (playerControl.timeToNextRoll > 0)
+            targetFOV = rollFOV;
+        else if (playerControl.isSprinting())
             targetFOV = sprintFOV;
         else
             targetFOV = defaultFOV;
 
-        myCamera.fieldOfView = Mathf.Lerp(myCamera.fieldOfView, targetFOV, Time.deltaTime);
+        myCamera.fieldOfView = Mathf.Lerp(myCamera.fieldOfView, targetFOV, 2 * Time.deltaTime);
 
         transform.position = new Vector3(character.position.x, character.position.y + 1.5f, character.position.z);
     }

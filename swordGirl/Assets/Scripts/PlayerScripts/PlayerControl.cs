@@ -13,7 +13,7 @@ public class PlayerControl : MonoBehaviour
     public float maxVelocity = 10;
     
 	public float turnSmoothing = 3.0f;
-    [HideInInspector]
+
     public float speedDampTime = 1f;
     
 	public float rollLength = 5.0f;
@@ -61,8 +61,12 @@ public class PlayerControl : MonoBehaviour
     float dirV = 0f;
     private bool damaged = false;
 
+    private Animator shakeAnimator;
+
     void Awake()
     {
+        shakeAnimator = transform.Find("/CamHolder/CamTarget").GetComponent<Animator>();
+
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         if (anim == null)
@@ -80,12 +84,25 @@ public class PlayerControl : MonoBehaviour
 		h = Input.GetAxis("Horizontal");
 		v = Input.GetAxis("Vertical");
 		run = Input.GetButton ("Run");
-		sprint = Input.GetButton ("Sprint");
 		isMoving = Mathf.Abs(h) > 0.1 || Mathf.Abs(v) > 0.1;
+
+        if (gm.playerStamina > 0)
+            sprint = Input.GetButton("Sprint");
+        else
+            sprint = false;
+        
         if (grounded && canControl)
         {
             AttackManagment();
             RollManagement();
+
+            if (sprint && isMoving)
+            {
+                gm.playerStamina -= 0.2f * Time.deltaTime;
+                shakeAnimator.SetBool("SprintShake", true);
+            }
+            else
+                shakeAnimator.SetBool("SprintShake", false);
         }
         else
         {
@@ -191,13 +208,14 @@ public class PlayerControl : MonoBehaviour
                     speed = walkSpeed;
                 }
 
-                anim.SetFloat(speedFloat, speed, speedDampTime, Time.deltaTime);
             }
             else
             {
                 speed = 0f;
-                anim.SetFloat(speedFloat, 0f);
             }
+
+            anim.SetFloat(speedFloat, speed, speedDampTime, Time.deltaTime);
+
             _rb.AddRelativeForce(Vector3.forward * speed);
         }
 	}
