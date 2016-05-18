@@ -22,11 +22,31 @@ public class AngelKingBodyColliderController : MonoBehaviour {
 
     private Animator anim;
 
+    private float timer = -1;
+
+    AngelKingController king;
+
     void Start()
     {
+        king = GameObject.Find("AngelKing").GetComponent<AngelKingController>();
+
         anim = GameObject.Find("AngelKing").GetComponentInChildren<Animator>();
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         _audio = GetComponent<AudioSource>();
+    }
+
+    void Update()
+    {
+        if (localHealth <= 0)
+            BreakCollider();
+
+        if (!anim.GetBool("Standing") && king.kingState == AngelKingController.State.Sleep && timer == -1)
+        {
+            timer = 3f;
+        }
+
+        if (timer > 0)
+            timer -= 1 * Time.deltaTime;
     }
 
     public void Impact()
@@ -44,23 +64,21 @@ public class AngelKingBodyColliderController : MonoBehaviour {
 
     public void Damage(Vector3 dmgPosition, float damage)
     {
-        if (gm.bossHealth > damage)
-            gm.bossHealth -= damage;
-        else if (gm.bossHealth > 0)
-            gm.bossHealth = 0;
+        gm.bossHealth -= damage;
+        
+        localHealth -= damage;
 
-        if (localHealth > damage)
-        {
-            localHealth -= damage;
-            if (childBodypart != null)
-                childBodypart.localHealth -= damage;
-        }
-        else if (localHealth > 0)
-            BreakCollider();
+        if (childBodypart != null)
+            childBodypart.localHealth -= damage;
 
-        print("damage");
+        print(damage + " damage dealt");
 
         BloodSplatter(dmgPosition);
+
+        if (!anim.GetBool("Standing") && king.kingState == AngelKingController.State.Sleep && timer == 0)
+        {
+            king.kingState = AngelKingController.State.Idle;
+        }
     }
 
     void BloodSplatter(Vector3 dmgPosition)
@@ -79,21 +97,29 @@ public class AngelKingBodyColliderController : MonoBehaviour {
 
     public void BreakCollider()
     {
-        if (localHealth > 0)
+        localHealth = 0;
+        
+        if (!anim.GetBool("Standing") && king.kingState == AngelKingController.State.Sleep)
         {
-            localHealth = 0;
-
-            if (childBodypart != null)
-                childBodypart.BreakCollider();
-
-            GetComponent<Collider>().enabled = false;
-
-            SkinnedMeshRenderer mesh = GetComponentInChildren<SkinnedMeshRenderer>();
-
-            if (mesh != null)
-                mesh.gameObject.SetActive(false);
-
-            anim.SetBool("Standing", false);
+            king.kingState = AngelKingController.State.Idle;
         }
+
+        if (childBodypart != null)
+            childBodypart.BreakCollider();
+
+        GetComponent<Collider>().enabled = false;
+
+        SkinnedMeshRenderer mesh = GetComponentInChildren<SkinnedMeshRenderer>();
+
+        if (mesh != null)
+            mesh.gameObject.SetActive(false);
+
+        if (anim.GetBool("Standing"))
+        {
+            anim.SetBool("Standing", false);
+            king.kingState = AngelKingController.State.Sleep;
+        }
+
+        this.enabled = false;
     }
 }

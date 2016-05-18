@@ -35,6 +35,8 @@ public class AnimatorEvents : MonoBehaviour {
 
     private Animator camTarget;
 
+    private float timer = 0f;
+
     void Start()
     {
         camTarget = transform.parent.Find("/CamHolder/CamTarget").GetComponent<Animator>();
@@ -42,8 +44,12 @@ public class AnimatorEvents : MonoBehaviour {
 
     void PlaySound(int clip)
     {
-        pitch = Random.Range(.75f, 1.25f);
-        PlayClipAtPoint(audioClip[clip], new Vector3(transform.position.x, transform.position.y, 0), 1f, pitch);
+        if (timer <= 0)
+        {
+            pitch = Random.Range(.75f, 1.25f);
+            PlayClipAtPoint(audioClip[clip], new Vector3(transform.position.x, transform.position.y, 0), 1f, pitch);
+            timer = 0.025f;
+        }
     }
 
     GameObject PlayClipAtPoint(AudioClip clip, Vector3 position, float volume, float pitch)
@@ -70,6 +76,9 @@ public class AnimatorEvents : MonoBehaviour {
             trail.time = Mathf.Lerp(trail.time, 0, 5 * Time.deltaTime);
         else
             trail.time = Mathf.Lerp(trail.time, 1, 5 * Time.deltaTime);
+
+        if (timer > 0)
+            timer -= 1 * Time.deltaTime;
 
     }
 

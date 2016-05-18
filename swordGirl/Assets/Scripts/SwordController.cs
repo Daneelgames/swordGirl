@@ -13,7 +13,6 @@ public class SwordController : MonoBehaviour {
 
     void OnCollisionEnter (Collision other)
     {
-        print("hit collision");
         if (dangerous)
         {
             if (other.gameObject.tag == "Obstacle")

@@ -40,7 +40,7 @@ public class AngelKingController : MonoBehaviour {
         if (kingState != State.Idle && kingState != State.Sleep)
             TurnController();
 
-        if (kingState == State.Attack || kingState == State.Idle)
+        if (kingState == State.Attack || kingState == State.Idle || kingState == State.Sleep)
             _rb.velocity = Vector3.zero;
     }
 
@@ -166,7 +166,7 @@ public class AngelKingController : MonoBehaviour {
             {
                 if (_cp.thisCollider.tag == "EnemyActionColl" && _cp.otherCollider.GetComponent<SwordController>().dangerous)
                 {
-                    print("hit enemy");
+
                     float dmg = Random.Range(0.01f, 0.02f);
                     StartCoroutine(CoroutineWithMultipleParameters(_cp.otherCollider, _cp.thisCollider));
 

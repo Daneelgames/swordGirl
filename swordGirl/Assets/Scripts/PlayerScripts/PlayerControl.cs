@@ -165,7 +165,7 @@ public class PlayerControl : MonoBehaviour
         if (attackCooldown > 0)
             attackCooldown -= 1 * Time.deltaTime;
         
-        if (attackCooldown <= 0 && gm.playerStamina > .1f && Input.GetButtonDown("Attack1"))
+        if (attackCooldown <= 0 && gm.playerStamina > .01f && Input.GetButtonDown("Attack1"))
             anim.SetBool("Attack1", true);
     }
 
