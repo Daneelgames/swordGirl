@@ -187,6 +187,8 @@ public class CameraController : MonoBehaviour
         float minimumDistanceToCurTarget = maxTargetRadius;
         Transform newTarget = null;
 
+        print(hor + ", " + ver);
+
         foreach (AngelKingBodyColliderController i in listOfTargets)
         {
             float distanceToPivot = Vector3.Distance(pivot.position, i.transform.position);
@@ -198,22 +200,22 @@ public class CameraController : MonoBehaviour
                 {
                     //minimumDistanceToCurTarget = distanceToCurTarget;
 
-                    if (hor > 0 && iScreenPos.x > curTargetScreenPos.x)
+                    if (hor > 0 && iScreenPos.x > curTargetScreenPos.x && Mathf.Abs(hor) > Mathf.Abs(ver))
                     {
                         newTarget = i.transform;
                         minimumDistanceToCurTarget = distanceToCurTarget;
                     }
-                    else if (hor < 0 && iScreenPos.x < curTargetScreenPos.x)
+                    else if (hor < 0 && iScreenPos.x < curTargetScreenPos.x && Mathf.Abs(hor) > Mathf.Abs(ver))
                     {
                         newTarget = i.transform;
                         minimumDistanceToCurTarget = distanceToCurTarget;
                     }
-                    else if (ver > 0 && iScreenPos.y > curTargetScreenPos.y)
+                    else if (ver > 0 && iScreenPos.y > curTargetScreenPos.y && Mathf.Abs(hor) < Mathf.Abs(ver))
                     {
                         newTarget = i.transform;
                         minimumDistanceToCurTarget = distanceToCurTarget;
                     }
-                    else if (ver < 0 && iScreenPos.y < curTargetScreenPos.y)
+                    else if (ver < 0 && iScreenPos.y < curTargetScreenPos.y && Mathf.Abs(hor) < Mathf.Abs(ver))
                     {
                         newTarget = i.transform;
                         minimumDistanceToCurTarget = distanceToCurTarget;
