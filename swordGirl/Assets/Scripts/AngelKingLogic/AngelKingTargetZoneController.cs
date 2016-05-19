@@ -3,9 +3,10 @@ using System.Collections;
 
 public class AngelKingTargetZoneController : MonoBehaviour {
 
+    public float playerDamageFlyTime = 0.75f;
+
     [SerializeField]
     private string nextAttack;
-
     private AngelKingController angelKing;
 
     void Start()

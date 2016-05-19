@@ -268,19 +268,19 @@ public class PlayerControl : MonoBehaviour
 			_rb.MoveRotation (newRotation);
 		}
     }
-    public void Damage(Vector3 impactOrigin)
+    public void Damage(Vector3 impactOrigin, float flyTime)
     {
         if (!damaged && !invicible)
         {
             transform.LookAt(impactOrigin);
             impactPosition = impactOrigin;
-            StartCoroutine("Fall");
+            StartCoroutine("Fall", flyTime);
             //print("Fly up");
             damaged = true;
         }
     }
 
-    IEnumerator Fall()
+    IEnumerator Fall(float time)
     {
         Physics.IgnoreLayerCollision(10, 13, true);
         dirV = 10;
@@ -291,7 +291,7 @@ public class PlayerControl : MonoBehaviour
         anim.SetBool("Attack1", false);
         anim.SetBool("Roll", false);
         anim.SetTrigger("FlyUp");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(time);
         transform.Rotate(0, transform.rotation.y, 0);
         damaged = false;
         flyUp = false;

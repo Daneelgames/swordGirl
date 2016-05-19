@@ -19,6 +19,11 @@ public class AngelKingAnimationEvents : MonoBehaviour {
         angel.AttackOver();
     }
 
+    public void SetFlyTime(float playerDamageFlyTime)
+    {
+        angel.playerFlyTime = playerDamageFlyTime;
+    }
+
     public void Impact (string colliderName)
     {
         for (int i = 0; i < bodyColliders.Length; i++ )

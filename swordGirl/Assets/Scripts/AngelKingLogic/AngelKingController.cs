@@ -7,6 +7,8 @@ public class AngelKingController : MonoBehaviour {
     public enum State {Sleep, Idle, Run, Attack};
     public State kingState = State.Idle;
 
+    public float playerFlyTime = 1;
+
     [SerializeField]
     List<string> activeZones = new List<string>();
 
@@ -152,7 +154,7 @@ public class AngelKingController : MonoBehaviour {
                     if (activeCollider.isDangerous && activeCollider.localHealth > 0)
                     {
                         //other.gameObject.GetComponent<PlayerControl>().Damage(new Vector3(_cp.point.x, _cp.point.y - 2, _cp.point.z));
-                        other.gameObject.GetComponent<PlayerControl>().Damage(transform.position);
+                        other.gameObject.GetComponent<PlayerControl>().Damage(transform.position, playerFlyTime);
                         activeCollider.isDangerous = false;
 
                         break;

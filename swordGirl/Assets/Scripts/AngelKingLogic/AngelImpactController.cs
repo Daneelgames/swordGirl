@@ -18,7 +18,7 @@ public class AngelImpactController : MonoBehaviour {
     {
         if (coll.tag == "Player")
         {
-            coll.GetComponent<PlayerControl>().Damage(new Vector3(transform.position.x, coll.transform.position.y, transform.position.z));
+            coll.GetComponent<PlayerControl>().Damage(new Vector3(transform.position.x, coll.transform.position.y, transform.position.z), 0.35f);
             GetComponent<Collider>().enabled = false;
         }
     }
