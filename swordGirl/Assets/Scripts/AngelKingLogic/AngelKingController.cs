@@ -164,13 +164,12 @@ public class AngelKingController : MonoBehaviour {
         {
             foreach (ContactPoint _cp in other.contacts)
             {
-                if (_cp.thisCollider.tag == "EnemyActionColl" && _cp.otherCollider.GetComponent<SwordController>().dangerous)
+                SwordController sword = _cp.otherCollider.GetComponent<SwordController>();
+                if (_cp.thisCollider.tag == "EnemyActionColl" && sword.dangerous)
                 {
-
-                    float dmg = Random.Range(0.01f, 0.02f);
                     StartCoroutine(CoroutineWithMultipleParameters(_cp.otherCollider, _cp.thisCollider));
 
-                    _cp.thisCollider.gameObject.GetComponent<AngelKingBodyColliderController>().Damage(_cp.point, dmg);
+                    _cp.thisCollider.gameObject.GetComponent<AngelKingBodyColliderController>().Damage(_cp.point, sword.dmg);
                     
                     break;
                 }

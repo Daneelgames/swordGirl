@@ -19,25 +19,26 @@ public class SwordController : MonoBehaviour {
             {
                 anim.SetTrigger("HitObstacle");
                 dangerous = false;
-            }
+            }/*
             else
             {
                 foreach (ContactPoint _cp in other.contacts)
                 {
                     if (_cp.thisCollider.tag == "EnemyActionColl")
                     {
+                        print("attacked from sword");
                         //float dmg = Random.Range(0.025f, 0.05f);
 
                         _cp.thisCollider.gameObject.GetComponent<AngelKingBodyColliderController>().Damage(_cp.point, dmg);
 
-                        print(dmg + "damage dealt");
+                       // print(dmg + "damage dealt");
 
                         dangerous = false;
 
                         break;
                     }
                 }
-            }
+            }*/
         }
     }
 }

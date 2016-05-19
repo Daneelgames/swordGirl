@@ -16,6 +16,8 @@ public class AngelKingBodyColliderController : MonoBehaviour {
 
     [SerializeField]
     private GameObject bloodParticles;
+    [SerializeField]
+    private GameObject limbDestroyedParticles;
 
     [SerializeField]
     private GameObject impactParticles;
@@ -90,17 +92,20 @@ public class AngelKingBodyColliderController : MonoBehaviour {
         _audio.PlayOneShot(hurtSounds[randomClip]);
         _audio.pitch = randomPitch;
 
-        Vector3 direcion = transform.position - dmgPosition;
+        Vector3 direcion = dmgPosition + (transform.position - dmgPosition).normalized * 2;
+        // pivot.position + (target.position - pivot.position).normalized * unobstructed
 
         GameObject blood = Instantiate(bloodParticles, dmgPosition, transform.rotation) as GameObject;
-        blood.transform.LookAt(direcion);
         blood.transform.parent = transform;
+        blood.transform.LookAt(direcion);
     }
 
     public void BreakCollider()
     {
         localHealth = 0;
-        
+
+        GameObject.Find("CamHolder").GetComponent<CameraController>().BrokeTarget(this);
+
         if (!anim.GetBool("Standing") && king.kingState == AngelKingController.State.Sleep)
         {
             king.kingState = AngelKingController.State.Idle;
@@ -121,6 +126,8 @@ public class AngelKingBodyColliderController : MonoBehaviour {
             anim.SetBool("Standing", false);
             king.kingState = AngelKingController.State.Sleep;
         }
+
+        Instantiate(limbDestroyedParticles, transform.position, transform.rotation);
 
         this.enabled = false;
     }

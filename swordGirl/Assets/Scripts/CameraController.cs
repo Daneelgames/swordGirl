@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour
     
     Transform character;
 
+    public float maxTargetRadius = 50f;
     [SerializeField]
     private Transform target;
     [SerializeField]
@@ -18,6 +19,7 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     List<AngelKingBodyColliderController> listOfTargets = new List<AngelKingBodyColliderController>();
 
+    public float camLookAtSpeed = 20;
     public int camRotateSpeed = 10;
     public int vertSpeed = 3;
     public bool reverseVertical;
@@ -39,19 +41,22 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     GameObject[] enemyColliders;
 
-    void Start()
+    private CrosshairController crosshair;
+
+    private bool canSwitchTarget = true;
+
+    void Awake()
     {
+        pivot = transform.Find("CamTarget").transform;
         target = pivot;
         GetEnemyColliders();
-
+        character = transform.parent.transform;
+        crosshair = GameObject.Find("Crosshair").GetComponent<CrosshairController>();
     }
 
-    // Use this for initialization
     void OnEnable()
     {
-        character = transform.parent.transform;
         //pivot = transform;
-        pivot = transform.Find("CamTarget").transform;
         myCamera = Camera.main;
         camTransform = myCamera.transform;
         playerControl = character.gameObject.GetComponent<PlayerControl>();
@@ -63,7 +68,19 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
+        ControlFov();
 
+        transform.position = new Vector3(character.position.x, character.position.y + 1.5f, character.position.z);
+
+        if (Input.GetButtonDown("LockOn"))
+            LockOnController();
+
+        if (lockOn)
+            SwitchTarget();
+    }
+
+    void ControlFov()
+    {
         //control camers FOV
         if (playerControl.isSprinting())
             targetFOV = sprintFOV;
@@ -76,11 +93,6 @@ public class CameraController : MonoBehaviour
             targetFOV = defaultFOV;
 
         myCamera.fieldOfView = Mathf.Lerp(myCamera.fieldOfView, targetFOV, 2 * Time.deltaTime);
-
-        transform.position = new Vector3(character.position.x, character.position.y + 1.5f, character.position.z);
-
-        if (Input.GetButtonDown("LockOn"))
-            LockOnController();
     }
 
     void GetEnemyColliders()
@@ -98,18 +110,29 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    public void BrokeTarget(AngelKingBodyColliderController collider)
+    {
+        if (collider.transform == target)
+            LockOnController();
+    }
+
     void LockOnController()
     {
         if (!lockOn)
         {
             //get closest target
             Transform closestTarget = null;
-            float closestDistance = 1000f;
+            float closestDistance = maxTargetRadius;
             
             foreach (AngelKingBodyColliderController j in listOfTargets)
             {
+                if (j.localHealth <= 0)
+                {
+                    listOfTargets.Remove(j);
+                    break;
+                }
+
                 float distance = Vector3.Distance(j.transform.position, pivot.position);
-                print(distance);
                 if (distance <= closestDistance)
                 {
                     closestDistance = distance;
@@ -122,14 +145,85 @@ public class CameraController : MonoBehaviour
                 print("target - " + closestTarget.name);
                 target = closestTarget;
                 lockOn = true;
+                crosshair.ShowCrosshair(target);
             }
         }
         else
         {
+            //clear list of targets
             lockOn = false;
             target = pivot;
+            crosshair.HideCrosshair();
         }
 
+    }
+
+    void SwitchTarget()
+    {
+        float hor = Input.GetAxis("Mouse X");
+        float ver = Input.GetAxis("Mouse Y");
+        
+        if (canSwitchTarget)
+        {
+
+            if (hor != 0 || ver != 0)
+            {
+                FindNewTarget(hor, ver);
+                canSwitchTarget = false;
+            }
+        }
+        else
+        {
+            if (hor == 0 && ver == 0)
+            {
+                canSwitchTarget = true;
+            }
+        }
+    }
+
+    void FindNewTarget(float hor, float ver)
+    {
+        Vector3 curTargetScreenPos = Camera.main.WorldToScreenPoint(target.position);
+        float minimumDistanceToCurTarget = maxTargetRadius;
+        Transform newTarget = null;
+
+        foreach (AngelKingBodyColliderController i in listOfTargets)
+        {
+            float distanceToPivot = Vector3.Distance(pivot.position, i.transform.position);
+            if (distanceToPivot < maxTargetRadius )
+            {
+                Vector3 iScreenPos = Camera.main.WorldToScreenPoint(i.transform.position);
+                float distanceToCurTarget = Vector2.Distance((Vector2)curTargetScreenPos, (Vector2)iScreenPos);
+                if (distanceToCurTarget < minimumDistanceToCurTarget)
+                {
+                    //minimumDistanceToCurTarget = distanceToCurTarget;
+
+                    if (hor > 0 && iScreenPos.x > curTargetScreenPos.x)
+                    {
+                        newTarget = i.transform;
+                        minimumDistanceToCurTarget = distanceToCurTarget;
+                    }
+                    else if (hor < 0 && iScreenPos.x < curTargetScreenPos.x)
+                    {
+                        newTarget = i.transform;
+                        minimumDistanceToCurTarget = distanceToCurTarget;
+                    }
+                    else if (ver > 0 && iScreenPos.y > curTargetScreenPos.y)
+                    {
+                        newTarget = i.transform;
+                        minimumDistanceToCurTarget = distanceToCurTarget;
+                    }
+                    else if (ver < 0 && iScreenPos.y < curTargetScreenPos.y)
+                    {
+                        newTarget = i.transform;
+                        minimumDistanceToCurTarget = distanceToCurTarget;
+                    }
+                }
+
+            }
+        }
+        if (newTarget != null)
+            target = newTarget;
     }
 
     void LateUpdate()
@@ -138,8 +232,10 @@ public class CameraController : MonoBehaviour
         float hor = Input.GetAxis("Mouse X");
         float vert = Input.GetAxis("Mouse Y");
 
-        if (!reverseVertical) vert *= -vertSpeed;
-        else vert *= vertSpeed;
+        if (!reverseVertical)
+            vert *= -vertSpeed;
+        else
+            vert *= vertSpeed;
 
         hor *= camRotateSpeed;
 
@@ -148,8 +244,12 @@ public class CameraController : MonoBehaviour
         if (vert > 0 && x > 61 && x < 270) vert = 0;
         else if (vert < 0 && x < 300 && x > 180) vert = 0;
 
-        pivot.localEulerAngles += new Vector3(vert, hor, 0);
-        
+        // сохранять направление камеры при отключении локОна
+        if (!lockOn)
+            pivot.localEulerAngles += new Vector3(vert, hor, 0);
+        else
+            pivot.LookAt(target);
+
         //Central Ray
         float unobstructed = offset;
         Vector3 idealPostion = pivot.TransformPoint(Vector3.forward * offset);
@@ -161,15 +261,24 @@ public class CameraController : MonoBehaviour
         }
 
         //smooth
-        Vector3 desiredPos = pivot.TransformPoint(Vector3.forward * unobstructed);
+        Vector3 desiredPos;
+        if (!lockOn)
+            desiredPos = pivot.TransformPoint(Vector3.forward * unobstructed);
+        else
+            desiredPos = pivot.position + (target.position - pivot.position).normalized * unobstructed;
+
         Vector3 currentPos = camTransform.position;
 
         Vector3 goToPos = new Vector3(Mathf.Lerp(currentPos.x, desiredPos.x, camFollow), Mathf.Lerp(currentPos.y, desiredPos.y, camFollow), Mathf.Lerp(currentPos.z, desiredPos.z, camFollow));
 
         //camTransform.LookAt(pivot.position);
         //camTransform.localPosition = goToPos;
-        camTransform.LookAt(target.position);
-        camTransform.localPosition = Vector3.Lerp(camTransform.localPosition, goToPos, 0.1f);
+        //camTransform.LookAt(target.position);
+        
+        Quaternion rotation = Quaternion.LookRotation(target.position - camTransform.position);
+        camTransform.rotation = Quaternion.Slerp(camTransform.rotation, rotation, Time.deltaTime * camLookAtSpeed);
+
+        camTransform.localPosition = Vector3.Lerp(camTransform.localPosition, goToPos, Time.deltaTime * 5f);
 
 
         //Viewport Bleed prevention
