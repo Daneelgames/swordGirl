@@ -49,7 +49,6 @@ public class CameraController : MonoBehaviour
     {
         pivot = transform.Find("CamTarget").transform;
         target = pivot;
-        GetEnemyColliders();
         character = transform.parent.transform;
         crosshair = GameObject.Find("Crosshair").GetComponent<CrosshairController>();
     }
@@ -62,8 +61,13 @@ public class CameraController : MonoBehaviour
         playerControl = character.gameObject.GetComponent<PlayerControl>();
         camTransform.position = pivot.TransformPoint(Vector3.forward * offset);
         defaultFOV = myCamera.fieldOfView;
-
+        
         transform.parent = null;
+    }
+
+    void Start()
+    {
+        GetEnemyColliders();
     }
 
     void Update()
@@ -101,8 +105,9 @@ public class CameraController : MonoBehaviour
         enemyColliders = GameObject.FindGameObjectsWithTag("EnemyActionColl");
         foreach (GameObject coll in enemyColliders)
         {
-            AngelKingBodyColliderController colliderScript = coll.GetComponent<AngelKingBodyColliderController>();
-            if (colliderScript.localHealth > 0 && colliderScript.isTarget)
+            AngelKingBodyColliderController colliderScript = coll.GetComponent<AngelKingBodyColliderController>() as AngelKingBodyColliderController;
+           // print(coll.name);
+            if (colliderScript != null && colliderScript.localHealth > 0 && colliderScript.isTarget)
             {
                 listOfTargets.Add(colliderScript);
             }

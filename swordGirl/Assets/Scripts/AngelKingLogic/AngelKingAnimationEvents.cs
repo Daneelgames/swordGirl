@@ -28,7 +28,7 @@ public class AngelKingAnimationEvents : MonoBehaviour {
     {
         for (int i = 0; i < bodyColliders.Length; i++ )
         {
-            if (bodyColliders[i].name == colliderName)
+            if (bodyColliders[i].name == colliderName && bodyColliders[i].localHealth > 0)
             {
                 bodyColliders[i].Impact();
                 break;

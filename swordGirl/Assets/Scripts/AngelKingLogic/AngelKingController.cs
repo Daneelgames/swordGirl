@@ -43,7 +43,10 @@ public class AngelKingController : MonoBehaviour {
             TurnController();
 
         if (kingState == State.Attack || kingState == State.Idle || kingState == State.Sleep)
+        {
+            transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
             _rb.velocity = Vector3.zero;
+        }
     }
 
     void Update()
@@ -56,8 +59,8 @@ public class AngelKingController : MonoBehaviour {
             else if (kingState != State.Attack)
                 kingState = State.Idle;
         }
-
-        Attack();
+        if (kingState != State.Sleep)
+            Attack();
     }
 
     void MovementController()
@@ -125,6 +128,7 @@ public class AngelKingController : MonoBehaviour {
             {
                //print(str);
             }
+            //set rotate to zero
             transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
             attack = activeZones[random];
             anim.SetBool(attack, true);
@@ -186,5 +190,19 @@ public class AngelKingController : MonoBehaviour {
         yield return new WaitForSeconds(0.5f);
         //Physics.IgnoreCollision(swordCollider, bodyCollider, false);
         Physics.IgnoreLayerCollision(15, 10, false);
+    }
+
+    public void FallAsleep()
+    {
+        StartCoroutine("Sleep");
+        defaultTurnSpeed = 0.1f;
+        runSpeed = 1f;
+    }
+
+    IEnumerator Sleep()
+    {
+        yield return new WaitForSeconds(3F);
+        AttackOver();
+        kingState = State.Sleep;
     }
 }

@@ -26,9 +26,11 @@ public class AngelKingBodyColliderController : MonoBehaviour {
 
     private Animator anim;
 
-    private float timer = -1;
+    public float timer = -1;
 
     AngelKingController king;
+
+    bool canTimer = false;
 
     void Start()
     {
@@ -44,13 +46,21 @@ public class AngelKingBodyColliderController : MonoBehaviour {
         if (localHealth <= 0)
             BreakCollider();
 
-        if (!anim.GetBool("Standing") && king.kingState == AngelKingController.State.Sleep && timer == -1)
+        if (!anim.GetBool("Standing") && king.kingState == AngelKingController.State.Sleep)
         {
-            timer = 3f;
+            if  (timer == -1)
+            {
+                timer = 3f;
+                canTimer = true;
+            }
+
+            if (timer > 0)
+                timer -= 1 * Time.deltaTime;
+
+            if (canTimer && timer < 0)
+                timer = 0;
         }
 
-        if (timer > 0)
-            timer -= 1 * Time.deltaTime;
     }
 
     public void Impact()
@@ -75,13 +85,12 @@ public class AngelKingBodyColliderController : MonoBehaviour {
         if (childBodypart != null)
             childBodypart.localHealth -= damage;
 
-        print(damage + " damage dealt");
-
         BloodSplatter(dmgPosition);
 
         if (!anim.GetBool("Standing") && king.kingState == AngelKingController.State.Sleep && timer == 0)
         {
             king.kingState = AngelKingController.State.Idle;
+            anim.SetBool("Awake", true);
         }
     }
 
@@ -124,11 +133,16 @@ public class AngelKingBodyColliderController : MonoBehaviour {
         if (anim.GetBool("Standing"))
         {
             anim.SetBool("Standing", false);
+            anim.SetBool("Awake", false);
+            anim.SetTrigger("LoseLimb");
             king.kingState = AngelKingController.State.Sleep;
+            king.FallAsleep();
         }
 
         Instantiate(limbDestroyedParticles, transform.position, transform.rotation);
 
         this.enabled = false;
     }
+
+
 }

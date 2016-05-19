@@ -16,7 +16,7 @@ public class AngelKingTargetZoneController : MonoBehaviour {
 
     void OnTriggerEnter (Collider player)
     {
-        if (player.tag == "Player")
+        if (player.tag == "Player" && angelKing.kingState != AngelKingController.State.Sleep)
         {
             angelKing.AddTarger(nextAttack);
             //angelKing.Attack(nextAttack);
