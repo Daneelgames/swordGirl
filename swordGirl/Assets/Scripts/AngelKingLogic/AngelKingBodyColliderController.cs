@@ -5,6 +5,8 @@ public class AngelKingBodyColliderController : MonoBehaviour {
 
     public float localHealth = 0.3f;
 
+    public bool isTarget = false;
+
     public AngelKingBodyColliderController childBodypart;
 
     public bool isDangerous = false;

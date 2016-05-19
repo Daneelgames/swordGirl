@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System;
 
 public class CameraController : MonoBehaviour
 {
@@ -8,6 +10,13 @@ public class CameraController : MonoBehaviour
     Transform pivot;
     
     Transform character;
+
+    [SerializeField]
+    private Transform target;
+    [SerializeField]
+    private bool lockOn = false;
+    [SerializeField]
+    List<AngelKingBodyColliderController> listOfTargets = new List<AngelKingBodyColliderController>();
 
     public int camRotateSpeed = 10;
     public int vertSpeed = 3;
@@ -27,6 +36,15 @@ public class CameraController : MonoBehaviour
 
     private PlayerControl playerControl;
     
+    [SerializeField]
+    GameObject[] enemyColliders;
+
+    void Start()
+    {
+        target = pivot;
+        GetEnemyColliders();
+
+    }
 
     // Use this for initialization
     void OnEnable()
@@ -60,6 +78,58 @@ public class CameraController : MonoBehaviour
         myCamera.fieldOfView = Mathf.Lerp(myCamera.fieldOfView, targetFOV, 2 * Time.deltaTime);
 
         transform.position = new Vector3(character.position.x, character.position.y + 1.5f, character.position.z);
+
+        if (Input.GetButtonDown("LockOn"))
+            LockOnController();
+    }
+
+    void GetEnemyColliders()
+    {
+        //get list of targets
+        enemyColliders = GameObject.FindGameObjectsWithTag("EnemyActionColl");
+        foreach (GameObject coll in enemyColliders)
+        {
+            AngelKingBodyColliderController colliderScript = coll.GetComponent<AngelKingBodyColliderController>();
+            if (colliderScript.localHealth > 0 && colliderScript.isTarget)
+            {
+                listOfTargets.Add(colliderScript);
+            }
+
+        }
+    }
+
+    void LockOnController()
+    {
+        if (!lockOn)
+        {
+            //get closest target
+            Transform closestTarget = null;
+            float closestDistance = 1000f;
+            
+            foreach (AngelKingBodyColliderController j in listOfTargets)
+            {
+                float distance = Vector3.Distance(j.transform.position, pivot.position);
+                print(distance);
+                if (distance <= closestDistance)
+                {
+                    closestDistance = distance;
+                    closestTarget = j.transform;
+                }
+            }
+
+            if (closestTarget != null)
+            {
+                print("target - " + closestTarget.name);
+                target = closestTarget;
+                lockOn = true;
+            }
+        }
+        else
+        {
+            lockOn = false;
+            target = pivot;
+        }
+
     }
 
     void LateUpdate()
@@ -80,8 +150,6 @@ public class CameraController : MonoBehaviour
 
         pivot.localEulerAngles += new Vector3(vert, hor, 0);
         
-        
-
         //Central Ray
         float unobstructed = offset;
         Vector3 idealPostion = pivot.TransformPoint(Vector3.forward * offset);
@@ -92,16 +160,16 @@ public class CameraController : MonoBehaviour
             unobstructed = -hit.distance + .01f;
         }
 
-
         //smooth
         Vector3 desiredPos = pivot.TransformPoint(Vector3.forward * unobstructed);
         Vector3 currentPos = camTransform.position;
 
         Vector3 goToPos = new Vector3(Mathf.Lerp(currentPos.x, desiredPos.x, camFollow), Mathf.Lerp(currentPos.y, desiredPos.y, camFollow), Mathf.Lerp(currentPos.z, desiredPos.z, camFollow));
 
-        camTransform.localPosition = goToPos;
-        camTransform.LookAt(pivot.position);
-
+        //camTransform.LookAt(pivot.position);
+        //camTransform.localPosition = goToPos;
+        camTransform.LookAt(target.position);
+        camTransform.localPosition = Vector3.Lerp(camTransform.localPosition, goToPos, 0.1f);
 
 
         //Viewport Bleed prevention
