@@ -171,8 +171,21 @@ public class PlayerControl : MonoBehaviour
         if (attackCooldown > 0)
             attackCooldown -= 1 * Time.deltaTime;
         
-        if (attackCooldown <= 0 && gm.playerStamina > .01f && Input.GetButtonDown("Attack1"))
-            anim.SetBool("Attack1", true);
+        if (attackCooldown <= 0 && gm.playerStamina > .01f)
+        {
+            if (Input.GetButtonDown("Attack1"))
+            {
+                anim.SetBool("Attack1", true);
+                anim.SetBool("Attack2", false);
+                anim.SetBool("Roll", false);
+            }
+            if (Input.GetButtonDown("Attack2"))
+            {
+                anim.SetBool("Attack2", true);
+                anim.SetBool("Attack1", false);
+                anim.SetBool("Roll", false);
+            }
+        }
     }
 
 	void RollManagement()
@@ -183,7 +196,9 @@ public class PlayerControl : MonoBehaviour
         if (attackCooldown <= 0 && gm.playerStamina > 0 && Input.GetButtonDown ("Roll"))
         {
             anim.SetBool("Roll", true);
-		}
+            anim.SetBool("Attack2", false);
+            anim.SetBool("Attack1", false);
+        }
 	}
 
     public void Roll()
@@ -295,6 +310,7 @@ public class PlayerControl : MonoBehaviour
         grounded = false;
         anim.SetBool("HitGround", false);
         anim.SetBool("Attack1", false);
+        anim.SetBool("Attack2", false);
         anim.SetBool("Roll", false);
         anim.SetTrigger("FlyUp");
         yield return new WaitForSeconds(time);

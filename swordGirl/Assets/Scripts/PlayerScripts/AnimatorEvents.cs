@@ -87,6 +87,7 @@ public class AnimatorEvents : MonoBehaviour {
         PlaySound(2);
         player.attackCooldown = coolDown;
         anim.SetBool("Attack1", false);
+        anim.SetBool("Attack2", false);
     }
 
     public void Roll()
