@@ -78,7 +78,7 @@ public class AngelKingBodyColliderController : MonoBehaviour {
 
     public void Damage(Vector3 dmgPosition, float damage)
     {
-        gm.bossHealth -= damage;
+        gm.bossHealth += damage;
         
         localHealth -= damage;
 
@@ -113,7 +113,7 @@ public class AngelKingBodyColliderController : MonoBehaviour {
     {
         localHealth = 0;
 
-        GameObject.Find("CamHolder").GetComponent<CameraController>().BrokeTarget(this);
+        //GameObject.Find("CamHolder").GetComponent<CameraController>().BrokeTarget(this);
 
         if (!anim.GetBool("Standing") && king.kingState == AngelKingController.State.Sleep)
         {

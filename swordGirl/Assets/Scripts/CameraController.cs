@@ -82,12 +82,13 @@ public class CameraController : MonoBehaviour
             ControlFov();
 
             transform.position = new Vector3(character.position.x, character.position.y + 1.5f, character.position.z);
-
+            /*
             if (Input.GetButtonDown("LockOn"))
                 LockOnController();
 
             if (lockOn)
                 SwitchTarget();
+                */
         }
     }
 
@@ -96,13 +97,13 @@ public class CameraController : MonoBehaviour
         //control camers FOV
         if (playerControl.isSprinting())
         {
-            vignetteTarget = 5;
+            vignetteTarget = 7;
             targetFOV = sprintFOV;
         }
         else if (playerControl.timeToNextRoll > 0)
         {
             targetFOV = rollFOV;
-            vignetteTarget = 5;
+            vignetteTarget = 7;
         }
         else
         {
@@ -130,6 +131,7 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    /*
     public void BrokeTarget(AngelKingBodyColliderController collider)
     {
         if (collider.transform == target)
@@ -246,7 +248,7 @@ public class CameraController : MonoBehaviour
         }
         if (newTarget != null)
             target = newTarget;
-    }
+    } */
 
     void LateUpdate()
     {
@@ -266,7 +268,7 @@ public class CameraController : MonoBehaviour
             //CLAMP Vertical Axis
             float x = pivot.eulerAngles.x;
             if (vert > 0 && x > 10 && x < 200) vert = 0;
-            else if (vert < 0 && x < 350 && x > 60) vert = 0;
+            else if (vert < 0 && x < 390 && x > 60) vert = 0;
 
             // сохранять направление камеры при отключении локОна
             if (!lockOn && Time.timeScale == 1)

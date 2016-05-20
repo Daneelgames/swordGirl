@@ -29,6 +29,9 @@ public class AnimatorEvents : MonoBehaviour {
     private bool isTrail = false;
 
     [SerializeField]
+    private ParticleSystem particles;
+
+    [SerializeField]
     private AudioClip[] audioClip;
 
     private float pitch;
@@ -36,6 +39,7 @@ public class AnimatorEvents : MonoBehaviour {
     private Animator camTarget;
 
     private float timer = 0f;
+
 
     void Start()
     {
@@ -199,5 +203,11 @@ public class AnimatorEvents : MonoBehaviour {
     public void MoveForwardAtAttack(float multiplyForce)
     {
         player.StepForward(multiplyForce);
+    }
+
+    public void ChargeSword()
+    {
+        particles.time = 0;
+        particles.Play();
     }
 }

@@ -63,6 +63,9 @@ public class PlayerControl : MonoBehaviour
 
     private Animator shakeAnimator;
 
+    [SerializeField]
+    private FaceController faceController;
+
     void Awake()
     {
         shakeAnimator = transform.Find("/CamHolder/CamTarget").GetComponent<Animator>();
@@ -88,13 +91,14 @@ public class PlayerControl : MonoBehaviour
             run = Input.GetButton("Run");
             isMoving = Mathf.Abs(h) > 0.1 || Mathf.Abs(v) > 0.1;
 
-            if (gm.playerStamina > 0)
-                sprint = Input.GetButton("Sprint");
-            else
-                sprint = false;
 
             if (grounded && canControl)
             {
+                if (gm.playerStamina > 0)
+                    sprint = Input.GetButton("Sprint");
+                else
+                    sprint = false;
+
                 AttackManagment();
                 RollManagement();
 
@@ -136,6 +140,7 @@ public class PlayerControl : MonoBehaviour
                 {
                     grounded = true;
                     anim.SetBool("HitGround", true);
+                    faceController.ChangeFace();
                     Physics.IgnoreLayerCollision(10, 13, false);
                 }
             }
@@ -175,12 +180,14 @@ public class PlayerControl : MonoBehaviour
         {
             if (Input.GetButtonDown("Attack1"))
             {
+                faceController.ChangeFace();
                 anim.SetBool("Attack1", true);
                 anim.SetBool("Attack2", false);
                 anim.SetBool("Roll", false);
             }
             if (Input.GetButtonDown("Attack2"))
             {
+                faceController.ChangeFace();
                 anim.SetBool("Attack2", true);
                 anim.SetBool("Attack1", false);
                 anim.SetBool("Roll", false);
@@ -195,6 +202,7 @@ public class PlayerControl : MonoBehaviour
         
         if (attackCooldown <= 0 && gm.playerStamina > 0 && Input.GetButtonDown ("Roll"))
         {
+            faceController.ChangeFace();
             anim.SetBool("Roll", true);
             anim.SetBool("Attack2", false);
             anim.SetBool("Attack1", false);
@@ -296,6 +304,7 @@ public class PlayerControl : MonoBehaviour
             transform.LookAt(impactOrigin);
             impactPosition = impactOrigin;
             StartCoroutine("Fall", flyTime);
+            faceController.ChangeFace();
             //print("Fly up");
             damaged = true;
         }
@@ -314,6 +323,7 @@ public class PlayerControl : MonoBehaviour
         anim.SetBool("Roll", false);
         anim.SetTrigger("FlyUp");
         yield return new WaitForSeconds(time);
+        faceController.ChangeFace();
         transform.Rotate(0, transform.rotation.y, 0);
         damaged = false;
         flyUp = false;

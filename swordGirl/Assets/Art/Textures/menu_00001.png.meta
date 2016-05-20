@@ -1,0 +1,165 @@
+fileFormatVersion: 2
+guid: c36bac396f385034cab5d3e88d54b088
+timeCreated: 1463785802
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: menu_00001_0
+    21300002: menu_00001_1
+    21300004: menu_00001_2
+    21300006: menu_00001_3
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: menu_00001_0
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 351
+        width: 97
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -48.5, y: 48}
+        - {x: -48.5, y: -17}
+        - {x: -31.5, y: -48}
+        - {x: 28.5, y: -48}
+        - {x: 48.5, y: -30}
+        - {x: 48.5, y: 18}
+        - {x: 39.5, y: 48}
+    - name: menu_00001_1
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 368
+        width: 53
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16.5, y: 28}
+        - {x: -26.5, y: 26}
+        - {x: -26.5, y: -5}
+        - {x: -6.5, y: -26}
+        - {x: 0.5, y: -28}
+        - {x: 16.5, y: -28}
+        - {x: 25.5, y: -10}
+        - {x: 26.5, y: -6}
+        - {x: 26.5, y: 28}
+    - name: menu_00001_2
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 41
+        width: 260
+        height: 411
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 95, y: -203.5}
+        - {x: 101, y: -205.5}
+        - {x: 118, y: -205.5}
+        - {x: 130, y: -202.5}
+        - {x: 130, y: -164.5}
+        - {x: 129, y: -154.5}
+        - {x: 130, y: -139.5}
+        - {x: 130, y: -81.5}
+        - {x: 129, y: -52.5}
+        - {x: 128, y: -1.5}
+        - {x: 130, y: 5.5}
+        - {x: 130, y: 27.5}
+        - {x: 126, y: 56.5}
+        - {x: 130, y: 66.5}
+        - {x: 130, y: 109.5}
+        - {x: 128, y: 131.5}
+        - {x: 129, y: 162.5}
+        - {x: 130, y: 169.5}
+        - {x: 130, y: 201.5}
+        - {x: 123, y: 205.5}
+        - {x: 107, y: 205.5}
+        - {x: 97, y: 203.5}
+        - {x: 85, y: 205.5}
+        - {x: -130, y: 205.5}
+        - {x: -130, y: 95.5}
+        - {x: -126, y: 65.5}
+        - {x: -126, y: 7.5}
+        - {x: -122, y: -16.5}
+        - {x: -124, y: -56.5}
+        - {x: -121, y: -143.5}
+        - {x: -117, y: -162.5}
+        - {x: -118, y: -204.5}
+        - {x: -117, y: -205.5}
+        - {x: -58, y: -205.5}
+        - {x: -43, y: -202.5}
+        - {x: -19, y: -205.5}
+        - {x: 70, y: -205.5}
+    - name: menu_00001_3
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 191
+        width: 386
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 193, y: -44.5}
+        - {x: 193, y: 44.5}
+        - {x: 188, y: 48.5}
+        - {x: -193, y: 48.5}
+        - {x: -193, y: -47.5}
+        - {x: -191, y: -48.5}
+        - {x: 192, y: -48.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour {
     public float playerHealth = 1;
     public float playerStamina = 1;
 
-    public float bossHealth = 1;
+    public float bossHealth = 0;
     
     public float mouseCamSens = 3;
     public float gamepadCamSens = 15;
@@ -51,6 +51,12 @@ public class GameManager : MonoBehaviour {
         {
             TogglePause();
         }
+        
+        if (pause)
+        {
+            if (Input.GetButtonDown("Roll"))
+                TogglePause();
+        }
     }
     
     void StatsRecovery()
@@ -88,16 +94,16 @@ public class GameManager : MonoBehaviour {
         if (pause)
         {
             pause = false;
-            Time.timeScale = 1;
             pauseMenu.SetActive(false);
             AudioListener.volume = 1f;
+            Time.timeScale = 1;
         }
         else
         {
             pause = true;
-            Time.timeScale = 0;
             pauseMenu.SetActive(true);
             AudioListener.volume = 0.25f;
+            Time.timeScale = 0;
         }
     }
 
