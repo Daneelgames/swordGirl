@@ -275,7 +275,7 @@ ModelImporter:
       name: playerHeavySaltoAttack
       takeName: Armature|ArmatureAction
       firstFrame: 200
-      lastFrame: 255
+      lastFrame: 273
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

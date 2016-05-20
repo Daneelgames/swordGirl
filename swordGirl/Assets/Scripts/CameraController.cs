@@ -265,7 +265,7 @@ public class CameraController : MonoBehaviour
 
             //CLAMP Vertical Axis
             float x = pivot.eulerAngles.x;
-            if (vert > 0 && x > 30 && x < 200) vert = 0;
+            if (vert > 0 && x > 10 && x < 200) vert = 0;
             else if (vert < 0 && x < 350 && x > 60) vert = 0;
 
             // сохранять направление камеры при отключении локОна

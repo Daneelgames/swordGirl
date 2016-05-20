@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CrosshairController.cs" />
     <Compile Include="Assets\Scripts\DestroyByTime.cs" />
+    <Compile Include="Assets\Scripts\Dev\AnimationEventCopier.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\AnimatorEvents.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerControl.cs" />
