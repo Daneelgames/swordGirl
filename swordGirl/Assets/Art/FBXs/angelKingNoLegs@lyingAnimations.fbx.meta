@@ -914,7 +914,7 @@ ModelImporter:
       name: AngelKingLyingFrontAttack
       takeName: Armature|ArmatureAction
       firstFrame: 330
-      lastFrame: 420
+      lastFrame: 500
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1133,8 +1133,8 @@ ModelImporter:
     - serializedVersion: 16
       name: AngelKingLyingCircleAttack
       takeName: Armature|ArmatureAction
-      firstFrame: 440
-      lastFrame: 550
+      firstFrame: 500
+      lastFrame: 690
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -20,19 +20,20 @@ public class AngelKingController : MonoBehaviour {
     private Animator anim;
     private Rigidbody _rb;
 
-    private Transform player;
+    private Transform target;
 
     private string attack;
 
     private Quaternion targetRotation;
 
+    [SerializeField]
     private float attackCooldown = 1f;
     
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
-        player = GameObject.Find("Player").transform;
+        target = GameObject.Find("Player").transform;
     }
 
     void FixedUpdate()
@@ -53,8 +54,8 @@ public class AngelKingController : MonoBehaviour {
     {
         if (kingState == State.Idle)
         {
-            float distance = Vector3.Distance(player.position, transform.position);
-            if (distance > 2)
+            float distance = Vector3.Distance(target.position, transform.position);
+            if (distance > 2 && kingState != State.Attack)
                 kingState = State.Run;
             else if (kingState != State.Attack)
                 kingState = State.Idle;
@@ -73,7 +74,7 @@ public class AngelKingController : MonoBehaviour {
     
     void TurnController()
     {
-        Vector3 targetVector = new Vector3(player.position.x, transform.rotation.y, player.position.z);
+        Vector3 targetVector = new Vector3(target.position.x, transform.rotation.y, target.position.z);
 
         targetRotation = Quaternion.LookRotation(targetVector - transform.position);
 
@@ -140,7 +141,7 @@ public class AngelKingController : MonoBehaviour {
     public void AttackOver()
     {
         transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
-        attackCooldown = Random.Range(1, 3);
+        attackCooldown = Random.Range(1, 2);
         kingState = State.Idle;
         anim.SetBool(attack, false);
     }
@@ -176,7 +177,7 @@ public class AngelKingController : MonoBehaviour {
                     StartCoroutine(CoroutineWithMultipleParameters(_cp.otherCollider, _cp.thisCollider));
 
                     _cp.thisCollider.gameObject.GetComponent<AngelKingBodyColliderController>().Damage(_cp.point, sword.dmg);
-                    
+                    sword.dangerous = false;
                     break;
                 }
             }
