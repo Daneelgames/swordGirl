@@ -140,7 +140,7 @@ public class AngelKingController : MonoBehaviour {
     public void AttackOver()
     {
         transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
-        attackCooldown = Random.Range(0, 3);
+        attackCooldown = Random.Range(1, 3);
         kingState = State.Idle;
         anim.SetBool(attack, false);
     }
@@ -195,8 +195,8 @@ public class AngelKingController : MonoBehaviour {
     public void FallAsleep()
     {
         StartCoroutine("Sleep");
-        defaultTurnSpeed = 0.1f;
-        runSpeed = 1f;
+        defaultTurnSpeed = 0.25f;
+        runSpeed = 1.5f;
     }
 
     IEnumerator Sleep()

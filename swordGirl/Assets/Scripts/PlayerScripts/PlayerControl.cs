@@ -80,63 +80,69 @@ public class PlayerControl : MonoBehaviour
 		//sprintFactor = sprintSpeed / runSpeed;
 	}
 	void Update()
-	{
-		h = Input.GetAxis("Horizontal");
-		v = Input.GetAxis("Vertical");
-		run = Input.GetButton ("Run");
-		isMoving = Mathf.Abs(h) > 0.1 || Mathf.Abs(v) > 0.1;
-
-        if (gm.playerStamina > 0)
-            sprint = Input.GetButton("Sprint");
-        else
-            sprint = false;
-        
-        if (grounded && canControl)
+    {
+        if (Time.timeScale == 1)
         {
-            AttackManagment();
-            RollManagement();
+            h = Input.GetAxis("Horizontal");
+            v = Input.GetAxis("Vertical");
+            run = Input.GetButton("Run");
+            isMoving = Mathf.Abs(h) > 0.1 || Mathf.Abs(v) > 0.1;
 
-            if (sprint && isMoving)
+            if (gm.playerStamina > 0)
+                sprint = Input.GetButton("Sprint");
+            else
+                sprint = false;
+
+            if (grounded && canControl)
             {
-                gm.playerStamina -= 0.2f * Time.deltaTime;
-                shakeAnimator.SetBool("SprintShake", true);
+                AttackManagment();
+                RollManagement();
+
+                if (sprint && isMoving)
+                {
+                    gm.playerStamina -= 0.2f * Time.deltaTime;
+                    shakeAnimator.SetBool("SprintShake", true);
+                }
+                else
+                    shakeAnimator.SetBool("SprintShake", false);
             }
             else
-                shakeAnimator.SetBool("SprintShake", false);
-        }
-        else
-        {
-            if (flyUp && dirV < 10)
-                dirV += 1;
-            else if (!flyUp && dirV > - 10)
-                dirV -= 1;
+            {
+                if (flyUp && dirV < 10)
+                    dirV += 1;
+                else if (!flyUp && dirV > -10)
+                    dirV -= 1;
+            }
         }
     }
 
 	void FixedUpdate()
 	{
-        LimitVelocity();
-
-        if (grounded && canControl)
-            MovementManagement(h, v, run, sprint);
-        else if (!grounded && !canControl)
+        if (Time.timeScale == 1)
         {
-            KickedToSky();
-        }
+            LimitVelocity();
 
-        if (!grounded && !flyUp)
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, -Vector3.up, out hit, 0.3f) && hit.collider.gameObject.tag == "Ground")
+            if (grounded && canControl)
+                MovementManagement(h, v, run, sprint);
+            else if (!grounded && !canControl)
             {
-                grounded = true;
-                anim.SetBool("HitGround", true);
-                Physics.IgnoreLayerCollision(10, 13, false);
+                KickedToSky();
             }
-        }
 
-        if (grounded && !canControl)
-            _rb.velocity = Vector3.zero;
+            if (!grounded && !flyUp)
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, -Vector3.up, out hit, 0.3f) && hit.collider.gameObject.tag == "Ground")
+                {
+                    grounded = true;
+                    anim.SetBool("HitGround", true);
+                    Physics.IgnoreLayerCollision(10, 13, false);
+                }
+            }
+
+            if (grounded && !canControl)
+                _rb.velocity = Vector3.zero;
+        }
     }
 
     public void SetCanControl()

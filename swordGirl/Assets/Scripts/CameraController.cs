@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using UnityStandardAssets.ImageEffects;
 
 public class CameraController : MonoBehaviour
 {
@@ -20,8 +21,8 @@ public class CameraController : MonoBehaviour
     List<AngelKingBodyColliderController> listOfTargets = new List<AngelKingBodyColliderController>();
 
     public float camLookAtSpeed = 20;
-    public int camRotateSpeed = 10;
-    public int vertSpeed = 3;
+    public float camRotateSpeed = 10;
+    public float vertSpeed = 3;
     public bool reverseVertical;
 
     public float sprintFOV = 30f;
@@ -45,8 +46,12 @@ public class CameraController : MonoBehaviour
 
     private bool canSwitchTarget = true;
 
+    private VignetteAndChromaticAberration vignette;
+    float vignetteTarget = 0;
+
     void Awake()
     {
+        vignette = Camera.main.GetComponent<VignetteAndChromaticAberration>();
         pivot = transform.Find("CamTarget").transform;
         target = pivot;
         character = transform.parent.transform;
@@ -72,31 +77,41 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        ControlFov();
+        if (Time.timeScale == 1)
+        {
+            ControlFov();
 
-        transform.position = new Vector3(character.position.x, character.position.y + 1.5f, character.position.z);
+            transform.position = new Vector3(character.position.x, character.position.y + 1.5f, character.position.z);
 
-        if (Input.GetButtonDown("LockOn"))
-            LockOnController();
+            if (Input.GetButtonDown("LockOn"))
+                LockOnController();
 
-        if (lockOn)
-            SwitchTarget();
+            if (lockOn)
+                SwitchTarget();
+        }
     }
 
     void ControlFov()
     {
         //control camers FOV
         if (playerControl.isSprinting())
+        {
+            vignetteTarget = 5;
             targetFOV = sprintFOV;
-
-        if (playerControl.timeToNextRoll > 0)
+        }
+        else if (playerControl.timeToNextRoll > 0)
+        {
             targetFOV = rollFOV;
-        else if (playerControl.isSprinting())
-            targetFOV = sprintFOV;
+            vignetteTarget = 5;
+        }
         else
+        {
+            vignetteTarget = 0;
             targetFOV = defaultFOV;
+        }
 
-        myCamera.fieldOfView = Mathf.Lerp(myCamera.fieldOfView, targetFOV, 2 * Time.deltaTime);
+        myCamera.fieldOfView = Mathf.Lerp(myCamera.fieldOfView, targetFOV, 3 * Time.deltaTime);
+        vignette.chromaticAberration = Mathf.Lerp(vignette.chromaticAberration, vignetteTarget, 5 * Time.deltaTime);
     }
 
     void GetEnemyColliders()
@@ -192,7 +207,7 @@ public class CameraController : MonoBehaviour
         float minimumDistanceToCurTarget = maxTargetRadius;
         Transform newTarget = null;
 
-        print(hor + ", " + ver);
+        //print(hor + ", " + ver);
 
         foreach (AngelKingBodyColliderController i in listOfTargets)
         {
@@ -235,117 +250,120 @@ public class CameraController : MonoBehaviour
 
     void LateUpdate()
     {
-        //Camera Orbits the charcter
-        float hor = Input.GetAxis("Mouse X");
-        float vert = Input.GetAxis("Mouse Y");
-
-        if (!reverseVertical)
-            vert *= -vertSpeed;
-        else
-            vert *= vertSpeed;
-
-        hor *= camRotateSpeed;
-
-        //CLAMP Vertical Axis
-        float x = pivot.eulerAngles.x;
-        if (vert > 0 && x > 30 && x < 200) vert = 0;
-        else if (vert < 0 && x < 350 && x > 60) vert = 0;
-
-        // сохранять направление камеры при отключении локОна
-        if (!lockOn)
-            pivot.localEulerAngles += new Vector3(vert, hor, 0);
-        else
-            pivot.LookAt(target);
-
-        //Central Ray
-        float unobstructed = offset;
-        Vector3 idealPostion = pivot.TransformPoint(Vector3.forward * offset);
-
-        RaycastHit hit;
-        if (Physics.Linecast(pivot.position, idealPostion, out hit, mask.value))
+        if (Time.timeScale == 1)
         {
-            unobstructed = -hit.distance + .01f;
-        }
+            //Camera Orbits the charcter
+            float hor = Input.GetAxis("Mouse X");
+            float vert = Input.GetAxis("Mouse Y");
 
-        //smooth
-        Vector3 desiredPos;
-        if (!lockOn)
-            desiredPos = pivot.TransformPoint(Vector3.forward * unobstructed);
-        else
-            desiredPos = pivot.position + (target.position - pivot.position).normalized * unobstructed;
+            if (!reverseVertical)
+                vert *= -vertSpeed;
+            else
+                vert *= vertSpeed;
 
-        Vector3 currentPos = camTransform.position;
+            hor *= camRotateSpeed;
 
-        Vector3 goToPos = new Vector3(Mathf.Lerp(currentPos.x, desiredPos.x, camFollow), Mathf.Lerp(currentPos.y, desiredPos.y, camFollow), Mathf.Lerp(currentPos.z, desiredPos.z, camFollow));
+            //CLAMP Vertical Axis
+            float x = pivot.eulerAngles.x;
+            if (vert > 0 && x > 30 && x < 200) vert = 0;
+            else if (vert < 0 && x < 350 && x > 60) vert = 0;
 
-        //camTransform.LookAt(pivot.position);
-        //camTransform.localPosition = goToPos;
-        //camTransform.LookAt(target.position);
-        
-        Quaternion rotation = Quaternion.LookRotation(target.position - camTransform.position);
-        camTransform.rotation = Quaternion.Slerp(camTransform.rotation, rotation, Time.deltaTime * camLookAtSpeed);
+            // сохранять направление камеры при отключении локОна
+            if (!lockOn && Time.timeScale == 1)
+                pivot.localEulerAngles += new Vector3(vert, hor, 0);
+            else
+                pivot.LookAt(target);
 
-        camTransform.localPosition = Vector3.Lerp(camTransform.localPosition, goToPos, Time.deltaTime * 5f);
+            //Central Ray
+            float unobstructed = offset;
+            Vector3 idealPostion = pivot.TransformPoint(Vector3.forward * offset);
 
-
-        //Viewport Bleed prevention
-        float c = myCamera.nearClipPlane;
-        bool clip = true;
-        while (clip)
-        {
-            Vector3 pos1 = myCamera.ViewportToWorldPoint(new Vector3(0, 0, c));
-            Vector3 pos2 = myCamera.ViewportToWorldPoint(new Vector3(.5f, 0, c));
-            Vector3 pos3 = myCamera.ViewportToWorldPoint(new Vector3(1, 0, c));
-            Vector3 pos4 = myCamera.ViewportToWorldPoint(new Vector3(0, .5f, c));
-            Vector3 pos5 = myCamera.ViewportToWorldPoint(new Vector3(1, .5f, c));
-            Vector3 pos6 = myCamera.ViewportToWorldPoint(new Vector3(0, 1, c));
-            Vector3 pos7 = myCamera.ViewportToWorldPoint(new Vector3(.5f, 1, c));
-            Vector3 pos8 = myCamera.ViewportToWorldPoint(new Vector3(1, 1, c));
-
-            Debug.DrawLine(camTransform.position, pos1, Color.yellow);
-            Debug.DrawLine(camTransform.position, pos2, Color.yellow);
-            Debug.DrawLine(camTransform.position, pos3, Color.yellow);
-            Debug.DrawLine(camTransform.position, pos4, Color.yellow);
-            Debug.DrawLine(camTransform.position, pos5, Color.yellow);
-            Debug.DrawLine(camTransform.position, pos6, Color.yellow);
-            Debug.DrawLine(camTransform.position, pos7, Color.yellow);
-            Debug.DrawLine(camTransform.position, pos8, Color.yellow);
-
-            if (Physics.Linecast(camTransform.position, pos1, out hit, mask))
+            RaycastHit hit;
+            if (Physics.Linecast(pivot.position, idealPostion, out hit, mask.value))
             {
-                // clip
+                unobstructed = -hit.distance + .01f;
             }
-            else if (Physics.Linecast(camTransform.position, pos2, out hit, mask))
-            {
-                // clip
-            }
-            else if (Physics.Linecast(camTransform.position, pos3, out hit, mask))
-            {
-                // clip
-            }
-            else if (Physics.Linecast(camTransform.position, pos4, out hit, mask))
-            {
-                // clip
-            }
-            else if (Physics.Linecast(camTransform.position, pos5, out hit, mask))
-            {
-                // clip
-            }
-            else if (Physics.Linecast(camTransform.position, pos6, out hit, mask))
-            {
-                // clip
-            }
-            else if (Physics.Linecast(camTransform.position, pos7, out hit, mask))
-            {
-                // clip
-            }
-            else if (Physics.Linecast(camTransform.position, pos8, out hit, mask))
-            {
-                // clip
-            }
-            else clip = false;
 
-            if (clip) camTransform.localPosition += camTransform.forward * c;
+            //smooth
+            Vector3 desiredPos;
+            if (!lockOn)
+                desiredPos = pivot.TransformPoint(Vector3.forward * unobstructed);
+            else
+                desiredPos = pivot.position + (target.position - pivot.position).normalized * unobstructed;
+
+            Vector3 currentPos = camTransform.position;
+
+            Vector3 goToPos = new Vector3(Mathf.Lerp(currentPos.x, desiredPos.x, camFollow), Mathf.Lerp(currentPos.y, desiredPos.y, camFollow), Mathf.Lerp(currentPos.z, desiredPos.z, camFollow));
+
+            //camTransform.LookAt(pivot.position);
+            //camTransform.localPosition = goToPos;
+            //camTransform.LookAt(target.position);
+
+            Quaternion rotation = Quaternion.LookRotation(target.position - camTransform.position);
+            camTransform.rotation = Quaternion.Slerp(camTransform.rotation, rotation, Time.deltaTime * camLookAtSpeed);
+
+            camTransform.localPosition = Vector3.Lerp(camTransform.localPosition, goToPos, Time.deltaTime * 5f);
+
+
+            //Viewport Bleed prevention
+            float c = myCamera.nearClipPlane;
+            bool clip = true;
+            while (clip)
+            {
+                Vector3 pos1 = myCamera.ViewportToWorldPoint(new Vector3(0, 0, c));
+                Vector3 pos2 = myCamera.ViewportToWorldPoint(new Vector3(.5f, 0, c));
+                Vector3 pos3 = myCamera.ViewportToWorldPoint(new Vector3(1, 0, c));
+                Vector3 pos4 = myCamera.ViewportToWorldPoint(new Vector3(0, .5f, c));
+                Vector3 pos5 = myCamera.ViewportToWorldPoint(new Vector3(1, .5f, c));
+                Vector3 pos6 = myCamera.ViewportToWorldPoint(new Vector3(0, 1, c));
+                Vector3 pos7 = myCamera.ViewportToWorldPoint(new Vector3(.5f, 1, c));
+                Vector3 pos8 = myCamera.ViewportToWorldPoint(new Vector3(1, 1, c));
+
+                Debug.DrawLine(camTransform.position, pos1, Color.yellow);
+                Debug.DrawLine(camTransform.position, pos2, Color.yellow);
+                Debug.DrawLine(camTransform.position, pos3, Color.yellow);
+                Debug.DrawLine(camTransform.position, pos4, Color.yellow);
+                Debug.DrawLine(camTransform.position, pos5, Color.yellow);
+                Debug.DrawLine(camTransform.position, pos6, Color.yellow);
+                Debug.DrawLine(camTransform.position, pos7, Color.yellow);
+                Debug.DrawLine(camTransform.position, pos8, Color.yellow);
+
+                if (Physics.Linecast(camTransform.position, pos1, out hit, mask))
+                {
+                    // clip
+                }
+                else if (Physics.Linecast(camTransform.position, pos2, out hit, mask))
+                {
+                    // clip
+                }
+                else if (Physics.Linecast(camTransform.position, pos3, out hit, mask))
+                {
+                    // clip
+                }
+                else if (Physics.Linecast(camTransform.position, pos4, out hit, mask))
+                {
+                    // clip
+                }
+                else if (Physics.Linecast(camTransform.position, pos5, out hit, mask))
+                {
+                    // clip
+                }
+                else if (Physics.Linecast(camTransform.position, pos6, out hit, mask))
+                {
+                    // clip
+                }
+                else if (Physics.Linecast(camTransform.position, pos7, out hit, mask))
+                {
+                    // clip
+                }
+                else if (Physics.Linecast(camTransform.position, pos8, out hit, mask))
+                {
+                    // clip
+                }
+                else clip = false;
+
+                if (clip) camTransform.localPosition += camTransform.forward * c;
+            }
         }
     }
 }

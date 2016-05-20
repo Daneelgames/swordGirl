@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour {
     public float playerStamina = 1;
 
     public float bossHealth = 1;
-
+    
+    public float mouseCamSens = 3;
+    public float gamepadCamSens = 15;
 
     [SerializeField]
     private float healthRecoveryRate = .01f;
@@ -26,8 +28,16 @@ public class GameManager : MonoBehaviour {
     bool bossAwake = false;
     GameObject bossHealthBack;
 
+    bool gamepad = false;
+    bool pause = false;
+
+    private GameObject pauseMenu;
+
     void Start()
     {
+        pauseMenu = GameObject.Find("PauseMenuPanel");
+        pauseMenu.SetActive(false);
+
         bossHealthBack = bossHealthBar.transform.parent.gameObject;
         bossHealthBack.SetActive(false);
     }
@@ -36,8 +46,13 @@ public class GameManager : MonoBehaviour {
     {
         StatsRecovery();
         SetBarsValues();
-    }
 
+        if (Input.GetButtonDown("Menu"))
+        {
+            TogglePause();
+        }
+    }
+    
     void StatsRecovery()
     {
         if (playerStamina < 1)
@@ -66,5 +81,37 @@ public class GameManager : MonoBehaviour {
     {
         bossHealthBack.SetActive(true);
         bossAwake = true;
+    }
+    
+    public void TogglePause()
+    {
+        if (pause)
+        {
+            pause = false;
+            Time.timeScale = 1;
+            pauseMenu.SetActive(false);
+            AudioListener.volume = 1f;
+        }
+        else
+        {
+            pause = true;
+            Time.timeScale = 0;
+            pauseMenu.SetActive(true);
+            AudioListener.volume = 0.25f;
+        }
+    }
+
+    public void ToggleGamepad()
+    {
+        if (gamepad)
+        {
+            gamepad = false;
+            GameObject.Find("CamHolder").GetComponent<CameraController>().camRotateSpeed = mouseCamSens;
+        }
+        else
+        {
+            gamepad = true;
+            GameObject.Find("CamHolder").GetComponent<CameraController>().camRotateSpeed = gamepadCamSens;
+        }
     }
 }
