@@ -7,10 +7,12 @@ public class GameManager : MonoBehaviour {
     public float playerHealth = 1;
     public float playerStamina = 1;
 
-    public float bossHealth = 0;
+    public float bossHealth = 1;
     
     public float mouseCamSens = 3;
     public float gamepadCamSens = 15;
+
+    public bool bossCanBeDamaged = false;
 
     [SerializeField]
     private float healthRecoveryRate = .01f;
@@ -57,6 +59,8 @@ public class GameManager : MonoBehaviour {
             if (Input.GetButtonDown("Roll"))
                 TogglePause();
         }
+
+        GameOver();
     }
     
     void StatsRecovery()
@@ -79,16 +83,15 @@ public class GameManager : MonoBehaviour {
         playerHealthBar.fillAmount = Mathf.Lerp(playerHealthBar.fillAmount, playerHealth, 5f * Time.deltaTime);
         playerStaminaBar.fillAmount = Mathf.Lerp(playerStaminaBar.fillAmount, playerStamina, 5f * Time.deltaTime);
 
-        if (bossAwake)
-            bossHealthBar.fillAmount = Mathf.Lerp(bossHealthBar.fillAmount, bossHealth, 5f * Time.deltaTime);
-    }
-
-    public void ShowBossHealth()
-    {
-        bossHealthBack.SetActive(true);
-        bossAwake = true;
+    //    if (bossAwake)
+    //        bossHealthBar.fillAmount = Mathf.Lerp(bossHealthBar.fillAmount, bossHealth, 5f * Time.deltaTime);
     }
     
+    public void ShowBossHealth()
+    {
+     //   bossHealthBack.SetActive(true);
+     //   bossAwake = true;
+    }
     public void TogglePause()
     {
         if (pause)
@@ -118,6 +121,36 @@ public class GameManager : MonoBehaviour {
         {
             gamepad = true;
             GameObject.Find("CamHolder").GetComponent<CameraController>().camRotateSpeed = gamepadCamSens;
+        }
+    }
+
+    public void BossDamaged(float damage)
+    {
+        if (bossCanBeDamaged)
+            bossHealth -= damage;
+
+        if (bossHealth <= 0)
+            GameOver();
+    }
+
+    public void PlayerDamaged(float dmg)
+    {
+        playerHealth -= dmg;
+
+        if (playerHealth <= 0)
+            GameOver();
+    }
+
+    void GameOver()
+    {
+        if (playerHealth <= 0)
+        {
+            GameObject.Find("Player").GetComponentInChildren<Animator>().SetBool("Alive", false);
+            print("Game Over: player lose");
+        }
+        else if (bossHealth <= 0)
+        {
+            print("Game Over: player win");
         }
     }
 }

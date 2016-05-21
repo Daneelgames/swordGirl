@@ -39,9 +39,10 @@ public class AngelKingController : MonoBehaviour {
     void FixedUpdate()
     {
         if (kingState == State.Run)
+        {
             MovementController();
-        if (kingState != State.Idle && kingState != State.Sleep)
             TurnController();
+        }
 
         if (kingState == State.Attack || kingState == State.Idle || kingState == State.Sleep)
         {
@@ -75,11 +76,8 @@ public class AngelKingController : MonoBehaviour {
     void TurnController()
     {
         Vector3 targetVector = new Vector3(target.position.x, transform.rotation.y, target.position.z);
-
         targetRotation = Quaternion.LookRotation(targetVector - transform.position);
-
-        if (kingState != State.Attack)
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, defaultTurnSpeed * Time.fixedDeltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, defaultTurnSpeed * Time.fixedDeltaTime);
     }
 
     public void AddTarger(string targetZone)

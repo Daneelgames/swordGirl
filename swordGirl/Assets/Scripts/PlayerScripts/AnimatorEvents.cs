@@ -157,16 +157,16 @@ public class AnimatorEvents : MonoBehaviour {
     public void Impact(int attacked)
     {
         int random = Random.Range(7, 12);
-        float randomDamage = Random.Range(0.15f, 0.3f);
+        float randomDamage = Random.Range(0.1f, 0.25f);
 
         camTarget.SetTrigger("QuickShake");
 
         if (gm.playerHealth > 0)
         {
             if (attacked > 0)
-                gm.playerHealth -= randomDamage;
+                gm.PlayerDamaged(randomDamage);
             else
-                gm.playerHealth -= 0.1f;
+                gm.PlayerDamaged(0.1f);
         }
 
         PlaySound(random);

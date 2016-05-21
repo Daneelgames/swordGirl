@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\AngelKingLogic\AngelKingBodyColliderController.cs" />
     <Compile Include="Assets\Scripts\AngelKingLogic\AngelKingController.cs" />
     <Compile Include="Assets\Scripts\AngelKingLogic\AngelKingTargetZoneController.cs" />
+    <Compile Include="Assets\Scripts\BushController.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CrosshairController.cs" />
     <Compile Include="Assets\Scripts\DestroyByTime.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Assets\Scripts\PlayerScripts\ThirdPersonOrbitCam.cs" />
     <Compile Include="Assets\Scripts\SwordController.cs" />
     <Compile Include="Assets\Scripts\TurnByY.cs" />
+    <Compile Include="Assets\TreeController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shaders\UnlitTransparent.shader" />
