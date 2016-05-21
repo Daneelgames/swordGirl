@@ -124,6 +124,11 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public void HealPlayer()
+    {
+        playerHealth += 0.5f;
+    }
+
     public void BossDamaged(float damage)
     {
         if (bossCanBeDamaged)
@@ -140,7 +145,7 @@ public class GameManager : MonoBehaviour {
         if (playerHealth <= 0)
             GameOver();
     }
-
+    
     void GameOver()
     {
         if (playerHealth <= 0)

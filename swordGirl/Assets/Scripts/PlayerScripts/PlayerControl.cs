@@ -66,6 +66,8 @@ public class PlayerControl : MonoBehaviour
     [SerializeField]
     private FaceController faceController;
 
+    private ParticleSystem healParticles;
+
     void Awake()
     {
         shakeAnimator = transform.Find("/CamHolder/CamTarget").GetComponent<Animator>();
@@ -80,8 +82,9 @@ public class PlayerControl : MonoBehaviour
 		hFloat = Animator.StringToHash("H");
 		vFloat = Animator.StringToHash("V");
 		groundedBool = Animator.StringToHash("Grounded");
-		//sprintFactor = sprintSpeed / runSpeed;
-	}
+        healParticles = transform.Find("HealParticles").GetComponent<ParticleSystem>();
+
+    }
 	void Update()
     {
         if (Time.timeScale == 1)
@@ -308,6 +311,12 @@ public class PlayerControl : MonoBehaviour
             //print("Fly up");
             damaged = true;
         }
+    }
+
+    public void Heal()
+    {
+        healParticles.time = 0;
+        healParticles.Play();
     }
 
     IEnumerator Fall(float time)

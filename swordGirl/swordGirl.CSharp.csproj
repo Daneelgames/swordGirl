@@ -69,6 +69,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AppleController.cs" />
     <Compile Include="Assets\Scripts\AngelCorpseController.cs" />
     <Compile Include="Assets\Scripts\AngelEventsController.cs" />
     <Compile Include="Assets\Scripts\AngelKingLogic\AngelImpactController.cs" />
