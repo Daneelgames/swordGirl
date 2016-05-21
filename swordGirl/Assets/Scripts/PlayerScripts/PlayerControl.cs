@@ -61,6 +61,7 @@ public class PlayerControl : MonoBehaviour
     float dirV = 0f;
     private bool damaged = false;
 
+    [SerializeField]
     private Animator shakeAnimator;
 
     [SerializeField]
@@ -70,7 +71,6 @@ public class PlayerControl : MonoBehaviour
 
     void Awake()
     {
-        shakeAnimator = transform.Find("/CamHolder/CamTarget").GetComponent<Animator>();
 
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 

@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour {
 
     private GameObject pauseMenu;
 
+    private bool playerDead = false;
+
     void Start()
     {
         pauseMenu = GameObject.Find("PauseMenuPanel");
@@ -65,17 +67,20 @@ public class GameManager : MonoBehaviour {
     
     void StatsRecovery()
     {
-        if (playerStamina < 1)
-            playerStamina += staminaRecoveryRate * Time.deltaTime;
-        else if (playerStamina > 1)
-            playerStamina = 1;
-        else if (playerStamina < 0)
-            playerStamina = 0;
+        if (!playerDead)
+        {
+            if (playerStamina < 1)
+                playerStamina += staminaRecoveryRate * Time.deltaTime;
+            else if (playerStamina > 1)
+                playerStamina = 1;
+            else if (playerStamina < 0)
+                playerStamina = 0;
 
-        if (playerHealth < .5)
-            playerHealth += healthRecoveryRate * Time.deltaTime;
-        else if (playerHealth > 1)
-            playerHealth = 1;
+            if (playerHealth < .5)
+                playerHealth += healthRecoveryRate * Time.deltaTime;
+            else if (playerHealth > 1)
+                playerHealth = 1;
+        }
     }
 
     void SetBarsValues()
@@ -151,10 +156,12 @@ public class GameManager : MonoBehaviour {
         if (playerHealth <= 0)
         {
             GameObject.Find("Player").GetComponentInChildren<Animator>().SetBool("Alive", false);
+            playerDead = true;
             print("Game Over: player lose");
         }
         else if (bossHealth <= 0)
         {
+            GameObject.Find("AngelKing").GetComponentInChildren<Animator>().SetTrigger("Dead");
             print("Game Over: player win");
         }
     }

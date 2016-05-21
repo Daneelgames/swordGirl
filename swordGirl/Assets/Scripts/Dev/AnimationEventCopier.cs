@@ -1,10 +1,11 @@
-﻿using UnityEditor;
+﻿//using UnityEditor;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Reflection;
 
-public class AnimationEventCopier : EditorWindow
+public class AnimationEventCopier : MonoBehaviour //, EditorWindow
 {
+    /*
     private AnimationClip sourceObject;
     private AnimationClip targetObject;
     [MenuItem("Window/Animation Event Copier")]
@@ -44,4 +45,5 @@ public class AnimationEventCopier : EditorWindow
             AnimationUtility.SetAnimationEvents(targetAnimClip, AnimationUtility.GetAnimationEvents(sourceAnimClip));
         }
     }
+    */
 }

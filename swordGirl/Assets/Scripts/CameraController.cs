@@ -48,31 +48,25 @@ public class CameraController : MonoBehaviour
 
     private VignetteAndChromaticAberration vignette;
     float vignetteTarget = 0;
-
-    void Awake()
+    
+    void Start()
     {
+        GetEnemyColliders();
+
         vignette = Camera.main.GetComponent<VignetteAndChromaticAberration>();
         pivot = transform.Find("CamTarget").transform;
         target = pivot;
         character = transform.parent.transform;
         crosshair = GameObject.Find("Crosshair").GetComponent<CrosshairController>();
-    }
 
-    void OnEnable()
-    {
         //pivot = transform;
         myCamera = Camera.main;
         camTransform = myCamera.transform;
         playerControl = character.gameObject.GetComponent<PlayerControl>();
         camTransform.position = pivot.TransformPoint(Vector3.forward * offset);
         defaultFOV = myCamera.fieldOfView;
-        
-        transform.parent = null;
-    }
 
-    void Start()
-    {
-        GetEnemyColliders();
+        transform.parent = null;
     }
 
     void Update()

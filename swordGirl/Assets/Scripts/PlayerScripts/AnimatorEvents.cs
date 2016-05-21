@@ -36,15 +36,10 @@ public class AnimatorEvents : MonoBehaviour {
 
     private float pitch;
 
+    [SerializeField]
     private Animator camTarget;
 
     private float timer = 0f;
-
-
-    void Start()
-    {
-        camTarget = transform.parent.Find("/CamHolder/CamTarget").GetComponent<Animator>();
-    }
 
     void PlaySound(int clip)
     {
