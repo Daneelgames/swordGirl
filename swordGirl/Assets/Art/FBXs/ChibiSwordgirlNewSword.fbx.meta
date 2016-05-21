@@ -1,0 +1,184 @@
+fileFormatVersion: 2
+guid: 92f0c7f47a4d41a41abd6c7518b6de13
+timeCreated: 1463859338
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: base
+    100004: body
+    100006: chest
+    100008: //RootNode
+    100010: fingerL1
+    100012: fingerL2
+    100014: fingerL2_end
+    100016: fingerR1
+    100018: fingerR2
+    100020: fingerR2_end
+    100022: GIrl
+    100024: GIrl.001
+    100026: hairBack
+    100028: hairBack.001
+    100030: hairBack.001_end
+    100032: hairBack.002
+    100034: hairBack.002_end
+    100036: hairBack.003
+    100038: hairBack.003_end
+    100040: hairBack.004
+    100042: hairBack.004_end
+    100044: hairBack_end
+    100046: handL1
+    100048: handL2
+    100050: handL3
+    100052: handL4
+    100054: handL5
+    100056: handL6
+    100058: handL6_end
+    100060: handR1
+    100062: handR2
+    100064: handR3
+    100066: handR4
+    100068: handR5
+    100070: handR6
+    100072: handR6_end
+    100074: head
+    100076: legL1
+    100078: legL2
+    100080: legL3
+    100082: legL3_end
+    100084: legR1
+    100086: legR2
+    100088: legR3
+    100090: legR3_end
+    100092: neck
+    100094: Sword
+    100096: weapon
+    100098: weapon_end
+    400000: Armature
+    400002: base
+    400004: body
+    400006: chest
+    400008: //RootNode
+    400010: fingerL1
+    400012: fingerL2
+    400014: fingerL2_end
+    400016: fingerR1
+    400018: fingerR2
+    400020: fingerR2_end
+    400022: GIrl
+    400024: GIrl.001
+    400026: hairBack
+    400028: hairBack.001
+    400030: hairBack.001_end
+    400032: hairBack.002
+    400034: hairBack.002_end
+    400036: hairBack.003
+    400038: hairBack.003_end
+    400040: hairBack.004
+    400042: hairBack.004_end
+    400044: hairBack_end
+    400046: handL1
+    400048: handL2
+    400050: handL3
+    400052: handL4
+    400054: handL5
+    400056: handL6
+    400058: handL6_end
+    400060: handR1
+    400062: handR2
+    400064: handR3
+    400066: handR4
+    400068: handR5
+    400070: handR6
+    400072: handR6_end
+    400074: head
+    400076: legL1
+    400078: legL2
+    400080: legL3
+    400082: legL3_end
+    400084: legR1
+    400086: legR2
+    400088: legR3
+    400090: legR3_end
+    400092: neck
+    400094: Sword
+    400096: weapon
+    400098: weapon_end
+    4300000: GIrl.001
+    4300002: GIrl
+    4300004: Sword
+    7400000: Armature|idle.001
+    7400002: Armature|run
+    7400004: GIrl.001|run
+    7400006: GIrl|run
+    7400008: Sword|idle.001
+    7400010: Sword|run
+    9500000: //RootNode
+    13700000: GIrl
+    13700002: GIrl.001
+    13700004: Sword
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
