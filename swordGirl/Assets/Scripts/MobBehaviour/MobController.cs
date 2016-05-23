@@ -37,7 +37,15 @@ public class MobController : MonoBehaviour {
     private bool move = false;
     private string attack;
 
+    private bool flyUp = false;
+
     private GameObject player;
+
+    private float dirV = 0f;
+
+    private Vector3 impactPosition;
+    private bool grounded = true;
+
 
     void Start()
     {
@@ -53,7 +61,15 @@ public class MobController : MonoBehaviour {
         else if (monsterState == State.Agressive)
             AgressiveBehaviour();
         else if (monsterState == State.Dead)
-        { }
+        {
+            if (!grounded)
+            {
+                if (flyUp && dirV < 10)
+                    dirV += 1;
+                else if (!flyUp && dirV > -10)
+                    dirV -= 1;
+            }
+        }
     }
 
     void FixedUpdate()
@@ -69,6 +85,20 @@ public class MobController : MonoBehaviour {
             {
                 MoveToTarget(runSpeed);
                 TurnToTarget(runTurnSpeed);
+            }
+        }
+        else
+        {
+            move = false;
+
+            if (!grounded && !flyUp)
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, -Vector3.up, out hit, 0.3f) && hit.collider.gameObject.tag == "Ground")
+                {
+                    grounded = true;
+                    _anim.SetBool("Dead", true);
+                }
             }
         }
     }
@@ -192,21 +222,40 @@ public class MobController : MonoBehaviour {
         transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
     }
 
-    public void Damage(float dmg)
+    public void Damage(Vector3 impactOrigin, float dmg)
     {
         if (monsterState != State.Dead)
         {
             health -= dmg;
 
             if (health <= 0)
-                Dead(dmg);
+                Dead(impactOrigin, dmg);
         }
     }
 
-    void Dead(float damage)
+    void Dead(Vector3 impactOrigin, float damage)
     {
         monsterState = State.Dead;
+        StartCoroutine("Fall", damage);
         _anim.SetTrigger("FlyUp");
+        transform.LookAt(impactOrigin);
+        impactPosition = impactOrigin;
+    }
+
+    IEnumerator Fall(float time)
+    {
+        grounded = true;
+        flyUp = true;
+        _anim.SetTrigger("FlyUp");
+        yield return new WaitForSeconds(0.5f);
+        transform.Rotate(0, transform.rotation.y, 0);
+        flyUp = false;
+        _anim.SetTrigger("FlyDown");
+    }
+    
+    void KickedToSky()
+    {
+        _rb.AddForce((new Vector3(transform.position.x, dirV, transform.position.z) - new Vector3(impactPosition.x, 0, impactPosition.z)) * 5, ForceMode.Force);
     }
 
     Vector3 WalkPosition()
@@ -277,5 +326,4 @@ public class MobController : MonoBehaviour {
         yield return new WaitForSeconds(0.5f);
         Physics.IgnoreCollision(swordCollider, bodyCollider, false);
     }
-
 }
