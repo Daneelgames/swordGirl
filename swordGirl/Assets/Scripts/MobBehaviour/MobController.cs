@@ -33,10 +33,13 @@ public class MobController : MonoBehaviour {
     private float timer = 0;
     private float attackCooldown = 2f;
 
+    [SerializeField]
     private bool attacking = false;
+    [SerializeField]
     private bool move = false;
     private string attack;
 
+    [SerializeField]
     private bool flyUp = false;
 
     private GameObject player;
@@ -44,60 +47,84 @@ public class MobController : MonoBehaviour {
     private float dirV = 0f;
 
     private Vector3 impactPosition;
+    [SerializeField]
     private bool grounded = true;
+    [SerializeField]
+    private bool damaged = false;
 
+    public bool logicOff = false;
+
+    private Collider[] colliders;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponentInChildren<Animator>();
         player = GameObject.Find("Player");
+        colliders = GetComponentsInChildren<Collider>();
     }
 
     void Update()
     {
-        if (monsterState == State.Calm)
-            CalmBehaviour();
-        else if (monsterState == State.Agressive)
-            AgressiveBehaviour();
-        else if (monsterState == State.Dead)
+        if (!logicOff)
         {
-            if (!grounded)
+            transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+
+            if (monsterState == State.Calm)
+                CalmBehaviour();
+            else if (monsterState == State.Agressive)
+                AgressiveBehaviour();
+            else if (monsterState == State.Dead)
             {
-                if (flyUp && dirV < 10)
-                    dirV += 1;
-                else if (!flyUp && dirV > -10)
-                    dirV -= 1;
+                if (!grounded)
+                {
+                    if (flyUp && dirV < 20)
+                        dirV += 20;
+                    else if (!flyUp && dirV > -20)
+                        dirV -= 20;
+                }
             }
         }
     }
 
     void FixedUpdate()
     {
-        if (move)
+        if (!logicOff)
         {
-            if (monsterState == State.Calm)
-            {
-                MoveToTarget(walkSpeed);
-                TurnToTarget(walkTurnSpeed);
-            }
-            else if (monsterState == State.Agressive)
-            {
-                MoveToTarget(runSpeed);
-                TurnToTarget(runTurnSpeed);
-            }
-        }
-        else
-        {
-            move = false;
+            _rb.velocity = Vector3.ClampMagnitude(_rb.velocity, maxVelocity);
 
-            if (!grounded && !flyUp)
+            if (move)
             {
-                RaycastHit hit;
-                if (Physics.Raycast(transform.position, -Vector3.up, out hit, 0.3f) && hit.collider.gameObject.tag == "Ground")
+                if (monsterState == State.Calm)
                 {
-                    grounded = true;
-                    _anim.SetBool("Dead", true);
+                    MoveToTarget(walkSpeed);
+                    TurnToTarget(walkTurnSpeed);
+                }
+                else if (monsterState == State.Agressive)
+                {
+                    MoveToTarget(runSpeed);
+                    TurnToTarget(runTurnSpeed);
+                }
+            }
+            else
+            {
+                if (!grounded)
+                {
+                    KickedToSky();
+
+                    if (!flyUp)
+                    {
+                        RaycastHit hit;
+                        if (Physics.Raycast(transform.position, -Vector3.up, out hit, 0.3f) && hit.collider.gameObject.tag == "Ground")
+                        {
+                            //set rotate to zero
+                            //transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+                            _anim.SetTrigger("Dead");
+                            grounded = true;
+                            _rb.isKinematic = true;
+                            logicOff = true;
+                        }
+                    }
                 }
             }
         }
@@ -118,6 +145,7 @@ public class MobController : MonoBehaviour {
 
         yield return new WaitForSeconds(2f);
 
+        move = true;
         monsterState = State.Agressive;
     }
 
@@ -140,7 +168,7 @@ public class MobController : MonoBehaviour {
             //waiting for new position
             move = false;
             //set rotate to zero
-            transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+            //transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
             _rb.velocity = Vector3.zero;
             timer -= 1 * Time.deltaTime;
             _anim.SetBool("Run", false);
@@ -155,6 +183,12 @@ public class MobController : MonoBehaviour {
             //run towards player
             _anim.SetBool("Run", true);
             move = true;
+        }
+        else
+        {
+            //wait
+            _anim.SetBool("Run", false);
+            move = false;
         }
         Attack();
     }
@@ -208,18 +242,18 @@ public class MobController : MonoBehaviour {
             attacking = true;
 
             //set rotate to zero
-            transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+            //transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
         }
     }
 
     public void AttackOver()
     {
-        attackCooldown = Random.Range(3, 7);
+        attackCooldown = Random.Range(5, 10);
         _anim.SetBool(attack, false);
         attacking = false;
 
         //set rotate to zero
-        transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+        //transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
     }
 
     public void Damage(Vector3 impactOrigin, float dmg)
@@ -227,35 +261,58 @@ public class MobController : MonoBehaviour {
         if (monsterState != State.Dead)
         {
             health -= dmg;
+            StartCoroutine("Damaged");
 
             if (health <= 0)
                 Dead(impactOrigin, dmg);
         }
     }
 
+    IEnumerator Damaged()
+    {
+        damaged = true;
+        //transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+        _anim.SetBool("Damage", true);
+        yield return new WaitForSeconds(2f);
+        damaged = false;
+        _anim.SetBool("Damage", false);
+    }
+
     void Dead(Vector3 impactOrigin, float damage)
     {
+        if (_anim.GetBool("Damage"))
+            _anim.SetBool("Damage", false);
+
+        foreach (Collider coll in colliders)
+        {
+            coll.isTrigger = true;
+        }
+
+        move = false;
         monsterState = State.Dead;
         StartCoroutine("Fall", damage);
         _anim.SetTrigger("FlyUp");
         transform.LookAt(impactOrigin);
         impactPosition = impactOrigin;
+        
+        GetComponent<Collider>().isTrigger = true;
     }
 
     IEnumerator Fall(float time)
     {
-        grounded = true;
+        //transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+
+        grounded = false;
         flyUp = true;
         _anim.SetTrigger("FlyUp");
-        yield return new WaitForSeconds(0.5f);
-        transform.Rotate(0, transform.rotation.y, 0);
+        yield return new WaitForSeconds(0.75f);
         flyUp = false;
         _anim.SetTrigger("FlyDown");
     }
     
     void KickedToSky()
     {
-        _rb.AddForce((new Vector3(transform.position.x, dirV, transform.position.z) - new Vector3(impactPosition.x, 0, impactPosition.z)) * 5, ForceMode.Force);
+        _rb.AddForce((new Vector3(transform.position.x, dirV, transform.position.z) - new Vector3(impactPosition.x, transform.position.y, impactPosition.z)) * 20, ForceMode.Force);
     }
 
     Vector3 WalkPosition()
@@ -270,15 +327,21 @@ public class MobController : MonoBehaviour {
 
     void MoveToTarget (float moveSpeed)
     {
-        _rb.AddRelativeForce(Vector3.forward * moveSpeed * Time.fixedDeltaTime);
-        _rb.velocity = Vector3.ClampMagnitude(_rb.velocity, maxVelocity * moveSpeed);
+        if (!damaged)
+        {
+            _rb.AddRelativeForce(Vector3.forward * moveSpeed * Time.fixedDeltaTime);
+            _rb.velocity = Vector3.ClampMagnitude(_rb.velocity, maxVelocity * moveSpeed);
+        }
     }
 
     void TurnToTarget (float turnSpeed)
     {
-        Vector3 targetVector = new Vector3(target.x, transform.rotation.y, target.z);
-        Quaternion targetRotation = Quaternion.LookRotation(targetVector - transform.position);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.fixedDeltaTime);
+        if (!damaged)
+        {
+            Vector3 targetVector = new Vector3(target.x, transform.rotation.y, target.z);
+            Quaternion targetRotation = Quaternion.LookRotation(targetVector - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.fixedDeltaTime);
+        }
     }
 
 

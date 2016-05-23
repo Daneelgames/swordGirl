@@ -44,8 +44,11 @@ public class MobBodyColliderController : MonoBehaviour {
     
     public void Damage(Vector3 dmgPosition, float damage)
     {
-        mob.Damage(dmgPosition, damage);
-        BloodSplatter(dmgPosition);
+        if (mob.monsterState != MobController.State.Dead)
+        {
+            mob.Damage(dmgPosition, damage);
+            BloodSplatter(dmgPosition);
+        }
     }
 
     void BloodSplatter(Vector3 dmgPosition)
