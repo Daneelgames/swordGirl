@@ -17,8 +17,11 @@ public class CameraController : MonoBehaviour
     private Transform target;
     [SerializeField]
     private bool lockOn = false;
+
+    /*
     [SerializeField]
     List<AngelKingBodyColliderController> listOfTargets = new List<AngelKingBodyColliderController>();
+    */
 
     public float camLookAtSpeed = 20;
     public float camRotateSpeed = 10;
@@ -51,7 +54,7 @@ public class CameraController : MonoBehaviour
     
     void Start()
     {
-        GetEnemyColliders();
+        //GetEnemyColliders();
 
         vignette = Camera.main.GetComponent<VignetteAndChromaticAberration>();
         pivot = transform.Find("CamTarget").transform;
@@ -109,6 +112,7 @@ public class CameraController : MonoBehaviour
         vignette.chromaticAberration = Mathf.Lerp(vignette.chromaticAberration, vignetteTarget, 5 * Time.deltaTime);
     }
 
+    /*
     void GetEnemyColliders()
     {
         //get list of targets
@@ -125,7 +129,6 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    /*
     public void BrokeTarget(AngelKingBodyColliderController collider)
     {
         if (collider.transform == target)

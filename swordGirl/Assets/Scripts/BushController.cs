@@ -10,7 +10,7 @@ public class BushController : MonoBehaviour {
     {
         foreach (ContactPoint cp in coll.contacts)
         {
-            if (cp.otherCollider.tag == "Player" || cp.otherCollider.tag == "EnemyMovementCol")
+            if (cp.otherCollider.tag == "Player" || cp.otherCollider.tag == "EnemyMovementColl" || cp.otherCollider.tag == "EnemyMovementColl")
             {
                 DestroyBush();
             }
