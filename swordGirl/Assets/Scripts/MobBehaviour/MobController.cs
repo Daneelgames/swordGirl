@@ -16,6 +16,7 @@ public class MobController : MonoBehaviour {
     List<string> activeZones = new List<string>();
 
     public float maxWalkingRange = 20f;
+    public float walkImer = 10f;
 
     public float walkSpeed = 2f;
     public float walkTurnSpeed = 15f;
