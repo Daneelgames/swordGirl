@@ -10,9 +10,13 @@ public class MobAnimationEventsController : MonoBehaviour {
         mob = transform.parent.GetComponent<MobController>();
     }
 
+    public void SetPlayerFlyTime(float time)
+    {
+        mob.playerFlyTime = time;
+    }
+
     public void AttackOver()
     {
         mob.AttackOver();
     }
-
 }

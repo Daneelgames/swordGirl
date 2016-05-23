@@ -4,11 +4,13 @@ using System.Collections.Generic;
 
 public class MobController : MonoBehaviour {
 
-    public enum State {Calm, Agressive, Dead};
+    public enum State { Calm, Agressive, Dead };
 
     public State monsterState = State.Calm;
 
     public float health = 0.1f;
+
+    public float playerFlyTime = 0.5f;
 
     [SerializeField]
     List<string> activeZones = new List<string>();
@@ -75,9 +77,18 @@ public class MobController : MonoBehaviour {
     {
         if (monsterState == State.Calm)
         {
-            _anim.SetBool("InBattle", true);
-            monsterState = State.Agressive;
+            StartCoroutine("WaitBeforeAgressive");
         }
+    }
+
+    IEnumerator WaitBeforeAgressive()
+    {
+        move = false;
+        _anim.SetBool("InBattle", true);
+
+        yield return new WaitForSeconds(2f);
+
+        monsterState = State.Agressive;
     }
 
     void CalmBehaviour()
@@ -115,6 +126,7 @@ public class MobController : MonoBehaviour {
             _anim.SetBool("Run", true);
             move = true;
         }
+        Attack();
     }
 
     public void AddTarger(string targetZone)
@@ -172,8 +184,9 @@ public class MobController : MonoBehaviour {
 
     public void AttackOver()
     {
-        attackCooldown = Random.Range(1, 4);
+        attackCooldown = Random.Range(3, 7);
         _anim.SetBool(attack, false);
+        attacking = false;
 
         //set rotate to zero
         transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
@@ -181,7 +194,19 @@ public class MobController : MonoBehaviour {
 
     public void Damage(float dmg)
     {
-        health -= dmg;
+        if (monsterState != State.Dead)
+        {
+            health -= dmg;
+
+            if (health <= 0)
+                Dead(dmg);
+        }
+    }
+
+    void Dead(float damage)
+    {
+        monsterState = State.Dead;
+        _anim.SetTrigger("FlyUp");
     }
 
     Vector3 WalkPosition()
@@ -206,4 +231,51 @@ public class MobController : MonoBehaviour {
         Quaternion targetRotation = Quaternion.LookRotation(targetVector - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.fixedDeltaTime);
     }
+
+
+    void OnCollisionEnter(Collision other)
+    {
+        MobBodyColliderController activeCollider;
+        if (other.gameObject.tag == "Player")
+        {
+            foreach (ContactPoint _cp in other.contacts)
+            {
+                if (_cp.thisCollider.tag == "EnemyActionColl")
+                {
+                    activeCollider = _cp.thisCollider.GetComponent<MobBodyColliderController>();
+                    if (activeCollider.isDangerous)
+                    {
+                        //other.gameObject.GetComponent<PlayerControl>().Damage(new Vector3(_cp.point.x, _cp.point.y - 2, _cp.point.z));
+                        other.gameObject.GetComponent<PlayerControl>().Damage(transform.position, playerFlyTime);
+                        activeCollider.isDangerous = false;
+
+                        break;
+                    }
+                }
+            }
+        }
+        if (other.gameObject.tag == "PlayerWeapon")
+        {
+            foreach (ContactPoint _cp in other.contacts)
+            {
+                SwordController sword = _cp.otherCollider.GetComponent<SwordController>();
+                if (_cp.thisCollider.tag == "EnemyActionColl" && sword.dangerous)
+                {
+                    StartCoroutine(CoroutineWithMultipleParameters(_cp.otherCollider, _cp.thisCollider));
+
+                    _cp.thisCollider.gameObject.GetComponent<MobBodyColliderController>().Damage(_cp.point, sword.dmg);
+                    sword.dangerous = false;
+                    break;
+                }
+            }
+        }
+    }
+
+    IEnumerator CoroutineWithMultipleParameters(Collider swordCollider, Collider bodyCollider)
+    {
+        Physics.IgnoreCollision(swordCollider, bodyCollider, true);
+        yield return new WaitForSeconds(0.5f);
+        Physics.IgnoreCollision(swordCollider, bodyCollider, false);
+    }
+
 }
