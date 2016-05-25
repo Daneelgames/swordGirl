@@ -120,6 +120,7 @@ public class MobController : MonoBehaviour {
                         {
                             //set rotate to zero
                             //transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+                            transform.position = new Vector3(transform.position.x, 0, transform.position.z);
                             _anim.SetTrigger("Dead");
                             grounded = true;
                             _rb.isKinematic = true;

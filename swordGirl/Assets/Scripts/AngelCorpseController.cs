@@ -8,7 +8,7 @@ public class AngelCorpseController : MonoBehaviour {
 
     private Animator anim;
 
-	void Awake () {
+	void Start () {
         anim = GetComponentInChildren<Animator>();
         anim.SetInteger("Pose", pose);
 	}

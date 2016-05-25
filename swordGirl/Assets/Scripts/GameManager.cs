@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -27,6 +28,9 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private Image bossHealthBar;
 
+    [SerializeField]
+    private Image fader;
+
     bool bossAwake = false;
     GameObject bossHealthBack;
 
@@ -39,6 +43,8 @@ public class GameManager : MonoBehaviour {
 
     void Start()
     {
+        fader.color = new Color(fader.color.r, fader.color.g, fader.color.b, 255);
+
         pauseMenu = GameObject.Find("PauseMenuPanel");
         pauseMenu.SetActive(false);
 
@@ -51,6 +57,15 @@ public class GameManager : MonoBehaviour {
         StatsRecovery();
         SetBarsValues();
 
+        if (playerDead)
+        {
+            fader.color = Color.Lerp(fader.color, Color.black, 1 * Time.deltaTime);
+        }
+        else if (fader.color.a > 0)
+        {
+            fader.color = Color.Lerp(fader.color, Color.clear, 1 * Time.deltaTime);
+        }
+
         if (Input.GetButtonDown("Menu"))
         {
             TogglePause();
@@ -62,7 +77,7 @@ public class GameManager : MonoBehaviour {
                 TogglePause();
         }
 
-        GameOver();
+       // GameOver();
     }
     
     void StatsRecovery()
@@ -158,11 +173,18 @@ public class GameManager : MonoBehaviour {
             GameObject.Find("Player").GetComponentInChildren<Animator>().SetBool("Alive", false);
             playerDead = true;
             print("Game Over: player lose");
+            StartCoroutine("Restart");
         }
         else if (bossHealth <= 0)
         {
             GameObject.Find("AngelKing").GetComponentInChildren<Animator>().SetTrigger("Dead");
             print("Game Over: player win");
         }
+    }
+
+    IEnumerator Restart()
+    {
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene(0);
     }
 }
