@@ -12,6 +12,14 @@ public class MobAnimationEventsController : MonoBehaviour {
     [SerializeField]
     private ParticleSystem flyParticles;
 
+    [SerializeField]
+    private AudioClip[] audioClip;
+
+    [SerializeField]
+    private ParticleSystem leftStep;
+    [SerializeField]
+    private ParticleSystem rightStep;
+
     void Start ()
     {
         mob = transform.parent.GetComponent<MobController>();
@@ -48,5 +56,22 @@ public class MobAnimationEventsController : MonoBehaviour {
     public void FlyOver()
     {
         flyParticles.Stop();
+    }
+
+    void PlaySound(int clip)
+    {
+        float pitch = Random.Range(.75f, 1.25f);
+        PlayClipAtPoint(audioClip[clip], new Vector3(transform.position.x, transform.position.y, 0), 1f, pitch);
+    }
+
+    GameObject PlayClipAtPoint(AudioClip clip, Vector3 position, float volume, float pitch)
+    {
+        GameObject obj = new GameObject();
+        obj.transform.position = position;
+        AudioSource _aidio = obj.AddComponent<AudioSource>();
+        _aidio.pitch = pitch;
+        _aidio.PlayOneShot(clip, volume);
+        Destroy(obj, clip.length / pitch);
+        return obj;
     }
 }

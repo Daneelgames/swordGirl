@@ -55,9 +55,9 @@ public class AnimatorEvents : MonoBehaviour {
     {
         GameObject obj = new GameObject();
         obj.transform.position = position;
-        obj.AddComponent<AudioSource>();
-        obj.GetComponent<AudioSource>().pitch = pitch;
-        obj.GetComponent<AudioSource>().PlayOneShot(clip, volume);
+        AudioSource _aidio = obj.AddComponent<AudioSource>();
+        _aidio.pitch = pitch;
+        _aidio.PlayOneShot(clip, volume);
         Destroy(obj, clip.length / pitch);
         return obj;
     }
