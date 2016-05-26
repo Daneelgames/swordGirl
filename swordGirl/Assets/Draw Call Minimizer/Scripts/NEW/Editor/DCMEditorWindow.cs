@@ -75,7 +75,7 @@ namespace DCM
 
 		void OnEnable ()
 		{
-			title = "Editor Batcher";
+			titleContent.text = "Editor Batcher";
 			_combinedObjects = new List<GameObject> ();
 			InstantiateHiddenParentObject();
 			_infoFoldOuts.Clear ();
