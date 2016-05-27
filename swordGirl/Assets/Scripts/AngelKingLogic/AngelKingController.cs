@@ -28,7 +28,13 @@ public class AngelKingController : MonoBehaviour {
 
     [SerializeField]
     private float attackCooldown = 1f;
-    
+
+    [SerializeField]
+    AudioClip burn;
+
+    [SerializeField]
+    AudioSource _audio;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -193,6 +199,8 @@ public class AngelKingController : MonoBehaviour {
 
     public void FallAsleep()
     {
+        _audio.Stop();
+        _audio.clip = burn;
         StartCoroutine("Sleep");
         defaultTurnSpeed = 0.25f;
         runSpeed = 1.5f;
@@ -203,5 +211,10 @@ public class AngelKingController : MonoBehaviour {
         yield return new WaitForSeconds(3F);
         AttackOver();
         kingState = State.Sleep;
+    }
+
+    public void Awake()
+    {
+        _audio.Play();
     }
 }

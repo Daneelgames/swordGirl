@@ -71,6 +71,7 @@ public class PlayerControl : MonoBehaviour
 
     void Awake()
     {
+        transform.position = GlobalManager.playerStartPos;
 
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 
@@ -139,12 +140,15 @@ public class PlayerControl : MonoBehaviour
             if (!grounded && !flyUp)
             {
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, -Vector3.up, out hit, 0.3f) && hit.collider.gameObject.tag == "Ground")
+                if (Physics.Raycast(transform.position, -Vector3.up, out hit, 0.3f))
                 {
-                    grounded = true;
-                    anim.SetBool("HitGround", true);
-                    faceController.ChangeFace();
-                    Physics.IgnoreLayerCollision(10, 13, false);
+                    if (hit.collider.gameObject.tag == "Ground" || hit.collider.gameObject.tag == "Obstacle")
+                    {
+                        grounded = true;
+                        anim.SetBool("HitGround", true);
+                        faceController.ChangeFace();
+                        Physics.IgnoreLayerCollision(10, 13, false);
+                    }
                 }
             }
 
@@ -322,6 +326,7 @@ public class PlayerControl : MonoBehaviour
     IEnumerator Fall(float time)
     {
         Physics.IgnoreLayerCollision(10, 13, true);
+        transform.Rotate(0, transform.rotation.y, 0);
         dirV = 10;
         canControl = false;
         flyUp = true;

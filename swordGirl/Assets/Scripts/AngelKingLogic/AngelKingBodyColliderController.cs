@@ -91,6 +91,7 @@ public class AngelKingBodyColliderController : MonoBehaviour {
         if (!anim.GetBool("Standing") && king.kingState == AngelKingController.State.Sleep && timer == 0)
         {
             king.kingState = AngelKingController.State.Idle;
+            king.Awake();
             anim.SetBool("Awake", true);
         }
     }

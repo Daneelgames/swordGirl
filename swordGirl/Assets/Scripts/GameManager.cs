@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour {
     private GameObject pauseMenu;
 
     private bool playerDead = false;
+    [SerializeField]
+    Toggle gamepadButton;
 
     void Start()
     {
@@ -56,6 +58,20 @@ public class GameManager : MonoBehaviour {
 
         bossHealthBack = bossHealthBar.transform.parent.gameObject;
         bossHealthBack.SetActive(false);
+
+
+        if (!GlobalManager.gamepad)
+        {
+            gamepad = false;
+            GameObject.Find("CamHolder").GetComponent<CameraController>().camRotateSpeed = mouseCamSens;
+            gamepadButton.isOn = false;
+        }
+        else
+        {
+            gamepad = true;
+            GameObject.Find("CamHolder").GetComponent<CameraController>().camRotateSpeed = gamepadCamSens;
+            gamepadButton.isOn = true;
+        }
     }
 
     void Update()
@@ -143,11 +159,13 @@ public class GameManager : MonoBehaviour {
         if (gamepad)
         {
             gamepad = false;
+            GlobalManager.gamepad = false;
             GameObject.Find("CamHolder").GetComponent<CameraController>().camRotateSpeed = mouseCamSens;
         }
         else
         {
             gamepad = true;
+            GlobalManager.gamepad = true;
             GameObject.Find("CamHolder").GetComponent<CameraController>().camRotateSpeed = gamepadCamSens;
         }
     }
@@ -200,11 +218,7 @@ public class GameManager : MonoBehaviour {
     IEnumerator TitlesStart()
     {
         titles.text = "UNROTTENSKULLS";
-        yield return new WaitForSeconds(2f);
-        titles.text = "";
-        yield return new WaitForSeconds(0.5f);
-        titles.text = "GAME BY DA NEEL\n@daneelgames";
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         titles.text = "";
     }
 
@@ -216,6 +230,12 @@ public class GameManager : MonoBehaviour {
         titles.text = "";
         yield return new WaitForSeconds(0.5f);
         titles.text = "GAME BY DA NEEL\n@daneelgames";
+        yield return new WaitForSeconds(2f);
+        titles.text = "";
+        yield return new WaitForSeconds(0.5f);
+        titles.text = "MUSIC:\nTAROT WILL TEACH YOU / BURN YOUR MONEY";
+        yield return new WaitForSeconds(2f);
+        titles.text = "MUSIC BY\nALEJANDRO JODOROWSKY";
         yield return new WaitForSeconds(2f);
         titles.text = "";
         yield return new WaitForSeconds(0.5f);

@@ -180,7 +180,7 @@ public class MobController : MonoBehaviour {
     void AgressiveBehaviour()
     {
         target = player.transform.position;
-        if (Vector3.Distance(transform.position, target) > 1)
+        if (Vector3.Distance(transform.position, target) > 2)
         {
             //run towards player
             _anim.SetBool("Run", true);
@@ -250,7 +250,7 @@ public class MobController : MonoBehaviour {
 
     public void AttackOver()
     {
-        attackCooldown = Random.Range(5, 10);
+        attackCooldown = Random.Range(3, 7);
         _anim.SetBool(attack, false);
         attacking = false;
 
