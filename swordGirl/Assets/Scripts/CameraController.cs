@@ -45,7 +45,7 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     GameObject[] enemyColliders;
 
-    private CrosshairController crosshair;
+    //private CrosshairController crosshair;
 
     private bool canSwitchTarget = true;
 
@@ -60,7 +60,7 @@ public class CameraController : MonoBehaviour
         pivot = transform.Find("CamTarget").transform;
         target = pivot;
         character = transform.parent.transform;
-        crosshair = GameObject.Find("Crosshair").GetComponent<CrosshairController>();
+        //crosshair = GameObject.Find("Crosshair").GetComponent<CrosshairController>();
 
         //pivot = transform;
         myCamera = Camera.main;

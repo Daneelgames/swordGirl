@@ -31,6 +31,9 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private Image fader;
 
+    [SerializeField]
+    private Text titles;
+
     bool bossAwake = false;
     GameObject bossHealthBack;
 
@@ -43,6 +46,7 @@ public class GameManager : MonoBehaviour {
 
     void Start()
     {
+        StartCoroutine("TitlesStart");
         fader.color = new Color(fader.color.r, fader.color.g, fader.color.b, 255);
 
         pauseMenu = GameObject.Find("PauseMenuPanel");
@@ -59,11 +63,11 @@ public class GameManager : MonoBehaviour {
 
         if (playerDead)
         {
-            fader.color = Color.Lerp(fader.color, Color.black, 1 * Time.deltaTime);
+            fader.color = Color.Lerp(fader.color, Color.black, Time.deltaTime);
         }
         else if (fader.color.a > 0)
         {
-            fader.color = Color.Lerp(fader.color, Color.clear, 1 * Time.deltaTime);
+            fader.color = Color.Lerp(fader.color, Color.clear, Time.deltaTime);
         }
 
         if (Input.GetButtonDown("Menu"))
@@ -179,6 +183,7 @@ public class GameManager : MonoBehaviour {
         {
             GameObject.Find("AngelKing").GetComponentInChildren<Animator>().SetTrigger("Dead");
             print("Game Over: player win");
+            StartCoroutine("TitlesEnd");
         }
     }
 
@@ -186,5 +191,30 @@ public class GameManager : MonoBehaviour {
     {
         yield return new WaitForSeconds(5f);
         SceneManager.LoadScene(0);
+    }
+
+    IEnumerator TitlesStart()
+    {
+        titles.text = "UNROTTENSKULLS";
+        yield return new WaitForSeconds(2f);
+        titles.text = "";
+        yield return new WaitForSeconds(0.5f);
+        titles.text = "GAME BY DA NEEL\n@daneelgames";
+        yield return new WaitForSeconds(2f);
+        titles.text = "";
+    }
+
+    IEnumerator TitlesEnd()
+    {
+        yield return new WaitForSeconds(3f);
+        titles.text = "UNROTTENSKULLS";
+        yield return new WaitForSeconds(2f);
+        titles.text = "";
+        yield return new WaitForSeconds(0.5f);
+        titles.text = "GAME BY DA NEEL\n@daneelgames";
+        yield return new WaitForSeconds(2f);
+        titles.text = "";
+        yield return new WaitForSeconds(0.5f);
+        titles.text = "THE END\n2016";
     }
 }
