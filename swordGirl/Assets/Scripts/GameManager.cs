@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour {
 
     void Start()
     {
+        Cursor.visible = false;
+
         StartCoroutine("TitlesStart");
         fader.color = new Color(fader.color.r, fader.color.g, fader.color.b, 255);
 
@@ -124,6 +126,7 @@ public class GameManager : MonoBehaviour {
             pauseMenu.SetActive(false);
             AudioListener.volume = 1f;
             Time.timeScale = 1;
+            Cursor.visible = false;
         }
         else
         {
@@ -131,6 +134,7 @@ public class GameManager : MonoBehaviour {
             pauseMenu.SetActive(true);
             AudioListener.volume = 0.25f;
             Time.timeScale = 0;
+            Cursor.visible = true;
         }
     }
 
