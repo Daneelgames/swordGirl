@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour {
     private Text titles;
 
     bool bossAwake = false;
+    bool bossDead = false;
     GameObject bossHealthBack;
 
     bool gamepad = false;
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour {
     void Start()
     {
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
         StartCoroutine("TitlesStart");
         fader.color = new Color(fader.color.r, fader.color.g, fader.color.b, 255);
@@ -143,6 +145,7 @@ public class GameManager : MonoBehaviour {
             AudioListener.volume = 1f;
             Time.timeScale = 1;
             Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
         else
         {
@@ -151,6 +154,7 @@ public class GameManager : MonoBehaviour {
             AudioListener.volume = 0.25f;
             Time.timeScale = 0;
             Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 
@@ -180,7 +184,7 @@ public class GameManager : MonoBehaviour {
         if (bossCanBeDamaged)
             bossHealth -= damage;
 
-        if (bossHealth <= 0)
+        if (bossHealth <= 0 && !bossDead)
             GameOver();
     }
 
@@ -188,7 +192,7 @@ public class GameManager : MonoBehaviour {
     {
         playerHealth -= dmg;
 
-        if (playerHealth <= 0)
+        if (playerHealth <= 0 && !playerDead)
             GameOver();
     }
     
@@ -196,13 +200,14 @@ public class GameManager : MonoBehaviour {
     {
         if (playerHealth <= 0)
         {
-            GameObject.Find("Player").GetComponentInChildren<Animator>().SetBool("Alive", false);
             playerDead = true;
+            GameObject.Find("Player").GetComponentInChildren<Animator>().SetBool("Alive", false);
             print("Game Over: player lose");
             StartCoroutine("Restart");
         }
         else if (bossHealth <= 0)
         {
+            bossDead = true;
             GameObject.Find("AngelKing").GetComponentInChildren<Animator>().SetTrigger("Dead");
             print("Game Over: player win");
             StartCoroutine("TitlesEnd");

@@ -8,11 +8,15 @@ public class AngelKingAnimationEvents : MonoBehaviour {
 
     [SerializeField]
     private AngelKingBodyColliderController[] bodyColliders;
+    
+
+    private float timer = 0;
 
     void Start()
     {
         bodyColliders = GetComponentsInChildren<AngelKingBodyColliderController>();
     }
+    
 
     public void AttackOver()
     {
@@ -24,9 +28,9 @@ public class AngelKingAnimationEvents : MonoBehaviour {
         angel.playerFlyTime = playerDamageFlyTime;
     }
 
-    public void Impact (string colliderName)
+    public void Impact(string colliderName)
     {
-        for (int i = 0; i < bodyColliders.Length; i++ )
+        for (int i = 0; i < bodyColliders.Length; i++)
         {
             if (bodyColliders[i].name == colliderName && bodyColliders[i].localHealth > 0)
             {

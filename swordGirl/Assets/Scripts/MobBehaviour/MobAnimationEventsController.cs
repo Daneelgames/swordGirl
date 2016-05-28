@@ -20,10 +20,15 @@ public class MobAnimationEventsController : MonoBehaviour {
     [SerializeField]
     private ParticleSystem rightStep;
 
+    [SerializeField]
+    AudioClip[] chickenClips;
+    AudioSource _audio;
+
     void Start ()
     {
         mob = transform.parent.GetComponent<MobController>();
         bodyColliders = GetComponentsInChildren<AngelKingBodyColliderController>();
+        _audio = GetComponent<AudioSource>();
     }
 
     public void SetPlayerFlyTime(float time)
@@ -58,20 +63,11 @@ public class MobAnimationEventsController : MonoBehaviour {
         flyParticles.Stop();
     }
 
-    void PlaySound(int clip)
+    void ChickenSound()
     {
         float pitch = Random.Range(.75f, 1.25f);
-        PlayClipAtPoint(audioClip[clip], new Vector3(transform.position.x, transform.position.y, 0), 1f, pitch);
-    }
-
-    GameObject PlayClipAtPoint(AudioClip clip, Vector3 position, float volume, float pitch)
-    {
-        GameObject obj = new GameObject();
-        obj.transform.position = position;
-        AudioSource _aidio = obj.AddComponent<AudioSource>();
-        _aidio.pitch = pitch;
-        _aidio.PlayOneShot(clip, volume);
-        Destroy(obj, clip.length / pitch);
-        return obj;
+        _audio.clip = chickenClips[Random.Range(0, chickenClips.Length)];
+        _audio.Play();
+        _audio.pitch = pitch;
     }
 }

@@ -20,6 +20,7 @@ public class AngelEventsController : MonoBehaviour {
     {
         angelKingAnimator.SetBool("Awake", true);
         GameObject.Find("GameManager").GetComponent<GameManager>().ShowBossHealth();
+        GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(5f);
         angelKingController.kingState = AngelKingController.State.Idle;
 

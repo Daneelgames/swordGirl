@@ -12,6 +12,7 @@ public class AngelKingBodyColliderController : MonoBehaviour {
     public bool isDangerous = false;
     public AudioClip[] impactSounds;
     public AudioClip[] hurtSounds;
+    public AudioClip[] cowSounds;
     private AudioSource _audio;
 
     [SerializeField]
@@ -78,6 +79,17 @@ public class AngelKingBodyColliderController : MonoBehaviour {
 
     public void Damage(Vector3 dmgPosition, float damage)
     {
+        float chance = Random.Range(0f, 2f);
+        print(chance + " BY " + this.gameObject.name);
+        if (chance > 1 && gm.bossHealth > 0)
+        {
+            int randomClip = Random.Range(0, cowSounds.Length);
+            float randomPitch = Random.Range(0.75f, 1.25f);
+            _audio.clip = cowSounds[randomClip];
+            _audio.Play();
+            _audio.pitch = randomPitch;
+        }
+
         if (king.kingState != AngelKingController.State.Sleep)
             gm.BossDamaged(damage);
         
@@ -100,7 +112,8 @@ public class AngelKingBodyColliderController : MonoBehaviour {
     {
         int randomClip = Random.Range(0, hurtSounds.Length);
         float randomPitch = Random.Range(0.75f, 1.25f);
-        _audio.PlayOneShot(hurtSounds[randomClip]);
+        _audio.clip = hurtSounds[randomClip];
+        _audio.Play();
         _audio.pitch = randomPitch;
 
         Vector3 direcion = dmgPosition + (transform.position - dmgPosition).normalized * 2;
@@ -113,6 +126,12 @@ public class AngelKingBodyColliderController : MonoBehaviour {
 
     public void BreakCollider()
     {
+
+        int randomClip = Random.Range(0, cowSounds.Length);
+        float randomPitch = Random.Range(0.75f, 1.25f);
+        _audio.PlayOneShot(cowSounds[randomClip]);
+        _audio.pitch = randomPitch;
+
         localHealth = 0;
 
         //GameObject.Find("CamHolder").GetComponent<CameraController>().BrokeTarget(this);
@@ -147,6 +166,4 @@ public class AngelKingBodyColliderController : MonoBehaviour {
 
         this.enabled = false;
     }
-
-
 }

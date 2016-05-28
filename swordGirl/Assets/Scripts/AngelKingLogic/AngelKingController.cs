@@ -147,7 +147,12 @@ public class AngelKingController : MonoBehaviour {
         transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
         attackCooldown = Random.Range(1, 2);
         kingState = State.Idle;
-        anim.SetBool(attack, false);
+        anim.SetBool("RightKick", false);
+        anim.SetBool("CrossAttack", false);
+        anim.SetBool("LeftQuickAttack", false);
+        anim.SetBool("RightQuickAttack", false);
+        anim.SetBool("AssAttack", false);
+        anim.SetBool("JumpAttack", false);
     }
     
     void OnCollisionEnter(Collision other)
